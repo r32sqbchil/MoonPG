@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Playeridle
+  m_Name: PlayerIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -36,7 +36,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Playerjump
+  m_Name: PlayerJump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -117,7 +117,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Playerwalk
+  m_Name: PlayerWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -198,7 +198,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: playerattackA
+  m_Name: PlayerAttackA
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -295,25 +295,25 @@ AnimatorStateMachine:
     m_Position: {x: 590, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5795259285227177662}
-    m_Position: {x: 30, y: 310, z: 0}
+    m_Position: {x: 40, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1736898745112048987}
-    m_Position: {x: 260, y: 360, z: 0}
+    m_Position: {x: 250, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6163821089771403078}
-    m_Position: {x: 490, y: 330, z: 0}
+    m_Position: {x: 460, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8231362613238516439}
-    m_Position: {x: 80, y: 460, z: 0}
+    m_Position: {x: 0, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5536711207617789675}
-    m_Position: {x: 300, y: 460, z: 0}
+    m_Position: {x: 280, y: 460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6181413763166639002}
-    m_Position: {x: 510, y: 460, z: 0}
+    m_Position: {x: 490, y: 460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5660882374086225227}
-    m_Position: {x: 620, y: 400, z: 0}
+    m_Position: {x: 700, y: 460, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -446,7 +446,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: playerattackB
+  m_Name: PlayerAttackB
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -642,7 +642,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: palyerattackC
+  m_Name: PlayerAttackC
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -669,7 +669,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Playerrun
+  m_Name: PlayerRun
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

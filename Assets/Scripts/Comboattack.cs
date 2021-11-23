@@ -4,116 +4,86 @@ using UnityEngine;
 
 public class Comboattack : MonoBehaviour
 {
-    public Animator AttackAnim;
-    public bool combocheck;
-    public int combostep;
+    public Animator attackAnim;
+    public bool comboCheck;
+    public int comboStep;
 
-    public GameObject HitBox1;
-    public GameObject HitBox2;
-    public Transform Player;
+    public GameObject leftHitBox;
+    public GameObject rightHitBox;
+    public Transform player;
 
-    public bool leftlooking;
-    public bool righrlooking;
-
-
+    public float direction;
 
     public void Attack()
     {
-        if(combostep == 0)
+        if(comboStep == 0)
         {
-            AttackAnim.Play("playerattackA");
-            combostep = 1;
+            comboStep=1;
+            attackAnim.Play("PlayerAttackA");
             return;
         }
-        if(combostep != 0)
+        else
         {
-            if(combocheck)
+            if(comboCheck)
             {
-                combocheck = false;
-                combostep += 1;
+                comboStep += 1; //next step
+                comboCheck = false;
             }
         }
     }
 
-    public void ComboCheck()
+    public void OnComboCheck()
     {
-        combocheck = true;
+        comboCheck = true;
     }
 
-    public void Combo()
+    public void OnCombo()
     {
-        if(combostep == 2)
+        if(comboStep == 2)
         {
-            AttackAnim.Play("playerattackB");
-        }
-
-        if(combostep == 3)
+            attackAnim.Play("PlayerAttackB");
+        } else if(comboStep == 3)
         {
-            AttackAnim.Play("PlayerAttackC");
+            attackAnim.Play("PlayerAttackC");
         }
     }
 
-    public void LeftLook()
+    public void OnComboReset()
+    {
+        comboCheck = false;
+        comboStep = 0;
+    }
+
+    public void ConfirmLeftSide()
     {
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            righrlooking = false;
-            leftlooking = true;
+            direction = -1.0f;
         }
     }
 
-    public void RightLook()
+    public void ConfirmRightSide()
     {
-            if(Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                righrlooking = true;
-                leftlooking =false;
-            }
-    }
-
-    public void ComboReset()
-    {
-        combocheck = false;
-        combostep = 0;
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            direction = 1.0f;
+        }
     }
 
     void Update()
     {
+        ConfirmLeftSide();
+        ConfirmRightSide();
 
-        LeftLook();
-        RightLook();
+        leftHitBox.SetActive(false);
+        rightHitBox.SetActive(false);
 
         if(Input.GetKey(KeyCode.X))
         {
+            leftHitBox.SetActive(direction<0);
+            rightHitBox.SetActive(direction>0);
+
             Attack();
-            if(leftlooking == true)
-            {
-                HitBox2.SetActive(false);
-                HitBox1.SetActive(true);
-            }
-
-            else if(righrlooking == true)
-            {
-                HitBox1.SetActive(false);
-                HitBox2.SetActive(true);
-            }
         }
-
-        else
-        {
-                HitBox1.SetActive(false);
-                HitBox2.SetActive(false); 
-        }
-        // else if(Input.GetKey(KeyCode.X) && righrlooking == true)
-        // {
-        //     Attack();
-        //     HitBox2.SetActive(true);
-        //     HitBox1.SetActive(false);
-        // }
-        // else
-        // {
-        //     HitBox1.SetActive(false);
-        //     HitBox2.SetActive(false);
-        // }
     }
 }

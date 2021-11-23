@@ -3209,7 +3209,7 @@ GameObject:
   - component: {fileID: 702019278}
   - component: {fileID: 702019279}
   m_Layer: 7
-  m_Name: HitBox1
+  m_Name: RightHitBox
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3227,7 +3227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.175, z: 1}
   m_Children: []
   m_Father: {fileID: 1313759477}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &702019279
 BoxCollider2D:
@@ -5288,7 +5288,7 @@ GameObject:
   - component: {fileID: 1194119612}
   - component: {fileID: 1194119613}
   m_Layer: 7
-  m_Name: hitBox2
+  m_Name: LeftHitBox
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5306,7 +5306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.175, z: 1}
   m_Children: []
   m_Father: {fileID: 1313759477}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1194119613
 BoxCollider2D:
@@ -6147,8 +6147,8 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 2136161193}
-  - {fileID: 702019278}
   - {fileID: 1194119612}
+  - {fileID: 702019278}
   - {fileID: 1211718889}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -6200,14 +6200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023973e1139ff6418bb0f7e77540a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackAnim: {fileID: 1313759473}
-  combocheck: 0
-  combostep: 0
-  HitBox1: {fileID: 1194119611}
-  HitBox2: {fileID: 702019277}
-  Player: {fileID: 0}
-  leftlooking: 0
-  righrlooking: 0
+  attackAnim: {fileID: 1313759473}
+  comboCheck: 0
+  comboStep: 0
+  leftHitBox: {fileID: 1194119611}
+  rightHitBox: {fileID: 702019277}
+  player: {fileID: 0}
+  direction: 0
 --- !u!114 &1313759481
 MonoBehaviour:
   m_ObjectHideFlags: 0
