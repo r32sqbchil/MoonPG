@@ -82,21 +82,21 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.083333336
-    functionName: ComboCheck
+    functionName: OnComboCheck
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: Combo
+    functionName: OnCombo
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.41666666
-    functionName: ComboReset
+    functionName: OnComboReset
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
