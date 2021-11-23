@@ -6,7 +6,7 @@ public class Skill : MonoBehaviour
 {
     Animator anim;
     Rigidbody2D rigid;
-    BoxCollider2D col;
+    CapsuleCollider2D col;
 
     public float dashSpeed;
     public float TakeDownSpeed;
@@ -16,7 +16,7 @@ public class Skill : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<CapsuleCollider2D>();
     }
 
     void Update()
