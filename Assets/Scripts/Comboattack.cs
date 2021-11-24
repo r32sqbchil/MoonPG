@@ -8,11 +8,11 @@ public class Comboattack : MonoBehaviour
     public bool comboCheck;
     public int comboStep;
 
-    public GameObject leftHitBox;
-    public GameObject rightHitBox;
+    // public GameObject leftHitBox;
+    // public GameObject rightHitBox;
     public Transform player;
 
-    public float direction;
+    // public float direction;
 
     public void Attack()
     {
@@ -39,6 +39,12 @@ public class Comboattack : MonoBehaviour
 
     public void OnCombo()
     {
+        if(comboCheck){
+            //Debug.Log("OnCombo - comboCheck:true, not yet run attack-procedure");
+            comboStep += 1; //next step
+            comboCheck = false;
+        }
+    
         if(comboStep == 2)
         {
             attackAnim.Play("PlayerAttackB");
@@ -56,18 +62,18 @@ public class Comboattack : MonoBehaviour
 
     public void ConfirmLeftSide()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            direction = -1.0f;
-        }
+        // if(Input.GetKeyDown(KeyCode.LeftArrow))
+        // {
+        //     direction = -1.0f;
+        // }
     }
 
     public void ConfirmRightSide()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            direction = 1.0f;
-        }
+        // if(Input.GetKeyDown(KeyCode.RightArrow))
+        // {
+        //     direction = 1.0f;
+        // }
     }
 
     void Update()
@@ -75,13 +81,13 @@ public class Comboattack : MonoBehaviour
         ConfirmLeftSide();
         ConfirmRightSide();
 
-        leftHitBox.SetActive(false);
-        rightHitBox.SetActive(false);
+        // leftHitBox.SetActive(false);
+        // rightHitBox.SetActive(false);
 
         if(Input.GetKey(KeyCode.X))
         {
-            leftHitBox.SetActive(direction<0);
-            rightHitBox.SetActive(direction>0);
+            // leftHitBox.SetActive(direction<0);
+            // rightHitBox.SetActive(direction>0);
 
             Attack();
         }

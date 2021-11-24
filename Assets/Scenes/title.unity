@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 34590516}
   - component: {fileID: 34590515}
   m_Layer: 5
-  m_Name: load
+  m_Name: Load
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,19 +204,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 34590516}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717295707}
-        m_TargetAssemblyTypeName: titleMenu, Assembly-CSharp
-        m_MethodName: OnClickContinue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &34590516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +296,7 @@ GameObject:
   - component: {fileID: 494642399}
   - component: {fileID: 494642398}
   m_Layer: 5
-  m_Name: background
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +373,7 @@ GameObject:
   - component: {fileID: 717295703}
   - component: {fileID: 717295707}
   m_Layer: 5
-  m_Name: btn
+  m_Name: Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b03bfca9c41194dbea14a3f7811b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 0}
+  set: {fileID: 1687490710}
 --- !u!1 &941933001
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +489,7 @@ GameObject:
   - component: {fileID: 941933004}
   - component: {fileID: 941933003}
   m_Layer: 5
-  m_Name: new
+  m_Name: New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,8 +559,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 717295707}
-        m_TargetAssemblyTypeName: titleMenu, Assembly-CSharp
-        m_MethodName: OnClickNewStart
+        m_TargetAssemblyTypeName: TitleSetting, Assembly-CSharp
+        m_MethodName: OnClickNew
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -632,7 +620,7 @@ GameObject:
   - component: {fileID: 1076992122}
   - component: {fileID: 1076992121}
   m_Layer: 5
-  m_Name: title
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -707,9 +695,8 @@ GameObject:
   - component: {fileID: 1308697937}
   - component: {fileID: 1308697936}
   - component: {fileID: 1308697935}
-  - component: {fileID: 1308697938}
   m_Layer: 5
-  m_Name: option
+  m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -778,8 +765,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1308697938}
-        m_TargetAssemblyTypeName: titleMenu, Assembly-CSharp
+      - m_Target: {fileID: 717295707}
+        m_TargetAssemblyTypeName: TitleSetting, Assembly-CSharp
         m_MethodName: OnClickOption
         m_Mode: 1
         m_Arguments:
@@ -828,19 +815,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308697933}
   m_CullTransparentMesh: 1
---- !u!114 &1308697938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308697933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b03bfca9c41194dbea14a3f7811b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 1687490710}
 --- !u!1 &1603822478
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +828,7 @@ GameObject:
   - component: {fileID: 1603822481}
   - component: {fileID: 1603822480}
   m_Layer: 5
-  m_Name: end
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,8 +898,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 717295707}
-        m_TargetAssemblyTypeName: titleMenu, Assembly-CSharp
-        m_MethodName: OnClickExit
+        m_TargetAssemblyTypeName: TitleSetting, Assembly-CSharp
+        m_MethodName: OnClickEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

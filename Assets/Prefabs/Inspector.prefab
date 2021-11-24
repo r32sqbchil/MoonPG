@@ -841,7 +841,6 @@ GameObject:
   - component: {fileID: 1685553676598132538}
   - component: {fileID: 1685553676598132537}
   - component: {fileID: 1685553676598132536}
-  - component: {fileID: 1685553676598132543}
   m_Layer: 5
   m_Name: Inspector
   m_TagString: Untagged
@@ -937,20 +936,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1685553676598132543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685553676598132542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b59e926d89e6964980c3aa9924f6d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 0}
-  subSet: {fileID: 0}
 --- !u!1 &1685553676645288420
 GameObject:
   m_ObjectHideFlags: 0
