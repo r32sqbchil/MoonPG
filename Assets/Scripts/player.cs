@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
             if(HP > 0 )
             {
                 HP -= GoblinDamage;
+                Debug.Log("Player-HP: "+ HP);
             }
             else if(HP <= 0)
             {
