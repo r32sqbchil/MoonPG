@@ -5,21 +5,49 @@ using UnityEngine;
 public class ComboAttack : MonoBehaviour
 {
     public Animator attackAnim;
-    public bool comboCheck;
-    public int comboStep;
 
-    // public GameObject leftHitBox;
-    // public GameObject rightHitBox;
-    public Transform player;
+    public Transform attackPoint;
 
-    // public float direction;
+    [SerializeField]private Vector2 boxSize;
+    [SerializeField]private float damage;
 
-    public void Attack()
+    private bool comboCheck;
+    private int comboStep = 0;
+    private string [] attackStates = new string[]{
+        "PlayerAttackA", "PlayerAttackB", "PlayerAttackC"
+    };
+
+    void Attack(int comboStep){
+        attackAnim.Play(attackStates[comboStep-1]);
+
+        float direction;
+        PlayerMove playerMove = gameObject.GetComponent<PlayerMove>();
+
+        if(playerMove.leftAttackBox.transform == attackPoint) {
+            direction = -1.0f;
+        }else {
+            direction = 1.0f;
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, boxSize, 0);
+        foreach(Collider2D collider in hitEnemies)
+        {
+            //지역변수 enemy에 닿은 녀석의 Enemy클래스를 넣음
+            Enemy enemy = collider.GetComponent<Enemy>();
+            //enemy에 클래스 Enemy가 있는지 검사
+            if (enemy)
+            {
+                //Enemy클래스가 있으면 함수를 호출합니다.
+                enemy.TakeDamage(direction, damage*comboStep);
+            }
+        }
+    }
+
+    public void OnAttackEvent()
     {
         if(comboStep == 0)
         {
-            comboStep=1;
-            attackAnim.Play("PlayerAttackA");
+            Attack(comboStep=1);
             return;
         }
         else
@@ -37,8 +65,6 @@ public class ComboAttack : MonoBehaviour
         comboCheck = true;
     }
 
-
-
     public void OnCombo()
     {
         if(comboCheck){
@@ -47,12 +73,9 @@ public class ComboAttack : MonoBehaviour
             comboCheck = false;
         }
     
-        if(comboStep == 2)
+        if(comboStep == 2 || comboStep == 3)
         {
-            attackAnim.Play("PlayerAttackB");
-        } else if(comboStep == 3)
-        {
-            attackAnim.Play("PlayerAttackC");
+            Attack(comboStep);
         }
     }
 
@@ -63,33 +86,12 @@ public class ComboAttack : MonoBehaviour
         comboStep = 0;
     }
 
-    public void ConfirmLeftSide()
-    {
-        // if(Input.GetKeyDown(KeyCode.LeftArrow))
-        // {
-        //     direction = -1.0f;
-        // }
-    }
-
-    public void ConfirmRightSide()
-    {
-        // if(Input.GetKeyDown(KeyCode.RightArrow))
-        // {
-        //     direction = 1.0f;
-        // }
-    }
 
     void Update()
     {
-        ConfirmLeftSide();
-        ConfirmRightSide();
-
-        // leftHitBox.SetActive(false);
-        // rightHitBox.SetActive(false);
-
         if(Input.GetKey(KeyCode.X))
         {
-            Attack();
+            OnAttackEvent();
         }
     }
 }

@@ -23,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
-    public PlayerCombat playerCombat;
+    public ComboAttack comboAttack;
     public float dashSpeed;
 
 
@@ -116,14 +116,14 @@ public class PlayerMove : MonoBehaviour
         
         //Left
         if (Input.GetKeyDown(KeyCode.LeftArrow)){
-            playerCombat.attackPoint = leftAttackBox.GetComponent<Transform>();
+            comboAttack.attackPoint = leftAttackBox.GetComponent<Transform>();
             this.currentDirection = -1.0f;
             CharacterStartMoving();
             return;
         } 
         //Right
         if (Input.GetKeyDown(KeyCode.RightArrow)){
-            playerCombat.attackPoint = rightAttackBox.GetComponent<Transform>();
+            comboAttack.attackPoint = rightAttackBox.GetComponent<Transform>();
             this.currentDirection = 1.0f;
             CharacterStartMoving();
             return;

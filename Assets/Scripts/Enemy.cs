@@ -11,14 +11,16 @@ struct Enemystat{
 
 public class Enemy : MonoBehaviour
 {
-    public PlayerMove playerMove;
-
     //enemy스탯을 초기화 합니다.
     [SerializeField]private Enemystat enemystat;
+    Rigidbody2D rigid;
 
+    void Awake(){
+        rigid = GetComponent<Rigidbody2D>();
+    }
 
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
-    public void TakeDamage(float damage)
+    public void TakeDamage(float direction, float damage)
     {
         //체력이 damage만큼 까지게 합니다.
         enemystat.Health -= damage;
@@ -27,16 +29,8 @@ public class Enemy : MonoBehaviour
         if(enemystat.Health <= 0)
         {
             Destroy(gameObject);
-        }
-
-        // 오른쪽 히트박스가 켜져있을 때에는 오른쪽으로 밀리고, 왼쪽은 왼쪽으로
-        if(playerMove.rightAttackBox.activeSelf)
-        {
-            Debug.Log("ㄱ");
-            transform.Translate(new Vector2(1, 0));
-        }else if(playerMove.leftAttackBox.activeSelf){
-            Debug.Log("ㄴ");
-            transform.Translate(new Vector2(-1, 0));
+        } else {
+            rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
         }
     }
 }
