@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     public float maxSpeed;// 최대속도 설정
     public float jumpPower; // 점프파워 
     Rigidbody2D rigid;
+    CapsuleCollider2D col;
     SpriteRenderer spriteRenderer;
     Animator anim;
     public float runspeed;
@@ -23,13 +24,15 @@ public class PlayerMove : MonoBehaviour
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
     public PlayerCombat playerCombat;
+    public float dashSpeed;
 
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();       
+        anim = GetComponent<Animator>();
+        col = GetComponent<CapsuleCollider2D>();      
     }
 
     void OnInputJump()
@@ -156,6 +159,14 @@ public class PlayerMove : MonoBehaviour
             }
             return;
         }
+
+        if(Input.GetButtonDown("Fire3"))
+        {
+            //col.enabled = false;
+            rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+            anim.Play("PlayerDash");
+            //col.enabled = true;
+        }
     }
 
     void FixedUpdate()
@@ -187,8 +198,8 @@ public class PlayerMove : MonoBehaviour
         // Start X Position Check
         if(transform.position.x < -3.04f) {
             transform.Translate(new Vector2(transform.position.x +3.04f, 0));
-        } else if(transform.position.x > 17.5f) {
-            transform.Translate(new Vector2(transform.position.x -17.5f, 0));
+        } else if(transform.position.x > 17f) {
+            transform.Translate(new Vector2(transform.position.x -17f, 0));
         }
 
         // Lending Platform

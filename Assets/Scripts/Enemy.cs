@@ -7,16 +7,15 @@ using UnityEngine;
 struct Enemystat{
     public float Health;
 }
+
+
 public class Enemy : MonoBehaviour
 {
+    public PlayerMove playerMove;
+
     //enemy스탯을 초기화 합니다.
     [SerializeField]private Enemystat enemystat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //처음 시작시 체력은 100
-        enemystat.Health = 100;
-    }
+
 
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
     public void TakeDamage(float damage)
@@ -28,6 +27,16 @@ public class Enemy : MonoBehaviour
         if(enemystat.Health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        // 오른쪽 히트박스가 켜져있을 때에는 오른쪽으로 밀리고, 왼쪽은 왼쪽으로
+        if(playerMove.rightAttackBox.activeSelf)
+        {
+            Debug.Log("ㄱ");
+            transform.Translate(new Vector2(1, 0));
+        }else if(playerMove.leftAttackBox.activeSelf){
+            Debug.Log("ㄴ");
+            transform.Translate(new Vector2(-1, 0));
         }
     }
 }

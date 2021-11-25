@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Comboattack : MonoBehaviour
+public class ComboAttack : MonoBehaviour
 {
     public Animator attackAnim;
     public bool comboCheck;
@@ -37,6 +37,8 @@ public class Comboattack : MonoBehaviour
         comboCheck = true;
     }
 
+
+
     public void OnCombo()
     {
         if(comboCheck){
@@ -53,6 +55,7 @@ public class Comboattack : MonoBehaviour
             attackAnim.Play("PlayerAttackC");
         }
     }
+
 
     public void OnComboReset()
     {
@@ -86,9 +89,6 @@ public class Comboattack : MonoBehaviour
 
         if(Input.GetKey(KeyCode.X))
         {
-            // leftHitBox.SetActive(direction<0);
-            // rightHitBox.SetActive(direction>0);
-
             Attack();
         }
     }

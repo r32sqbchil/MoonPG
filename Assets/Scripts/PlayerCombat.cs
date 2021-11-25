@@ -12,10 +12,8 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //마우스 왼쪽 다운시
         if (Input.GetKey(KeyCode.X))
         {
-            //print("때림");
             Attack();
         }
     }

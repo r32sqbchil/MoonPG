@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         //스캔한 오브젝트의 id와 isNPC정보를 가져온다.
         ObjData objData = scanObject.GetComponent<ObjData>();
         //objData의 id와 NPC인지 정보를 매개변수로 넘김 
-        if(TalkStart(objData.id, objData.isNPC))
+        if(TalkStart(objData.id))
         {
             talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
             this.isAction = true;
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void Action()
     {
         ObjData objData = scanObject.GetComponent<ObjData>();
-        if(!TalkWith(objData.id, objData.isNPC)){
+        if(!TalkWith(objData.id)){
             talkUI.SetActive(isAction = false);
         }
     }
@@ -83,13 +83,8 @@ public class GameManager : MonoBehaviour
         UINameText.text = talkers[talker];
     }
 
-    bool TalkStart(int objectId, bool isNPC)
+    bool TalkStart(int objectId)
     {
-        if(!isNPC){
-            Debug.Log("Not supported talk with not NPC, object-id[="+objectId+"]");
-            return false;
-        }
-
         this.talkIndex = 0; // 대화가 시작됨을 표기
         int questId = questManager.GetQuestTalkIndex(objectId);
         string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
@@ -103,13 +98,8 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    bool TalkWith(int objectId, bool isNPC)
+    bool TalkWith(int objectId)
     {
-        if(!isNPC){
-            Debug.Log("Not supported talk with not NPC, object-id[="+objectId+"]");
-            return false;
-        }
-
         this.talkIndex++;
         int questId = questManager.GetQuestTalkIndex(objectId);
         string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);

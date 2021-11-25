@@ -5,15 +5,10 @@ using UnityEngine;
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
-    // Dictionary<int, string[]> nameData;
-    Dictionary<int, Sprite> portraitData;
-    public Sprite[] portraitArr;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         talkData = new Dictionary<int, string[]>();
-        portraitData = new Dictionary<int, Sprite>();
         GenerateData();
     }
 
@@ -29,9 +24,6 @@ public class TalkManager : MonoBehaviour
         talkData.Add(100,new string[]{"쇠로 만들어진 감옥이다.","열쇠없이는 열 수 없는 것 같다."});
         //id = 200 : 다음 스테이지로 넘어갈 수 있는 문 
         talkData.Add(200,new string[]{"평범한 문이다. \n들어갈 수 있을 것 같다"});
-
-        portraitData.Add(1000 + 0, portraitArr[0]); //0번 인덱스에 저장된 초상화를 id = 1000과 mapping
-        portraitData.Add(1000 + 1, portraitArr[1]); //1번 인덱스에 저장된 초상화를 id = 1001과 mapping
     }
 
 
@@ -53,12 +45,5 @@ public class TalkManager : MonoBehaviour
             Debug.Log("There is no talk-data for key[=" + id + "]");
         }
         return null;
-    }
-
-    public Sprite GetPortrait(int id, int portraitIndex)
-    {
-        Debug.Log("GetPortrait - id: "+id + ", portraitIndex"+portraitIndex);
-        //id는 NPC넘버 , portraitIndex : 표정번호(?)
-        return portraitData[id+portraitIndex];  
     }
 }
