@@ -36,6 +36,9 @@ public class Enemy : MonoBehaviour
         enemystat.health -= damage;
 
         Debug.Log("Enemy-HP: "+ enemystat.health);
+
+        transform.Translate(Vector2.left*direction*.15f);
+        // rigid.AddForce(Vector2.right*1.2f, ForceMode2D.Impulse);
         //체력이 0이하로 내려가면 게임 오브젝트를 파괴합니다.
         if(enemystat.health <= 0)
         {
@@ -45,6 +48,15 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         } else {
             rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if(transform.position.x < 7f) {
+            transform.Translate(new Vector2(transform.position.x +7f, 0));
+        } else if(transform.position.x > 14f) {
+            transform.Translate(new Vector2(transform.position.x -14f, 0));
         }
     }
 }

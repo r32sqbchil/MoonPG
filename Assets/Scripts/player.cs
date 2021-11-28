@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
             else if(HP <= 0)
             {
                 Destroy(this.gameObject, 2f);
-                this.gameObject.GetComponent<PlayerMove>().enabled = false;
+                GetComponent<PlayerMove>().enabled = false;
             }
         }
     }
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
             else if(HP <= 0)
             {
                 Destroy(this.gameObject, 2f);
-                this.gameObject.GetComponent<PlayerMove>().enabled = false;
+                GetComponent<PlayerMove>().enabled = false;
             }
         } 
     }

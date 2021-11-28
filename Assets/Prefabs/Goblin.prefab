@@ -201,11 +201,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -249,6 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2b04db9c1dbd14da39d69a01938d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMove: {fileID: 0}
   enemystat:
-    Health: 100
+    health: 20
+  bossHP: {fileID: 0}
