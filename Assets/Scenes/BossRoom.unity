@@ -4042,7 +4042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemystat:
     health: 0
-  BossHP: {fileID: 1221819799}
+  bossHP: {fileID: 0}
 --- !u!50 &1262640101
 Rigidbody2D:
   serializedVersion: 4
@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 0
-  TakeDownSpeed: 0
+  takeDownSpeed: 0
 --- !u!1 &1556201631
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     //enemy스탯을 초기화 합니다.
     [SerializeField]private Enemystat enemystat;
     Rigidbody2D rigid;
-    public GameObject BossHP;
+    public GameObject bossHP;
 
     void Awake(){
         rigid = GetComponent<Rigidbody2D>();
@@ -39,7 +39,9 @@ public class Enemy : MonoBehaviour
         //체력이 0이하로 내려가면 게임 오브젝트를 파괴합니다.
         if(enemystat.health <= 0)
         {
-            BossHP.SetActive(false);
+            if(bossHP != null){
+                bossHP.SetActive(false);
+            }
             Destroy(gameObject);
         } else {
             rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
