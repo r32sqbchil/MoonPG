@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     public GameObject scanObject;
     public bool isAction;
 
-    public Image portraitImg;
-
     public TalkManager talkManager;
     public int talkIndex;
 
@@ -32,21 +30,13 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
 
 
-    // public void Action(GameObject scanObj)
-    // {
-    //     scanObject =scanObj;
-    //     talkText.text = "이것의 이름은" + scanObject + "이다";
-    // }
-
     public void Action(GameObject scanObject)
     {
         this.scanObject = scanObject;
         this.scanObjectName = scanObject.name;
 
-        // talkText.text = "이것은 "+scanObject.name+"이다.";
-        //스캔한 오브젝트의 id와 isNPC정보를 가져온다.
         ObjData objData = scanObject.GetComponent<ObjData>();
-        //objData의 id와 NPC인지 정보를 매개변수로 넘김 
+        
         if(TalkStart(objData.id))
         {
             talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경

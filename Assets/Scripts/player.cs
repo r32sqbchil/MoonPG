@@ -10,13 +10,16 @@ public class Player : MonoBehaviour
     public bool isHit;
     public int GoblinDamage;
 
+    CapsuleCollider2D col;
     public Image healthBar;
     public Text statText;
+    Animator anim;
 
 
 
     public void Awake()
     {
+        col = GetComponent<CapsuleCollider2D>();
         HP = maxHealth;
     }
 
@@ -35,7 +38,7 @@ public class Player : MonoBehaviour
             if(HP > 0 )
             {
                 HP -= GoblinDamage;
-                Debug.Log("Player-HP: "+ HP);
+                // StartCoroutine(PlayerCollider());
             }
             else if(HP <= 0)
             {
@@ -53,4 +56,16 @@ public class Player : MonoBehaviour
             isHit = false;
         }
     }
+
+    IEnumerator PlayerCollider()
+    {
+        col.enabled = false;
+        yield return new WaitForSeconds(1f);
+        col.enabled = true;
+    }
+
+    // void PlayerDie()
+    // {
+    //     anim.SetTrigger("Die");
+    // }
 }
