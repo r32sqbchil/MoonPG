@@ -3934,8 +3934,8 @@ GameObject:
   - component: {fileID: 1262640099}
   - component: {fileID: 1262640102}
   - component: {fileID: 1262640101}
-  - component: {fileID: 1262640100}
   - component: {fileID: 1262640103}
+  - component: {fileID: 1262640100}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -4040,7 +4040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemystat:
-    Health: 1000
+    health: 0
 --- !u!50 &1262640101
 Rigidbody2D:
   serializedVersion: 4
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d757352d126a54ea9ccce1c3fb5014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 500
   healthBar: {fileID: 418396447}
 --- !u!1 &1352210947
 GameObject:
@@ -4660,7 +4660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023973e1139ff6418bb0f7e77540a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnim: {fileID: 0}
   attackPoint: {fileID: 0}
   boxSize: {x: 0.2, y: 0.5}
   damage: 1
