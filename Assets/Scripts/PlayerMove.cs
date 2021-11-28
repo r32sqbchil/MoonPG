@@ -23,16 +23,18 @@ public class PlayerMove : MonoBehaviour
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
-    public ComboAttack comboAttack;
+    
     public float dashSpeed;
 
+    private ComboAttack comboAttack;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        col = GetComponent<CapsuleCollider2D>();      
+        col = GetComponent<CapsuleCollider2D>();
+        comboAttack = GetComponent<ComboAttack>();
     }
 
     void OnInputJump()
