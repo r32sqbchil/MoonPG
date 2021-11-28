@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float HP;
+    public float hp;
     public float maxHealth = 200f;
     public bool isHit;
-    public int GoblinDamage;
+    public int enemyDamage;
 
     CapsuleCollider2D col;
     public Image healthBar;
@@ -20,14 +20,14 @@ public class Player : MonoBehaviour
     public void Awake()
     {
         col = GetComponent<CapsuleCollider2D>();
-        HP = maxHealth;
+        hp = maxHealth;
     }
 
 
     public void Update()
     {
-        healthBar.fillAmount = HP / maxHealth;
-        statText.text = HP + " " + "/" + " " + maxHealth;
+        healthBar.fillAmount = hp / maxHealth;
+        statText.text = hp + " " + "/" + " " + maxHealth;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,12 +35,12 @@ public class Player : MonoBehaviour
         if(other.tag == "Enemy" || other.tag == "BossAttack")
         {
             isHit = true;
-            if(HP > 0 )
+            if(hp > 0 )
             {
-                HP -= GoblinDamage;
+                hp -= enemyDamage;
                 // StartCoroutine(PlayerCollider());
             }
-            else if(HP <= 0)
+            else if(hp <= 0)
             {
                 Destroy(this.gameObject, 2f);
                 GetComponent<PlayerMove>().enabled = false;
@@ -55,11 +55,11 @@ public class Player : MonoBehaviour
         if(coll.gameObject.tag == "BossAttack" && bossSkill.lanceRigid.velocity.y < 0)
         {
             isHit = true;
-            if(HP > 0 )
+            if(hp > 0 )
             {
-                HP -= GoblinDamage;
+                hp -= enemyDamage;
             }
-            else if(HP <= 0)
+            else if(hp <= 0)
             {
                 Destroy(this.gameObject, 2f);
                 GetComponent<PlayerMove>().enabled = false;

@@ -5898,6 +5898,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8134792687628998000, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: hp
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134792687628998000, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: statText
       value: 
       objectReference: {fileID: 983606760}
@@ -5905,6 +5909,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1027634533}
+    - target: {fileID: 8134792687628998000, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: enemyDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998001, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: gameManager
       value: 

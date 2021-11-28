@@ -4715,10 +4715,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c3130aa2070b4bbcf3ae621ee3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
+  hp: 0
   maxHealth: 200
   isHit: 0
-  GoblinDamage: 10
+  enemyDamage: 10
   healthBar: {fileID: 489227314}
   statText: {fileID: 2094511963}
 --- !u!95 &1508259015
