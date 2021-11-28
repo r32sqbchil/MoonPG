@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - BossAttack
   - Boss
+  - PlayerHitBox
   layers:
   - Default
   - TransparentFX

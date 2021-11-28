@@ -70,8 +70,8 @@ GameObject:
   - component: {fileID: 5398939891402329903}
   - component: {fileID: 5398939891402329888}
   - component: {fileID: 5398939891402329889}
-  - component: {fileID: 7445318033369554512}
   - component: {fileID: 4224089511061842225}
+  - component: {fileID: 8182708052191954682}
   m_Layer: 9
   m_Name: Goblin
   m_TagString: Enemy
@@ -211,32 +211,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
---- !u!114 &7445318033369554512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5398939891402329890}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c2f757c1da7b24fa0c2dd53defb8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextMove: 0
-  animator: {fileID: 0}
-  Enenmydirection: 0
-  HitBox: {fileID: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isHit: 0
-  Playerch: 0
-  damage: 0
-  maxHP: 0
-  nowHP: 0
-  DeathTime: 0
-  Questcount: 0
 --- !u!114 &4224089511061842225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,3 +226,16 @@ MonoBehaviour:
   enemystat:
     health: 20
   bossHP: {fileID: 0}
+--- !u!114 &8182708052191954682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398939891402329890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5951a60f506fb674998a73a24cbc998b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 5398939890226199643}

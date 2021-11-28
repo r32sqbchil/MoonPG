@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         statText.text = hp + " " + "/" + " " + maxHealth;
     }
 
-    void OnDamage(GameObject enemy)
+    public void OnDamage(GameObject enemy)
     {
         if(isHit) {
             return;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
         isHit = true;
         if(enemy.tag == "Enemy") {
-            enemy.GetComponent<Animator>().SetBool("isAttack", true);
+            //enemy.GetComponent<Animator>().SetBool("isAttack", true);
         }
 
         if(hp > 0 )
