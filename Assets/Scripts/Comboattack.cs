@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ComboAttack : MonoBehaviour
 {
-    public Animator attackAnim;
+    private Animator attackAnim;
+
+    private PlayerMove playerMove;
 
     public Transform attackPoint;
 
@@ -21,7 +23,6 @@ public class ComboAttack : MonoBehaviour
         attackAnim.Play(attackStates[comboStep-1]);
 
         float direction;
-        PlayerMove playerMove = gameObject.GetComponent<PlayerMove>();
 
         if(playerMove.leftAttackBox.transform == attackPoint) {
             direction = -1.0f;
@@ -86,6 +87,12 @@ public class ComboAttack : MonoBehaviour
         comboStep = 0;
     }
 
+    void Start(){
+        playerMove = GetComponent<PlayerMove>();
+        attackAnim = GetComponent<Animator>();
+
+        attackPoint = playerMove.rightAttackBox.transform;
+    }
 
     void Update()
     {
