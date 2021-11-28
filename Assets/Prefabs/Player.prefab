@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 8134792687628998000}
   - component: {fileID: 8134792687628998001}
   - component: {fileID: 8134792687628998014}
-  - component: {fileID: 8134792687628998015}
+  - component: {fileID: 4827090457743911121}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -312,10 +312,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c3130aa2070b4bbcf3ae621ee3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
+  hp: 0
   maxHealth: 200
   isHit: 0
-  GoblinDamage: 10
+  enemyDamage: 0
   healthBar: {fileID: 0}
   statText: {fileID: 0}
 --- !u!114 &8134792687628998001
@@ -337,7 +337,6 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   leftAttackBox: {fileID: 8134792687151247621}
   rightAttackBox: {fileID: 8134792686483265716}
-  playerCombat: {fileID: 8134792687628998015}
   dashSpeed: 5
 --- !u!114 &8134792687628998014
 MonoBehaviour:
@@ -351,11 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023973e1139ff6418bb0f7e77540a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnim: {fileID: 8134792687628998007}
-  comboCheck: 0
-  comboStep: 0
-  player: {fileID: 0}
---- !u!114 &8134792687628998015
+  attackPoint: {fileID: 0}
+  boxSize: {x: 0, y: 0}
+  damage: 0
+--- !u!114 &4827090457743911121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,9 +362,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8134792687628998006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22f3f3d5ddf0584292ef44cb3b350e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2afba8b8d93532b40b0633c7fa4b6b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 8134792686483265717}
-  boxSize: {x: 0.2, y: 0.5}
-  damage: 1
+  dashSpeed: 0
+  takeDownSpeed: 0

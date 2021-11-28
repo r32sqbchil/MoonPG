@@ -30,18 +30,20 @@ public class Player : MonoBehaviour
         statText.text = hp + " " + "/" + " " + maxHealth;
     }
 
-    void OnDamage()
+    void OnDamage(GameObject enemy)
     {
         if(isHit) {
             return;
         }
 
         isHit = true;
+        if(enemy.tag == "Enemy") {
+            enemy.GetComponent<Animator>().SetBool("isAttack", true);
+        }
 
         if(hp > 0 )
         {
             hp -= enemyDamage;
-            // StartCoroutine(PlayerCollider());
         }
         else if(hp <= 0)
         {
@@ -61,7 +63,7 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "Enemy" || other.tag == "BossAttack")
         {
-            OnDamage();
+            OnDamage(other.gameObject);
         }
     }
 
@@ -74,7 +76,7 @@ public class Player : MonoBehaviour
                 BossSkill bossSkill = bossObject.GetComponent<BossSkill>();
 
                 if(bossSkill.lanceRigid.velocity.y < 0){
-                    OnDamage();
+                    OnDamage(bossObject);
                 }
             }
         } 
