@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Teacher
   - PlayerHitBox
+  - Platform
   layers:
   - Default
   - TransparentFX
