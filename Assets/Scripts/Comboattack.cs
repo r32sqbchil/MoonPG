@@ -15,6 +15,9 @@ public class ComboAttack : MonoBehaviour
 
     private bool comboCheck;
     private int comboStep = 0;
+
+    private bool isForced = false;
+
     private string [] attackStates = new string[]{
         "PlayerAttackA", "PlayerAttackB", "PlayerAttackC"
     };
@@ -44,7 +47,6 @@ public class ComboAttack : MonoBehaviour
         }
     }
 
-private bool isForced = false;
     public void SetDamageUp()
     {
         if(isForced) {            
@@ -76,6 +78,17 @@ private bool isForced = false;
             {
                 comboStep += 1; //next step
                 comboCheck = false;
+            }
+            else {
+                AnimatorStateInfo stateInfo = attackAnim.GetCurrentAnimatorStateInfo(0);
+                foreach (string state in attackStates)
+                {
+                    if(stateInfo.IsName(state)){
+                        return;
+                    }
+                }
+                //Debug.Log("Reset PlayerAttack");
+                comboStep = 0;
             }
         }
     }
