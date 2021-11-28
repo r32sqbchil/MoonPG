@@ -30,21 +30,38 @@ public class Player : MonoBehaviour
         statText.text = hp + " " + "/" + " " + maxHealth;
     }
 
+    void OnDamage()
+    {
+        if(isHit) {
+            return;
+        }
+
+        isHit = true;
+
+        if(hp > 0 )
+        {
+            hp -= enemyDamage;
+            // StartCoroutine(PlayerCollider());
+        }
+        else if(hp <= 0)
+        {
+            Destroy(this.gameObject, 2f);
+            GetComponent<PlayerMove>().enabled = false;
+        }
+
+        Invoke("OnDamageEnd",1.5f);
+    }
+
+    void OnDamageEnd()
+    {
+        isHit = false;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Enemy" || other.tag == "BossAttack")
         {
-            isHit = true;
-            if(hp > 0 )
-            {
-                hp -= enemyDamage;
-                // StartCoroutine(PlayerCollider());
-            }
-            else if(hp <= 0)
-            {
-                Destroy(this.gameObject, 2f);
-                GetComponent<PlayerMove>().enabled = false;
-            }
+            OnDamage();
         }
     }
 
@@ -54,26 +71,11 @@ public class Player : MonoBehaviour
 
         if(coll.gameObject.tag == "BossAttack" && bossSkill.lanceRigid.velocity.y < 0)
         {
-            isHit = true;
-            if(hp > 0 )
-            {
-                hp -= enemyDamage;
-            }
-            else if(hp <= 0)
-            {
-                Destroy(this.gameObject, 2f);
-                GetComponent<PlayerMove>().enabled = false;
-            }
+            OnDamage();
         } 
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.tag == "Enemy")
-        {
-            isHit = false;
-        }
-    }
+
 
     IEnumerator PlayerCollider()
     {
