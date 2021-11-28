@@ -15,9 +15,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]private Enemystat enemystat;
     Rigidbody2D rigid;
     public GameObject bossHP;
+    Animator anim;
 
     void Awake(){
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     public void SetHealth(float health)
@@ -29,6 +31,13 @@ public class Enemy : MonoBehaviour
     {
         return enemystat.health;
     }
+
+    private void KnockBack(float direction)
+    {
+        anim.Play("HitEnemyGoblin");
+        transform.Translate(Vector2.left*direction*.15f);
+    }
+    
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
     public void TakeDamage(float direction, float damage)
     {
@@ -38,7 +47,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy-HP: "+ enemystat.health);
 
         if(bossHP == null){
-            transform.Translate(Vector2.left*direction*.15f);
+            KnockBack(direction);
         }
         // rigid.AddForce(Vector2.right*1.2f, ForceMode2D.Impulse);
         //체력이 0이하로 내려가면 게임 오브젝트를 파괴합니다.
