@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         anim.Play("HitEnemyGoblin");
         transform.Translate(Vector2.left*direction*.15f);
     }
-    
+
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
     public void TakeDamage(float direction, float damage)
     {
@@ -55,8 +55,13 @@ public class Enemy : MonoBehaviour
         {
             if(bossHP != null){
                 bossHP.SetActive(false);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            else{
+                anim.SetBool("isDeath", true);
+                Destroy(gameObject, 2f);
+            }
+           
         } else {
             rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
         }
