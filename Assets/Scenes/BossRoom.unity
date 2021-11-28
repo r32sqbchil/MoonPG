@@ -4042,7 +4042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemystat:
     health: 0
-  bossHP: {fileID: 0}
+  bossHP: {fileID: 1221819799}
 --- !u!50 &1262640101
 Rigidbody2D:
   serializedVersion: 4

@@ -67,11 +67,16 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        BossSkill bossSkill = GameObject.FindObjectOfType<BossSkill>();
-
-        if(coll.gameObject.tag == "BossAttack" && bossSkill.lanceRigid.velocity.y < 0)
+        if(coll.gameObject.tag == "BossAttack")
         {
-            OnDamage();
+            GameObject bossObject = GameObject.FindGameObjectWithTag("Boss");
+            if(bossObject != null){
+                BossSkill bossSkill = bossObject.GetComponent<BossSkill>();
+
+                if(bossSkill.lanceRigid.velocity.y < 0){
+                    OnDamage();
+                }
+            }
         } 
     }
 
