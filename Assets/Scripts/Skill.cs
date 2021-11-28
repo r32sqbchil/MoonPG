@@ -8,15 +8,19 @@ public class Skill : MonoBehaviour
     Rigidbody2D rigid;
     CapsuleCollider2D col;
 
+    ComboAttack comboAttack;
+
     public float dashSpeed;
-    public float TakeDownSpeed;
+    public float takeDownSpeed;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
+        comboAttack = GetComponent<ComboAttack>();
     }
+
 
     void Update()
     {
@@ -30,12 +34,12 @@ public class Skill : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.A)) {
             anim.Play("PlayerSkillA");
-            // playerCombat.damage++;
+            comboAttack.SetDamageUp();
         }
         else if(Input.GetKeyDown(KeyCode.S)) {
             // 콜라이더 offset size 수정
             rigid.velocity = Vector2.zero;
-            rigid.AddForce(Vector2.down*TakeDownSpeed);
+            rigid.AddForce(Vector2.down*takeDownSpeed);
             anim.Play("PlayerSkillB");
         }
         else if(Input.GetKeyDown(KeyCode.D)) {

@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Enemy" || other.tag == "BossAttack")
         {
             isHit = true;
             if(HP > 0 )
@@ -46,7 +46,25 @@ public class Player : MonoBehaviour
                 this.gameObject.GetComponent<PlayerMove>().enabled = false;
             }
         }
+    }
 
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        BossSkill bossSkill = GameObject.FindObjectOfType<BossSkill>();
+
+        if(coll.gameObject.tag == "BossAttack" && bossSkill.lanceRigid.velocity.y < 0)
+        {
+            isHit = true;
+            if(HP > 0 )
+            {
+                HP -= GoblinDamage;
+            }
+            else if(HP <= 0)
+            {
+                Destroy(this.gameObject, 2f);
+                this.gameObject.GetComponent<PlayerMove>().enabled = false;
+            }
+        } 
     }
 
     void OnTriggerExit2D(Collider2D other)

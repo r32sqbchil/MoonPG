@@ -44,6 +44,25 @@ public class ComboAttack : MonoBehaviour
         }
     }
 
+private bool isForced = false;
+    public void SetDamageUp()
+    {
+        if(isForced) {            
+            return;
+        }
+
+        isForced = true;
+        damage++;
+
+        Invoke("SetDamageDown", 5f);
+    }
+
+    public void SetDamageDown()
+    {
+        isForced = false;
+        damage--;
+    }
+
     public void OnAttackEvent()
     {
         if(comboStep == 0)

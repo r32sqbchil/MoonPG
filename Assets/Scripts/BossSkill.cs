@@ -10,11 +10,17 @@ public class BossSkill : MonoBehaviour
     public GameObject Lightning;
     public Rigidbody2D lanceRigid;
     Animator anim;
+    public GameObject Boss;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         StartCoroutine(SkillBundle());
+        if(Boss.activeSelf == false)
+        {
+            StopCoroutine(SkillBundle());
+            Lightning.SetActive(false);
+        }    
     }
 
     IEnumerator LanceSkill()
@@ -29,28 +35,12 @@ public class BossSkill : MonoBehaviour
         
         Lance.SetActive(true);
 
-        RaycastHit2D rayHit = Physics2D.Raycast(lanceRigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
-        if (rayHit.collider != null)
-        {
-            if (rayHit.distance < 0.5f)
-            {
-                Lance.SetActive(false);
-            }
-        }
+        yield return new WaitForSeconds(2f);
+
+        Lance.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
-            Lance.SetActive(false);
-            // 데미지
-        }
-        else if(other.tag == "Platform")
-        {
-            Lance.SetActive(false);
-        }
-    }
+
 
     IEnumerator LightningSkill()
     {

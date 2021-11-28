@@ -3936,9 +3936,10 @@ GameObject:
   - component: {fileID: 1262640101}
   - component: {fileID: 1262640103}
   - component: {fileID: 1262640100}
+  - component: {fileID: 1262640104}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4041,6 +4042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemystat:
     health: 0
+  BossHP: {fileID: 1221819799}
 --- !u!50 &1262640101
 Rigidbody2D:
   serializedVersion: 4
@@ -4102,6 +4104,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   healthBar: {fileID: 418396447}
+--- !u!114 &1262640104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262640096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f6f21c77e93ea48be33b3d7b16fee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lanceTrans: {fileID: 1146672422}
+  playerTrans: {fileID: 1508259019}
+  Lance: {fileID: 1146672418}
+  Lightning: {fileID: 1594727813}
+  lanceRigid: {fileID: 1146672419}
+  Boss: {fileID: 1262640096}
 --- !u!1 &1352210947
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,6 +4978,53 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9208646460574589065, guid: 912ad90b6bff5f646a224641131060e9, type: 3}
   m_PrefabInstance: {fileID: 9208646460381403822}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1594727816
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594727813}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1594727817
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594727813}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1607960709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,8 +5801,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1917528221}
   - component: {fileID: 1917528220}
-  - component: {fileID: 1917528222}
-  - component: {fileID: 1917528223}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5788,42 +5853,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1917528222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917528219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f6f21c77e93ea48be33b3d7b16fee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lanceTrans: {fileID: 1146672422}
-  playerTrans: {fileID: 1508259019}
-  Lance: {fileID: 1146672418}
-  Lightning: {fileID: 1594727813}
-  lanceRigid: {fileID: 1146672419}
---- !u!95 &1917528223
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917528219}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 08823c6e4e71c4748af96b5283215abf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1945040877
 GameObject:
   m_ObjectHideFlags: 0
@@ -6780,6 +6809,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1214089937464887708, guid: 947857ea8749e1e499a7cbc4e12571c5, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 7391605062860041327, guid: 947857ea8749e1e499a7cbc4e12571c5, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -6820,6 +6853,10 @@ PrefabInstance:
     - target: {fileID: 2887054408092061993, guid: ae171e64309e5d848aa994a17c0fee95, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887054408092061993, guid: ae171e64309e5d848aa994a17c0fee95, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
       objectReference: {fileID: 0}
     - target: {fileID: 4813859916129017881, guid: ae171e64309e5d848aa994a17c0fee95, type: 3}
       propertyPath: m_RootOrder
@@ -6921,6 +6958,10 @@ PrefabInstance:
     - target: {fileID: 9208646460574589065, guid: 912ad90b6bff5f646a224641131060e9, type: 3}
       propertyPath: m_Name
       value: Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208646460574589065, guid: 912ad90b6bff5f646a224641131060e9, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912ad90b6bff5f646a224641131060e9, type: 3}

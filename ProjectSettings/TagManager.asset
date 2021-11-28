@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Teacher
-  - PlayerHitBox
   - Platform
+  - BossAttack
+  - Boss
   layers:
   - Default
   - TransparentFX
