@@ -60,10 +60,10 @@ public class BossSkill : MonoBehaviour
         while(true) {
             StartCoroutine(LanceSkill());
             StopCoroutine(LanceSkill());
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             StartCoroutine(LightningSkill());
             StopCoroutine(LightningSkill());
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
         }
     }
 }

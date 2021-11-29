@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
     {
         if(bossHP == null){
             if(transform.position.x < 7f) {
-                transform.Translate(new Vector2(transform.position.x +7f, 0));
+                transform.Translate(new Vector2(transform.position.x -7f, 0));
             } else if(transform.position.x > 14f) {
                 transform.Translate(new Vector2(transform.position.x -14f, 0));
             }
