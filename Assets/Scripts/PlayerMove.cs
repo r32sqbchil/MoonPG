@@ -23,10 +23,16 @@ public class PlayerMove : MonoBehaviour
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
-    
-    public float dashSpeed;
 
     private ComboAttack comboAttack;
+
+    // public float dashSpeed;
+    // public float speed;
+    // private float defaultSpeed;
+    // private bool isdash;
+    // public float defaultTime;
+    // private float dashTime;
+
 
     void Awake()
     {
@@ -35,6 +41,7 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         comboAttack = GetComponent<ComboAttack>();
+        // defaultSpeed = speed;
     }
 
     void OnInputJump()
@@ -161,14 +168,6 @@ public class PlayerMove : MonoBehaviour
             }
             return;
         }
-
-        if(Input.GetButtonDown("Fire3"))
-        {
-            //col.enabled = false;
-            rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
-            anim.Play("PlayerDash");
-            //col.enabled = true;
-        }
     }
 
     void FixedUpdate()
@@ -219,10 +218,36 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
-        // // MaxSpeed Limit
+        // MaxSpeed Limit
         if (rigid.velocity.x > maxSpeed + runspeed)// right
             rigid.velocity = new Vector2(maxSpeed + runspeed, rigid.velocity.y);
         else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1)) // Left Maxspeed
             rigid.velocity = new Vector2((maxSpeed + runspeed) * (-1), rigid.velocity.y);
+        
+
+        // float hor = Input.GetAxis("Horizontal");
+        // rigid.velocity = new Vector2(hor * defaultSpeed , rigid.velocity.y);
+
+
+        // // Dash
+        // if (Input.GetKeyDown(KeyCode.Z))
+        // {
+        //     isdash = true;
+        //     //rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+        //     anim.Play("PlayerDash");
+        // }
+
+        // if(dashTime <= 0)
+        // {
+        //     defaultSpeed = speed;
+        //     if (isdash)
+        //     dashTime = defaultTime;
+        // }
+        // else
+        // {
+        //     dashTime -= Time.deltaTime;
+        //     defaultSpeed = dashSpeed;
+        // }
+        // isdash = false;
     }
 }
