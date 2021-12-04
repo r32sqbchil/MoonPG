@@ -61,9 +61,12 @@ public class EnemyAI : MonoBehaviour
 
         Vector2 frontVec = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
         Vector2 ChekPlatform = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
+        Vector2 checkPlayer = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
+        // 얘네 묶어서 값 넣어줄 순 없나?
         
         RaycastHit2D raycast = Physics2D.Raycast(frontVec, Vector3.down,1,LayerMask.GetMask("Platform"));
         RaycastHit2D Platformcheck = Physics2D.Raycast(ChekPlatform, Vector3.right,1,LayerMask.GetMask("Platform"));
+        RaycastHit2D playerCheck = Physics2D.Raycast(checkPlayer, Vector3.right,1,LayerMask.GetMask("Player"));
 
         if(raycast.collider == null){
             Turn();
@@ -71,6 +74,12 @@ public class EnemyAI : MonoBehaviour
         else if(Platformcheck.collider != null)
         {
             Turn();
+        }
+        else if(playerCheck.collider != null)
+        {
+            // 플레이어가 다가가는 경우에는 먹통이고, 플레이어가 도망쳐서 2초를 넘기면 다시 Think함
+            CancelInvoke();
+            Invoke("Think", 2);
         }
     }
 

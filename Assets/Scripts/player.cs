@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
     public float hp;
     public float maxHealth = 200f;
     public bool isHit;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     {
         col = GetComponent<CapsuleCollider2D>();
         hp = maxHealth;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -50,13 +52,19 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject, 2f);
             GetComponent<PlayerMove>().enabled = false;
         }
-
+        spriteRenderer.material.color = Color.red;
         Invoke("OnDamageEnd",1.5f);
+        Invoke("ColorComeback",1.5f);
     }
 
     void OnDamageEnd()
     {
         isHit = false;
+    }
+
+    void ColorComeback()
+    {
+        spriteRenderer.material.color = Color.white;
     }
 
     void OnTriggerEnter2D(Collider2D other)

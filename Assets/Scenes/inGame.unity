@@ -5861,6 +5861,18 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2128939897}
+    - target: {fileID: 8134792687628998002, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134792687628998002, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134792687628998002, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_RootOrder
       value: 10
