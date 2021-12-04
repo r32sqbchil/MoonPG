@@ -6,11 +6,15 @@ public class BossSkill : MonoBehaviour
 {
     public Transform lanceTrans;
     public Transform playerTrans;
-    public GameObject Lance;
-    public GameObject Lightning;
+    public Transform lanceRangeTrans;
+    public GameObject lance;
+    public GameObject lightning;
     public Rigidbody2D lanceRigid;
     Animator anim;
     public GameObject Boss;
+    public GameObject lanceRange;
+    public GameObject lightningRange;
+    
 
     void Start()
     {
@@ -19,25 +23,26 @@ public class BossSkill : MonoBehaviour
         if(Boss.activeSelf == false)
         {
             StopCoroutine(SkillBundle());
-            Lightning.SetActive(false);
+            lightning.SetActive(false);
         }    
     }
 
     IEnumerator LanceSkill()
     {
-        yield return new WaitForSeconds(2f);
-
         PlayerMove playerMove = GameObject.FindObjectOfType<PlayerMove>();
         lanceTrans.position = playerMove.transform.position;
         anim.Play("BossSkillB");
+        lanceRangeTrans.position = new Vector2 (playerMove.transform.position.x,lanceRangeTrans.position.y);
+        lanceRange.SetActive(true);
 
         yield return new WaitForSeconds(2f);
         
-        Lance.SetActive(true);
+        lance.SetActive(true);
+        lanceRange.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
-        Lance.SetActive(false);
+        lance.SetActive(false);
     }
 
 
@@ -45,14 +50,15 @@ public class BossSkill : MonoBehaviour
     IEnumerator LightningSkill()
     {
         anim.Play("BossSkillC");
+        lightningRange.SetActive(true);
 
         yield return new WaitForSeconds(3f);
         
-        Lightning.SetActive(true);
-        // 데미지
+        lightning.SetActive(true);
+        lightningRange.SetActive(false);
 
         yield return new WaitForSeconds(1f);
-        Lightning.SetActive(false);
+        lightning.SetActive(false);
     }
 
     IEnumerator SkillBundle()
