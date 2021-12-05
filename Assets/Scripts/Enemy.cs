@@ -17,7 +17,10 @@ public class Enemy : MonoBehaviour
     public GameObject bossHP;
     Animator anim;
 
+    private QuestManager questManager;
+
     void Awake(){
+        questManager = GameObject.FindObjectOfType<QuestManager>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -44,7 +47,7 @@ public class Enemy : MonoBehaviour
         //체력이 damage만큼 까지게 합니다.
         enemystat.health -= damage;
 
-        Debug.Log("Enemy-HP: "+ enemystat.health);
+        //Debug.Log("Enemy-HP: "+ enemystat.health);
 
         if(bossHP == null){
             KnockBack(direction);
@@ -59,6 +62,7 @@ public class Enemy : MonoBehaviour
             }
             else{
                 anim.SetBool("isDeath", true);
+                questManager.NotifyEvent(this);
                 Destroy(gameObject, 2f);
             }
            

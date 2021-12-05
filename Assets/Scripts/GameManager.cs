@@ -76,11 +76,12 @@ public class GameManager : MonoBehaviour
     bool TalkStart(int objectId)
     {
         this.talkIndex = 0; // 대화가 시작됨을 표기
+
         int questId = questManager.GetQuestTalkIndex(objectId);
         string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
 
         if(talk == null) {
-            Debug.Log("Not found talk with object-id[="+objectId+"] and quest-id[="+questId+"]");
+            //Debug.Log("Not found talk with object-id[="+objectId+"] and quest-id[="+questId+"]");
             return false;
         }
 
@@ -91,16 +92,36 @@ public class GameManager : MonoBehaviour
     bool TalkWith(int objectId)
     {
         this.talkIndex++;
+
         int questId = questManager.GetQuestTalkIndex(objectId);
         string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
 
+        QuestCheck(objectId, questId, talkIndex);
+
         if(talk == null) {
-            Debug.Log("There is not text for talk");
+            //Debug.Log("There is not text for talk");
             return false;
         }
 
         TalkSetText(talk);
         return true;
+    }
+
+    void QuestCheck(int npcId, int questId, int talkIndex){
+        //Debug.Log("npcId:"+npcId+", questId:"+questId+", talkIndex:"+talkIndex+"");
+        if(npcId == 1000 && questId == 0 && talkIndex == 1) {
+            questManager.QuestStart(npcId);
+        } else if(npcId == 1000 && questId == 10 && talkIndex == 2) {
+            QuestData questData = questManager.GetQuestData(npcId);
+            if(!questData.isDoingQuest()){
+                questData.AddQuestStatus();
+            }
+        } else if(npcId == 1000 && questId == 30 && talkIndex == 2) {
+            QuestData questData = questManager.GetQuestData(npcId);
+            if(!questData.isDoingQuest()){
+                questData.AddQuestStatus();
+            }
+        }
     }
 
     void Start () 
