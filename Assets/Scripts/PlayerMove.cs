@@ -32,6 +32,16 @@ public class PlayerMove : MonoBehaviour
     // private bool isdash;
     // public float defaultTime;
     // private float dashTime;
+    
+    // 고스트
+    public Ghost ghost;
+
+    // 사운드
+    public AudioSource mySfx;
+    public AudioClip walkSfx;
+    public AudioClip runSfx;
+    public AudioClip jumpSfx;
+    public AudioClip dashSfx;
 
 
     void Awake()
@@ -67,6 +77,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         anim.SetBool("isJumping", true);
+        JumpSound();
 
         float thrustThreshold = 1.0f;
         bool isStandingState = !anim.GetBool("isRunning") && !anim.GetBool("isWalking");
@@ -235,6 +246,7 @@ public class PlayerMove : MonoBehaviour
         //     isdash = true;
         //     //rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
         //     anim.Play("PlayerDash");
+        //     DashSound();
         // }
 
         // if(dashTime <= 0)
@@ -249,5 +261,26 @@ public class PlayerMove : MonoBehaviour
         //     defaultSpeed = dashSpeed;
         // }
         // isdash = false;
+
+
+    }
+    public void WalkSound()
+    {
+        mySfx.PlayOneShot (walkSfx);
+    }
+
+    public void RunSound()
+    {
+        mySfx.PlayOneShot (runSfx);
+    }
+
+    public void JumpSound()
+    {
+        mySfx.PlayOneShot (jumpSfx);
+    }
+
+    public void DashSound()
+    {
+        mySfx.PlayOneShot (dashSfx);
     }
 }
