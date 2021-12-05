@@ -11,6 +11,9 @@ public class EnemyAI : MonoBehaviour
     public GameObject hitBox;
 
     bool playerCatch;
+
+    private bool followingPlayer;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -60,26 +63,32 @@ public class EnemyAI : MonoBehaviour
         rigid.velocity = new Vector2(nextMove,rigid.velocity.y);
 
         Vector2 frontVec = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
-        Vector2 ChekPlatform = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
-        Vector2 checkPlayer = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
+        //Vector2 ChekPlatform = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
+        //Vector2 checkPlayer = new Vector2(rigid.position.x + nextMove*0.4f, rigid.position.y);
         // 얘네 묶어서 값 넣어줄 순 없나?
         
-        RaycastHit2D raycast = Physics2D.Raycast(frontVec, Vector3.down,1,LayerMask.GetMask("Platform"));
-        RaycastHit2D Platformcheck = Physics2D.Raycast(ChekPlatform, Vector3.right,1,LayerMask.GetMask("Platform"));
-        RaycastHit2D playerCheck = Physics2D.Raycast(checkPlayer, Vector3.right,1,LayerMask.GetMask("Player"));
+        Vector2 direction2D = new Vector2(nextMove, 0);
 
-        if(raycast.collider == null){
-            Turn();
-        }
-        else if(Platformcheck.collider != null)
-        {
+        RaycastHit2D groundTester = Physics2D.Raycast(frontVec, Vector2.down,1.0f,LayerMask.GetMask("Platform"));
+        RaycastHit2D wallTester = Physics2D.Raycast(frontVec, direction2D,.4f,LayerMask.GetMask("Platform"));
+        RaycastHit2D playerCheck = Physics2D.Raycast(frontVec, direction2D,5.0f,LayerMask.GetMask("Player"));
+
+        if(groundTester.collider == null || wallTester.collider != null){
+            Debug.Log(""+groundTester.collider+","+wallTester.collider);
             Turn();
         }
         else if(playerCheck.collider != null)
         {
+            Debug.Log("잡아라~~~");
             // 플레이어가 다가가는 경우에는 먹통이고, 플레이어가 도망쳐서 2초를 넘기면 다시 Think함
             CancelInvoke();
-            Invoke("Think", 2);
+            followingPlayer = true;
+        } else if(followingPlayer){
+            Debug.Log("어라 사라졌다");
+            followingPlayer = false;
+
+            CancelInvoke();
+            Invoke("Think",2);
         }
     }
 
@@ -99,20 +108,21 @@ public class EnemyAI : MonoBehaviour
         }    
     }
 
-    void Think(){//몬스터가 스스로 생각해서 판단 (-1:왼쪽이동 ,1:오른쪽 이동 ,0:멈춤  으로 3가지 행동을 판단)
-        //Set Next Active
-        //Random.Range : 최소<= 난수 <최대 /범위의 랜덤 수를 생성(최대는 제외이므로 주의해야함)
-        nextMove = Random.Range(-1,2);
-
+    void Walk(int nextMove){
+        this.nextMove = nextMove;
         //Sprite Animation
         //WalkSpeed변수를 nextMove로 초기화 
         animator.SetInteger("WalkSpeed",nextMove);
 
-
         //Flip Sprite
         if(nextMove != 0) //서있을 때 굳이 방향을 바꿀 필요가 없음 
-            spriteRenderer.flipX = nextMove == 1; //nextmove 가 1이면 방향을 반대로 변경  
+            spriteRenderer.flipX = nextMove == 1; //nextmove 가 1이면 방향을 반대로 변경
+    }
 
+    void Think(){//몬스터가 스스로 생각해서 판단 (-1:왼쪽이동 ,1:오른쪽 이동 ,0:멈춤  으로 3가지 행동을 판단)
+        //Set Next Active
+        //Random.Range : 최소<= 난수 <최대 /범위의 랜덤 수를 생성(최대는 제외이므로 주의해야함)
+        Walk(Random.Range(-1,2));
 
         //Recursive (재귀함수는 가장 아래에 쓰는게 기본적) 
         float time = Random.Range(2f, 5f); //생각하는 시간을 랜덤으로 부여 
@@ -125,6 +135,5 @@ public class EnemyAI : MonoBehaviour
 
         CancelInvoke(); //think를 잠시 멈춘 후 재실행
         Invoke("Think",2);//  
-
     }
 }
