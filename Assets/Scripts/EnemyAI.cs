@@ -74,17 +74,13 @@ public class EnemyAI : MonoBehaviour
         RaycastHit2D playerCheck = Physics2D.Raycast(frontVec, direction2D,5.0f,LayerMask.GetMask("Player"));
 
         if(groundTester.collider == null || wallTester.collider != null){
-            Debug.Log(""+groundTester.collider+","+wallTester.collider);
             Turn();
         }
         else if(playerCheck.collider != null)
         {
-            Debug.Log("잡아라~~~");
-            // 플레이어가 다가가는 경우에는 먹통이고, 플레이어가 도망쳐서 2초를 넘기면 다시 Think함
             CancelInvoke();
             followingPlayer = true;
         } else if(followingPlayer){
-            Debug.Log("어라 사라졌다");
             followingPlayer = false;
 
             CancelInvoke();
