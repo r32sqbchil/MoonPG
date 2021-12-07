@@ -44,13 +44,16 @@ public class Enemy : MonoBehaviour
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
     public void TakeDamage(float direction, float damage)
     {
+        EnemyAI enemyAI = GameObject.FindObjectOfType<EnemyAI>();
+
         //체력이 damage만큼 까지게 합니다.
         enemystat.health -= damage;
 
         //Debug.Log("Enemy-HP: "+ enemystat.health);
 
         if(bossHP == null){
-            KnockBack(direction);
+            if(enemyAI.playerCatch == false)
+                KnockBack(direction);
         }
         // rigid.AddForce(Vector2.right*1.2f, ForceMode2D.Impulse);
         //체력이 0이하로 내려가면 게임 오브젝트를 파괴합니다.

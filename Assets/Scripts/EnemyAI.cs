@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rigid;
     public GameObject hitBox;
 
-    bool playerCatch;
+    public bool playerCatch;
 
     private bool followingPlayer;
 
@@ -93,8 +93,9 @@ public class EnemyAI : MonoBehaviour
         if(playerCatch == true)
         {
             animator.SetBool("isAttack",true);
-            hitBox.SetActive(true);            
-            nextMove = 0;
+            Invoke("SyncSetting", 0.7f);
+            animator.SetBool("isAttack",false);
+            // 딜레이 주는 방법 생각해보자!
         }
 
         else
@@ -102,6 +103,12 @@ public class EnemyAI : MonoBehaviour
             animator.SetBool("isAttack",false);
             hitBox.SetActive(false);        
         }    
+    }
+
+    void SyncSetting()
+    {
+        hitBox.SetActive(true);            
+        nextMove = 0;
     }
 
     void Walk(int nextMove){
