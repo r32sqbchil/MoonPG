@@ -69,26 +69,27 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy" || other.tag == "BossAttack")
+        // if(other.tag == "Enemy" || other.tag == "BossAttack")
+        if(other.tag == "BossAttack")
         {
             OnDamage(other.gameObject);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if(coll.gameObject.tag == "BossAttack")
-        {
-            GameObject bossObject = GameObject.FindGameObjectWithTag("Boss");
-            if(bossObject != null){
-                BossSkill bossSkill = bossObject.GetComponent<BossSkill>();
+    // void OnCollisionEnter2D(Collision2D coll)
+    // {
+    //     if(coll.gameObject.tag == "BossAttack")
+    //     {
+    //         GameObject bossObject = GameObject.FindGameObjectWithTag("Boss");
+    //         if(bossObject != null){
+    //             BossSkill bossSkill = bossObject.GetComponent<BossSkill>();
 
-                if(bossSkill.lanceRigid.velocity.y < 0){
-                    OnDamage(bossObject);
-                }
-            }
-        } 
-    }
+    //             if(bossSkill.lanceRigid.velocity.y < 0){
+    //                 OnDamage(bossObject);
+    //             }
+    //         }
+    //     } 
+    // }
 
 
 
