@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Skill : MonoBehaviour
 
     public float dashSpeed;
     public float takeDownSpeed;
+    public Text text;
 
     void Awake()
     {
@@ -34,6 +36,7 @@ public class Skill : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.A)) {
             anim.Play("PlayerSkillA");
+            text.gameObject.SetActive(true);
             comboAttack.SetDamageUp();
         }
         else if(Input.GetKeyDown(KeyCode.S)) {
@@ -47,6 +50,5 @@ public class Skill : MonoBehaviour
             // 그 곳에 적에게 데미지 주는 영역 설정
             anim.Play("PlayerSkillC");
         }
-
     }
 }
