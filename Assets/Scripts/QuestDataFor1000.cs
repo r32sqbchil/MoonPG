@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestDataFor1000 : QuestData
 {
     private int huntCount;
     private int missionCount;
+    // public Text missionCountText;
+
 
     public QuestDataFor1000(int questIndex, int npcId, string questName, int questStatus) : base(questIndex, npcId, questName, questStatus)
     {
@@ -32,8 +35,7 @@ public class QuestDataFor1000 : QuestData
             }
         }
     }
-
     public override void Update(){
-        
+        // missionCountText.text = this.huntCount + "  /  " + this.missionCount;
     }
 }
