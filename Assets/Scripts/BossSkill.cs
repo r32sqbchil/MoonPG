@@ -70,16 +70,16 @@ public class BossSkill : MonoBehaviour
 
     IEnumerator LightningSkill()
     {
-        // anim.Play("BossSkillC");
-        // lightningRange.SetActive(true);
+        anim.Play("BossSkillC");
+        lightningRange.SetActive(true);
 
-        // yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3f);
 
-        // lightning.SetActive(true);
+        lightning.SetActive(true);
         lightningAnim.Play("BossSkillC_Effect");
-        // lightningRange.SetActive(false);
-        // lightning.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        lightningRange.SetActive(false);
+        yield return new WaitForSeconds(1f); // 애니메이션 실행 시간
+        lightning.SetActive(false);
     }
     IEnumerator PieceOfLightSkill()
     {

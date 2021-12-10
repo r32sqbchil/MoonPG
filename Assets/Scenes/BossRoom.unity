@@ -3458,6 +3458,32 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3262309154790523407, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
   m_PrefabInstance: {fileID: 3262309155130662893}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &769269221
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769269217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2, y: 0.2}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.19}
+  m_EdgeRadius: 0
 --- !u!1 &808702633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,6 +5138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostDelay: 0.01
+  ghostDelaySeconds: 0
   ghost: {fileID: 3284149730627341666, guid: 015c55ac1d5cf3845ac0b00d9d4c8e12, type: 3}
   makeGhost: 0
 --- !u!114 &1508259012
@@ -5148,7 +5175,6 @@ MonoBehaviour:
   gameManager: {fileID: 1917528220}
   leftAttackBox: {fileID: 1476934411}
   rightAttackBox: {fileID: 1259804396}
-  ghost: {fileID: 1508259011}
   mySfx: {fileID: 1508259021}
   walkSfx: {fileID: 8300000, guid: 5b34203234d2e9146b9972b538df9101, type: 3}
   runSfx: {fileID: 8300000, guid: 8e6027d57cc9e1e47811165a9a6456cb, type: 3}
@@ -7470,6 +7496,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3262309154790523401, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523401, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523401, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.35
       objectReference: {fileID: 0}
@@ -7512,6 +7546,38 @@ PrefabInstance:
     - target: {fileID: 3262309154790523404, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
       propertyPath: m_Name
       value: Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523404, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3262309154790523406, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e0f18561d0729468850801a68f50b4, type: 3}
