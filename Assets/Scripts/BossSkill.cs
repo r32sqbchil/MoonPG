@@ -10,6 +10,7 @@ public class BossSkill : MonoBehaviour
     public GameObject lance;
     public GameObject fakeLance;
     public GameObject lightning;
+    public GameObject[] pieceOfLight = new GameObject[6];
     public Rigidbody2D lanceRigid;
     Animator anim;
     public GameObject Boss;
@@ -17,6 +18,7 @@ public class BossSkill : MonoBehaviour
     public GameObject lightningRange;
     public SpriteRenderer lanceRangeColor;
     PlayerMove playerMove;
+    public Animator lightningAnim;
 
     void Start()
     {
@@ -26,8 +28,8 @@ public class BossSkill : MonoBehaviour
         if (Boss.activeSelf == false)
         {
             StopCoroutine(SkillBundle());
-            lightning.SetActive(false);
-            lightningRange.SetActive(false);
+            // lightning.SetActive(false);
+            // lightningRange.SetActive(false);
         }
     }
 
@@ -60,7 +62,7 @@ public class BossSkill : MonoBehaviour
         lance.SetActive(true);
         fakeLance.SetActive(false);
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
 
         lanceRange.SetActive(false);
         lance.SetActive(false);
@@ -68,22 +70,43 @@ public class BossSkill : MonoBehaviour
 
     IEnumerator LightningSkill()
     {
-        anim.Play("BossSkillC");
-        lightningRange.SetActive(true);
+        // anim.Play("BossSkillC");
+        // lightningRange.SetActive(true);
 
-        yield return new WaitForSeconds(4f);
+        // yield return new WaitForSeconds(3f);
 
-        lightning.SetActive(true);
-        lightningRange.SetActive(false);
-
+        // lightning.SetActive(true);
+        lightningAnim.Play("BossSkillC_Effect");
+        // lightningRange.SetActive(false);
+        // lightning.SetActive(false);
         yield return new WaitForSeconds(1f);
-        lightning.SetActive(false);
+    }
+    IEnumerator PieceOfLightSkill()
+    {
+        anim.Play("BossSkillA");
+
+        yield return new WaitForSeconds(3f);
+
+        for(int i=0;i<6;i++)
+        {
+            pieceOfLight[i].SetActive(true);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        for(int i=0;i<6;i++)
+        {
+            pieceOfLight[i].SetActive(false);
+        }
     }
 
     IEnumerator SkillBundle()
     {
         while (true)
         {
+            StartCoroutine(PieceOfLightSkill());
+            StopCoroutine(PieceOfLightSkill());
+            yield return new WaitForSeconds(4f);
             StartCoroutine(LanceSkill());
             StopCoroutine(LanceSkill());
             yield return new WaitForSeconds(4f);

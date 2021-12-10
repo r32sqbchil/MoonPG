@@ -32,9 +32,6 @@ public class PlayerMove : MonoBehaviour
     // private bool isdash;
     // public float defaultTime;
     // private float dashTime;
-    
-    // 고스트
-    public Ghost ghost;
 
     // 사운드
     public AudioSource mySfx;

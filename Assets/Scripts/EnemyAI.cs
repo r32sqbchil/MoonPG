@@ -94,7 +94,6 @@ public class EnemyAI : MonoBehaviour
         {
             animator.SetBool("isAttack",true);
             Invoke("SyncSetting", 0.7f);
-            animator.SetBool("isAttack",false);
             // 딜레이 주는 방법 생각해보자!
         }
 
@@ -104,6 +103,8 @@ public class EnemyAI : MonoBehaviour
             hitBox.SetActive(false);        
         }    
     }
+
+    
 
     void SyncSetting()
     {
