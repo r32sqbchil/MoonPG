@@ -119,10 +119,6 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-        }
 
         //Talk - temp       
         if(gameManager.isAction) {

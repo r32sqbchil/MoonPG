@@ -15,12 +15,13 @@ public class Player : MonoBehaviour
     public Image healthBar;
     public Text statText;
     Animator anim;
-    public CameraShake cameraShake;
+    CameraShake cameraShake;
 
 
 
     public void Awake()
     {
+        cameraShake = GameObject.FindObjectOfType<CameraShake>();
         col = GetComponent<CapsuleCollider2D>();
         hp = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();

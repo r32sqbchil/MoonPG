@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
 
     private QuestManager questManager;
     CameraShake cameraShake;
-    public Fade fade;
     public GameObject enddingUI;
 
     void Awake(){
@@ -70,9 +69,10 @@ public class Enemy : MonoBehaviour
             if(bossHP != null){
                 bossHP.SetActive(false);
                 Destroy(gameObject);
-                fade.FadeIn();
-                Invoke("SceneLoad", 1f);
+                // Invoke("SceneLoad", 1f);
                 enddingUI.gameObject.SetActive(true);
+                new WaitForSeconds(3f);
+                SceneManager.LoadScene(0);
                 // Invoke("OnEnddingUI", 1f);
             }
             else{
@@ -86,10 +86,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void SceneLoad()
-    {
-        SceneManager.LoadScene(0);
-    }
+    // void SceneLoad()
+    // {
+    //     SceneManager.LoadScene(0);
+    // }
 
     // void OnEnddingUI()
     // {
