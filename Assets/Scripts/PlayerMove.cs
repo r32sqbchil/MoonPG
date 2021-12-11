@@ -56,12 +56,6 @@ public class PlayerMove : MonoBehaviour
         if(anim.GetBool("isJumping"))
         {
             // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
-            if(Input.GetKeyDown(KeyCode.S)) {
-                // 콜라이더 offset size 수정
-                rigid.velocity = Vector2.zero;
-                //rigid.AddForce(Vector2.down*takeDownSpeed);
-                anim.Play("PlayerSkillB");
-            }
             return;
         }
 
@@ -121,6 +115,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        //Talk - temp       
         if(gameManager.isAction) {
             if (Input.GetButtonDown("Jump"))
             {
@@ -129,6 +124,17 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
+        if(anim.GetBool("isJumping"))
+        {
+            // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
+            if(Input.GetKeyDown(KeyCode.S)) {
+                // 콜라이더 offset size 수정
+                rigid.velocity = Vector2.zero;
+                //rigid.AddForce(Vector2.down*takeDownSpeed);
+                anim.Play("PlayerSkillB");
+                rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
+            }
+        }
         //Jump
         if (Input.GetButtonDown("Jump"))
         {
