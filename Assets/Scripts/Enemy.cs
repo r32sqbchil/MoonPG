@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private QuestManager questManager;
     public CameraShake cameraShake;
     public Fade fade;
+    public GameObject enddingUI;
 
     void Awake(){
         questManager = GameObject.FindObjectOfType<QuestManager>();
@@ -70,6 +71,8 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
                 fade.FadeIn();
                 Invoke("SceneLoad", 1f);
+                enddingUI.gameObject.SetActive(true);
+                // Invoke("OnEnddingUI", 1f);
             }
             else{
                 anim.SetBool("isDeath", true);
@@ -86,6 +89,11 @@ public class Enemy : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    // void OnEnddingUI()
+    // {
+    //     enddingUI.gameObject.SetActive(true);
+    // }
 
     void FixedUpdate()
     {

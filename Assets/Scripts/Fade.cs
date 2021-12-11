@@ -10,7 +10,7 @@ public class Fade : MonoBehaviour
     float time = 0f;
     float f_Time = 1f;
 
-    bool fadeCheck = false;
+    // bool fadeCheck = false;
 
     public void FadeIn()
     {
@@ -19,7 +19,7 @@ public class Fade : MonoBehaviour
 
     IEnumerator FadeFlow()
     {
-        fadeCheck = true;
+        // fadeCheck = true;
         fadeImage.gameObject.SetActive(true);
         time = 0f;
         Color alpha = fadeImage.color;
@@ -47,7 +47,7 @@ public class Fade : MonoBehaviour
         }
 
         fadeImage.gameObject.SetActive(false);
-        fadeCheck = false;
+        // fadeCheck = false;
 
         yield return null;
     }

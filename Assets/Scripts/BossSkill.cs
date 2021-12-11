@@ -25,24 +25,30 @@ public class BossSkill : MonoBehaviour
 
     void Start()
     {
-        playerMove = GameObject.FindObjectOfType<PlayerMove>();        
+        player = GameObject.FindObjectOfType<Player>();
+        playerMove = player.GetComponent<PlayerMove>();        
+        bossHP = GetComponent<BossHP>();
+        
         anim = GetComponent<Animator>();
         StartCoroutine(SkillPhase1());
-        if(bossHP.healthBar.fillAmount < 0.7)
+        if (Boss.activeSelf == false)
+        {
+            StopCoroutine(SkillPhase3());
+        }
+    }
+
+    void Update()
+    {
+        if(bossHP.healthBar.fillAmount == 0.7)
         {
             StopCoroutine(SkillPhase1());
             StartCoroutine(SkillPhase2());
         }
-        if(bossHP.healthBar.fillAmount < 0.4)
+
+        if(bossHP.healthBar.fillAmount == 0.4)
         {
             StopCoroutine(SkillPhase2());
             StartCoroutine(SkillPhase3());
-        }
-        if (Boss.activeSelf == false)
-        {
-            StopCoroutine(SkillPhase3());
-            // lightning.SetActive(false);
-            // lightningRange.SetActive(false);
         }
     }
 

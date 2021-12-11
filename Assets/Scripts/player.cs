@@ -94,15 +94,6 @@ public class Player : MonoBehaviour
     //     } 
     // }
 
-
-
-    IEnumerator PlayerCollider()
-    {
-        col.enabled = false;
-        yield return new WaitForSeconds(1f);
-        col.enabled = true;
-    }
-
     // void PlayerDie()
     // {
     //     anim.SetTrigger("Die");
