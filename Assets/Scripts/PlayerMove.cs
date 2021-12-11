@@ -128,9 +128,7 @@ public class PlayerMove : MonoBehaviour
         {
             // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
             if(Input.GetKeyDown(KeyCode.S)) {
-                // 콜라이더 offset size 수정
                 rigid.velocity = Vector2.zero;
-                //rigid.AddForce(Vector2.down*takeDownSpeed);
                 anim.Play("PlayerSkillB");
                 rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
             }
@@ -179,6 +177,11 @@ public class PlayerMove : MonoBehaviour
             } else {
                 CharacterStopMoving();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            anim.Play("PlayerSkillC");
         }
 
         if (Input.GetButton("Horizontal")) {
