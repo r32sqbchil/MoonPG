@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PortalFade : MonoBehaviour
+public class Fade : MonoBehaviour
 {
     public Image fadeImage;
 
@@ -12,7 +12,7 @@ public class PortalFade : MonoBehaviour
 
     bool fadeCheck = false;
 
-    public void Fade()
+    public void FadeIn()
     {
         StartCoroutine(FadeFlow());
     }

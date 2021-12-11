@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Image healthBar;
     public Text statText;
     Animator anim;
+    public CameraShake cameraShake;
 
 
 
@@ -45,10 +46,12 @@ public class Player : MonoBehaviour
 
         if(hp > 0 )
         {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
             hp -= enemyDamage;
         }
         else if(hp <= 0)
         {
+            StartCoroutine(cameraShake.Shake(.15f, .4f));
             Destroy(this.gameObject, 2f);
             GetComponent<PlayerMove>().enabled = false;
         }

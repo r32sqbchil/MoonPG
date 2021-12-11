@@ -5952,6 +5952,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5921783719623610354, guid: d430624ba2d13064696c0961cdb0d160, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1277427749}
+    - target: {fileID: 5921783719623610354, guid: d430624ba2d13064696c0961cdb0d160, type: 3}
       propertyPath: portalFade
       value: 
       objectReference: {fileID: 1277427749}
@@ -6218,7 +6222,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 505380761, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+    - target: {fileID: 2140904669, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279854960779452241, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -6277,10 +6285,6 @@ PrefabInstance:
     - target: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8134792687628998005, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998006, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_Name

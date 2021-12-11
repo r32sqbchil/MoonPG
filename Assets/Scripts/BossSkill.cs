@@ -11,6 +11,7 @@ public class BossSkill : MonoBehaviour
     public GameObject fakeLance;
     public GameObject lightning;
     public GameObject[] pieceOfLight = new GameObject[6];
+    public GameObject[] pieceOfLightRange = new GameObject[6];
     public Rigidbody2D lanceRigid;
     Animator anim;
     public GameObject Boss;
@@ -19,15 +20,27 @@ public class BossSkill : MonoBehaviour
     public SpriteRenderer lanceRangeColor;
     PlayerMove playerMove;
     public Animator lightningAnim;
+    private BossHP bossHP;
+    private Player player;
 
     void Start()
     {
         playerMove = GameObject.FindObjectOfType<PlayerMove>();        
         anim = GetComponent<Animator>();
-        StartCoroutine(SkillBundle());
+        StartCoroutine(SkillPhase1());
+        if(bossHP.healthBar.fillAmount < 0.7)
+        {
+            StopCoroutine(SkillPhase1());
+            StartCoroutine(SkillPhase2());
+        }
+        if(bossHP.healthBar.fillAmount < 0.4)
+        {
+            StopCoroutine(SkillPhase2());
+            StartCoroutine(SkillPhase3());
+        }
         if (Boss.activeSelf == false)
         {
-            StopCoroutine(SkillBundle());
+            StopCoroutine(SkillPhase3());
             // lightning.SetActive(false);
             // lightningRange.SetActive(false);
         }
@@ -85,11 +98,21 @@ public class BossSkill : MonoBehaviour
     {
         anim.Play("BossSkillA");
 
+        for(int i=0;i<6;i++)
+        {
+            pieceOfLightRange[i].SetActive(true);
+        }
+
         yield return new WaitForSeconds(3f);
 
         for(int i=0;i<6;i++)
         {
             pieceOfLight[i].SetActive(true);
+        }
+        
+        for(int i=0;i<6;i++)
+        {
+            pieceOfLightRange[i].SetActive(false);
         }
 
         yield return new WaitForSeconds(2f);
@@ -100,10 +123,38 @@ public class BossSkill : MonoBehaviour
         }
     }
 
-    IEnumerator SkillBundle()
+    IEnumerator SkillPhase1()
     {
         while (true)
         {
+            StartCoroutine(PieceOfLightSkill());
+            StopCoroutine(PieceOfLightSkill());
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(LightningSkill());
+            StopCoroutine(LightningSkill());
+            yield return new WaitForSeconds(6f);
+        }
+    }
+    IEnumerator SkillPhase2()
+    {
+        while (true)
+        {
+            StartCoroutine(PieceOfLightSkill());
+            StopCoroutine(PieceOfLightSkill());
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(LanceSkill());
+            StopCoroutine(LanceSkill());
+            yield return new WaitForSeconds(6f);
+            StartCoroutine(LightningSkill());
+            StopCoroutine(LightningSkill());
+            yield return new WaitForSeconds(6f);
+        }
+    }
+    IEnumerator SkillPhase3()
+    {
+        while (true)
+        {
+            player.enemyDamage *= 2;
             StartCoroutine(PieceOfLightSkill());
             StopCoroutine(PieceOfLightSkill());
             yield return new WaitForSeconds(4f);
