@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -54,8 +55,9 @@ public class Player : MonoBehaviour
         else if(hp <= 0)
         {
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-            Destroy(this.gameObject, 2f);
-            GetComponent<PlayerMove>().enabled = false;
+            SceneManager.LoadScene(0);
+            // Destroy(this.gameObject, 2f);
+            // GetComponent<PlayerMove>().enabled = false;
         }
         spriteRenderer.material.color = Color.red;
         Invoke("OnDamageEnd",1.5f);
