@@ -67,13 +67,11 @@ public class Enemy : MonoBehaviour
         if(enemystat.health <= 0)
         {
             if(bossHP != null){
-                bossHP.SetActive(false);
-                Destroy(gameObject);
-                // Invoke("SceneLoad", 1f);
                 enddingUI.gameObject.SetActive(true);
-                new WaitForSeconds(3f);
-                SceneManager.LoadScene(0);
-                // Invoke("OnEnddingUI", 1f);
+                // bossHP.SetActive(false);
+                // Destroy(gameObject);
+                Invoke("SceneLoad", 5f);
+                // SceneManager.LoadScene(0);
             }
             else{
                 anim.SetBool("isDeath", true);
@@ -86,15 +84,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // void SceneLoad()
-    // {
-    //     SceneManager.LoadScene(0);
-    // }
+    void SceneLoad()
+    {
+        SceneManager.LoadScene(0);
+    }
 
-    // void OnEnddingUI()
-    // {
-    //     enddingUI.gameObject.SetActive(true);
-    // }
+    void OnEnddingUI()
+    {
+        enddingUI.gameObject.SetActive(true);
+    }
 
     void FixedUpdate()
     {
