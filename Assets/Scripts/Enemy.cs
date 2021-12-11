@@ -19,12 +19,13 @@ public class Enemy : MonoBehaviour
     Animator anim;
 
     private QuestManager questManager;
-    public CameraShake cameraShake;
+    CameraShake cameraShake;
     public Fade fade;
     public GameObject enddingUI;
 
     void Awake(){
         questManager = GameObject.FindObjectOfType<QuestManager>();
+        cameraShake = GameObject.FindObjectOfType<CameraShake>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyAI enemyAI = GameObject.FindObjectOfType<EnemyAI>();
 
-        // StartCoroutine(cameraShake.Shake(.15f, .4f));
+        StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
         //체력이 damage만큼 까지게 합니다.
         enemystat.health -= damage;
 

@@ -40,6 +40,8 @@ public class PlayerMove : MonoBehaviour
     public AudioClip jumpSfx;
     public AudioClip dashSfx;
 
+    CameraShake cameraShake;
+
 
     void Awake()
     {
@@ -48,6 +50,8 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         comboAttack = GetComponent<ComboAttack>();
+
+        cameraShake = GameObject.FindObjectOfType<CameraShake>();
         // defaultSpeed = speed;
     }
 
@@ -115,6 +119,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
+        }
+
         //Talk - temp       
         if(gameManager.isAction) {
             if (Input.GetButtonDown("Jump"))

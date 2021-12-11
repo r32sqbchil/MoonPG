@@ -46,12 +46,13 @@ public class Player : MonoBehaviour
 
         if(hp > 0 )
         {
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            // Enemy가 공격할 때
+            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
             hp -= enemyDamage;
         }
         else if(hp <= 0)
         {
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
             Destroy(this.gameObject, 2f);
             GetComponent<PlayerMove>().enabled = false;
         }
