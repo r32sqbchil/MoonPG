@@ -22,6 +22,9 @@ public class BossSkill : MonoBehaviour
     public Animator lightningAnim;
     private BossHP bossHP;
     private Player player;
+    bool phaseCheck7 = false;
+    bool phaseCheck4 = false;
+
 
     void Start()
     {
@@ -39,14 +42,28 @@ public class BossSkill : MonoBehaviour
 
     void Update()
     {
-        if(bossHP.healthBar.fillAmount == 0.7)
+        if(bossHP.healthBar.fillAmount < 0.7 && !phaseCheck7)
         {
+            phaseCheck7 = true;
+            for(int i=0;i<6;i++)
+            {
+                pieceOfLightRange[i].SetActive(false);
+            }
+            lightningRange.SetActive(false);
             StopCoroutine(SkillPhase1());
             StartCoroutine(SkillPhase2());
         }
 
-        if(bossHP.healthBar.fillAmount == 0.4)
+        if(bossHP.healthBar.fillAmount < 0.4 && !phaseCheck4)
         {
+            phaseCheck4 = true;
+
+            for(int i=0;i<6;i++)
+            {
+                pieceOfLightRange[i].SetActive(false);
+            }
+            lightningRange.SetActive(false);
+            
             StopCoroutine(SkillPhase2());
             StartCoroutine(SkillPhase3());
         }
