@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
+    private string sceneName;
 
     public void Action(GameObject scanObject)
     {
@@ -78,7 +80,7 @@ public class GameManager : MonoBehaviour
         this.talkIndex = 0; // 대화가 시작됨을 표기
 
         int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
+        string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
 
         if(talk == null) {
             //Debug.Log("Not found talk with object-id[="+objectId+"] and quest-id[="+questId+"]");
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
         this.talkIndex++;
 
         int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
+        string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
 
         QuestCheck(objectId, questId, talkIndex);
 
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
 
     void Start () 
     {
+        sceneName = SceneManager.GetActiveScene().name;
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
         if(spawnPoint != null)
         {
