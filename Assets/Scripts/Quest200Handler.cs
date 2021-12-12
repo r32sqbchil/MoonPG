@@ -16,8 +16,13 @@ public class Quest200Handler:QuestHandler{
                 context[KEY_OF_HUNTING_COUNT] = 0;
                 context[KEY_OF_MISSION_COUNT] = 3;
 
-                GameObject portal = GameObject.Find("Portal");
-                portal.SetActive(true);
+                GameObject portal = GetPortalObject();
+                if(portal != null) {
+                    portal.SetActive(true);
+                } else {
+                    Debug.LogWarning("not found portal object");
+                }
+
                 SetQuestStep(context, 10);
 
                 QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
@@ -40,5 +45,14 @@ public class Quest200Handler:QuestHandler{
                 questManager.RemoveUpdateHandler(this);
             }
         }
+    }
+
+    GameObject GetPortalObject(){
+        foreach(GameObject go in GameObject.FindObjectsOfType<GameObject>(true)){
+            if(go.name == "Portal"){
+                return go;
+            }
+        }
+        return null;
     }
 }
