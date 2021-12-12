@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
         {
             talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
             this.isAction = true;
+        } else {
+            Debug.Log("No talks found");
         }
     }
 
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     void TalkSetText(string talk)
     {
-        string[] talkers = "슈라켄,스승".Split(',');
+        string[] talkers = "슈라켄,어린마하,아줌마,스승".Split(',');
 
         string[] talkPart = talk.Split(':'); //구분자로 문장을 나눠줌  0: 대사 1:portraitIndex
         string talkContent = talkPart[0];
