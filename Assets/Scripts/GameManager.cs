@@ -126,13 +126,17 @@ public class GameManager : MonoBehaviour
 
     void Start () 
     {
-        //Hierarchy View의 Spawn Point를 찾아 하위에 있는 모든 Transform 컴포넌트를 찾아옴
-        points = GameObject.Find("SpawnPoint").GetComponentsInChildren<Transform>();
- 
-        if(points.Length > 0)
+        GameObject spawnPoint = GameObject.Find("SpawnPoint");
+        if(spawnPoint != null)
         {
-            //몬스터 생성 코루틴 함수 호출
-            StartCoroutine(this.CreateMonster());
+            //Hierarchy View의 Spawn Point를 찾아 하위에 있는 모든 Transform 컴포넌트를 찾아옴
+            points = spawnPoint.GetComponentsInChildren<Transform>();
+    
+            if(points.Length > 0)
+            {
+                //몬스터 생성 코루틴 함수 호출
+                StartCoroutine(this.CreateMonster());
+            }
         }
     }
 
