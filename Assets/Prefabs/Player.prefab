@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1073433919
 RectTransform:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2140904670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -739,8 +739,6 @@ MonoBehaviour:
   maxHealth: 200
   isHit: 0
   enemyDamage: 10
-  healthBar: {fileID: 0}
-  statText: {fileID: 0}
 --- !u!114 &8134792687628998001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,7 +755,6 @@ MonoBehaviour:
   jumpPower: 1.8
   runspeed: 0
   detect_range: 0.5
-  gameManager: {fileID: 0}
   leftAttackBox: {fileID: 8134792687151247621}
   rightAttackBox: {fileID: 8134792686483265716}
   mySfx: {fileID: 1593159212}
