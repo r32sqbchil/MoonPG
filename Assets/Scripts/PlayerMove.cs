@@ -27,6 +27,9 @@ public class PlayerMove : MonoBehaviour
     private GameManager gameManager;
     private ComboAttack comboAttack;
 
+    bool isDash = false;
+    float dashSpeed = 10f;
+
     // public float dashSpeed;
     // public float speed;
     // private float defaultSpeed;
@@ -186,6 +189,15 @@ public class PlayerMove : MonoBehaviour
                 CharacterStopMoving();
             }
         }
+        // Dash
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
+        {
+            isDash = true;
+            rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+            anim.Play("PlayerDash");
+            DashSound();
+            Invoke("ForDelay", 0.2f);
+        }
 
         if(Input.GetKeyDown(KeyCode.D))
         {
@@ -250,9 +262,9 @@ public class PlayerMove : MonoBehaviour
         }
 
         // MaxSpeed Limit
-        if (rigid.velocity.x > maxSpeed + runspeed)// right
+        if (rigid.velocity.x > maxSpeed + runspeed && !isDash)// right
             rigid.velocity = new Vector2(maxSpeed + runspeed, rigid.velocity.y);
-        else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1)) // Left Maxspeed
+        else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) && !isDash) // Left Maxspeed
             rigid.velocity = new Vector2((maxSpeed + runspeed) * (-1), rigid.velocity.y);
         
 
@@ -260,14 +272,14 @@ public class PlayerMove : MonoBehaviour
         // rigid.velocity = new Vector2(hor * defaultSpeed , rigid.velocity.y);
 
 
-        // // Dash
-        // if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     isdash = true;
-        //     //rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
-        //     anim.Play("PlayerDash");
-        //     DashSound();
-        // }
+
+        if(isDash) //대쉬 속도제한
+        {
+            if (rigid.velocity.x > maxSpeed + runspeed + dashSpeed)// right
+            rigid.velocity = new Vector2(maxSpeed + runspeed + dashSpeed, rigid.velocity.y);
+            else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) + dashSpeed)
+            rigid.velocity = new Vector2((maxSpeed + runspeed + dashSpeed) * (-1), rigid.velocity.y);
+        }
 
         // if(dashTime <= 0)
         // {
@@ -284,6 +296,12 @@ public class PlayerMove : MonoBehaviour
 
 
     }
+
+    void ForDelay()
+    {
+        isDash = false;
+    }
+
     public void WalkSound()
     {
         mySfx.PlayOneShot (walkSfx);
