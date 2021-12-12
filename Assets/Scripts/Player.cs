@@ -88,21 +88,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // void OnCollisionEnter2D(Collision2D coll)
-    // {
-    //     if(coll.gameObject.tag == "BossAttack")
-    //     {
-    //         GameObject bossObject = GameObject.FindGameObjectWithTag("Boss");
-    //         if(bossObject != null){
-    //             BossSkill bossSkill = bossObject.GetComponent<BossSkill>();
-
-    //             if(bossSkill.lanceRigid.velocity.y < 0){
-    //                 OnDamage(bossObject);
-    //             }
-    //         }
-    //     } 
-    // }
-
     // void PlayerDie()
     // {
     //     anim.SetTrigger("Die");

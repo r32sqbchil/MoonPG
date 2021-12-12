@@ -189,15 +189,6 @@ public class PlayerMove : MonoBehaviour
                 CharacterStopMoving();
             }
         }
-        // Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
-        {
-            isDash = true;
-            rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
-            anim.Play("PlayerDash");
-            DashSound();
-            Invoke("ForDelay", 0.2f);
-        }
 
         if(Input.GetKeyDown(KeyCode.D))
         {
@@ -209,6 +200,15 @@ public class PlayerMove : MonoBehaviour
                 rigid.AddForce(Vector2.right*currentDirection, ForceMode2D.Impulse);
                 spriteRenderer.flipX = (currentDirection<0);
             }
+            // 원래 없었다가 추가한 대쉬
+                if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
+                {
+                    isDash = true;
+                    rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+                    anim.Play("PlayerDash");
+                    DashSound();
+                    Invoke("ForDelay", 0.2f);
+                }
             return;
         }
     }
@@ -280,21 +280,6 @@ public class PlayerMove : MonoBehaviour
             else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) + dashSpeed)
             rigid.velocity = new Vector2((maxSpeed + runspeed + dashSpeed) * (-1), rigid.velocity.y);
         }
-
-        // if(dashTime <= 0)
-        // {
-        //     defaultSpeed = speed;
-        //     if (isdash)
-        //     dashTime = defaultTime;
-        // }
-        // else
-        // {
-        //     dashTime -= Time.deltaTime;
-        //     defaultSpeed = dashSpeed;
-        // }
-        // isdash = false;
-
-
     }
 
     void ForDelay()
