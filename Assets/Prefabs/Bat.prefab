@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2233330201526654280}
   - component: {fileID: 7947703559826600942}
   m_Layer: 0
-  m_Name: Bat_Attack_0
+  m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

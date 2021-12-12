@@ -5001,7 +5001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lanceTrans: {fileID: 542159478}
   fakeLanceTrans: {fileID: 1586014589}
-  playerTrans: {fileID: 0}
+  playerTrans: {fileID: 1988057522}
   lanceRangeTrans: {fileID: 737775536}
   lance: {fileID: 542159474}
   fakeLance: {fileID: 1586014587}
@@ -7280,6 +7280,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973487224}
   m_CullTransparentMesh: 1
+--- !u!4 &1988057522 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+  m_PrefabInstance: {fileID: 1276021630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993344522
 GameObject:
   m_ObjectHideFlags: 0
