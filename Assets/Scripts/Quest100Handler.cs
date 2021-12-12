@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Quest100Handler:QuestHandler{
-    public override void OnAction(string actionName, object context) {
-        Debug.Log("OnAction: " + context);
+    public override void OnAction(string actionName, Dictionary<string, object> context) {
         if(actionName == "EndOfTalk"){
-            SceneManager.LoadScene("townstage1");
+            string sceneName = (string)context["sceneName"];
+            if(sceneName == "townstage"){
+                SceneManager.LoadScene("townstage1");
+            }
         }
     }
 }
