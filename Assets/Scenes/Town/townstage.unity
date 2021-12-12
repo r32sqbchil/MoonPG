@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 62634159}
   - component: {fileID: 62634158}
   - component: {fileID: 62634163}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Maha
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415d5c7b4ab5242448be65cda6e8eaf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2000
+  id: 200
 --- !u!1 &67949656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6649,7 +6649,7 @@ GameObject:
   - component: {fileID: 944931371}
   - component: {fileID: 944931370}
   - component: {fileID: 944931369}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Madam
   m_TagString: NPC
   m_Icon: {fileID: 0}
@@ -6668,7 +6668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415d5c7b4ab5242448be65cda6e8eaf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2000
+  id: 100
 --- !u!50 &944931370
 Rigidbody2D:
   serializedVersion: 4
