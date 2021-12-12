@@ -10,8 +10,8 @@ public class GameStartup : MonoBehaviour
     }
 
     void BeginThisGame() {
-        GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
-        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
-        gameManager.Action(playerGameObject);
+        GameManager gameManager = GetComponent<GameManager>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        gameManager.Action(player);
     }
 }
