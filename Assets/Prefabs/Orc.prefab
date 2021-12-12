@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 210593869968203578}
   - component: {fileID: 114990738053285610}
   m_Layer: 0
-  m_Name: berserker
+  m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
