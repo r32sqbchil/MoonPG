@@ -1172,9 +1172,9 @@ GameObject:
   - component: {fileID: 115280910}
   - component: {fileID: 115280909}
   - component: {fileID: 115280908}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3508,9 +3508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc127fe3791dd09409a71f6e41636fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questActionIndex: 0
-  questid: 10
-  Goblin: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
 --- !u!4 &397736333
 Transform:
   m_ObjectHideFlags: 0
@@ -6955,9 +6952,9 @@ GameObject:
   - component: {fileID: 916157055}
   - component: {fileID: 916157054}
   - component: {fileID: 916157053}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9821,9 +9818,9 @@ GameObject:
   - component: {fileID: 1094128548}
   - component: {fileID: 1094128547}
   - component: {fileID: 1094128546}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles3
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14121,12 +14118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c3130aa2070b4bbcf3ae621ee3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
+  hp: 0
   maxHealth: 200
   isHit: 0
-  GoblinDamage: 10
-  healthBar: {fileID: 1027634533}
-  statText: {fileID: 983606760}
+  enemyDamage: 0
 --- !u!114 &1313759479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14143,11 +14138,13 @@ MonoBehaviour:
   jumpPower: 1.8
   runspeed: 0
   detect_range: 0.5
-  gameManager: {fileID: 2128939897}
   leftAttackBox: {fileID: 1791247491}
   rightAttackBox: {fileID: 312208690}
-  playerCombat: {fileID: 1313759481}
-  dashSpeed: 5
+  mySfx: {fileID: 0}
+  walkSfx: {fileID: 0}
+  runSfx: {fileID: 0}
+  jumpSfx: {fileID: 0}
+  dashSfx: {fileID: 0}
 --- !u!114 &1313759480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14160,10 +14157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023973e1139ff6418bb0f7e77540a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnim: {fileID: 1313759473}
-  comboCheck: 0
-  comboStep: 0
-  player: {fileID: 0}
+  attackPoint: {fileID: 0}
+  boxSize: {x: 0, y: 0}
+  damage: 0
 --- !u!114 &1313759481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16431,9 +16427,9 @@ GameObject:
   - component: {fileID: 1702918271}
   - component: {fileID: 1702918270}
   - component: {fileID: 1702918269}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles2
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18462,9 +18458,9 @@ GameObject:
   - component: {fileID: 1873860423}
   - component: {fileID: 1873860422}
   - component: {fileID: 1873860424}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles1
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21957,7 +21953,6 @@ MonoBehaviour:
   talkText: {fileID: 21563061}
   scanObject: {fileID: 1297280705}
   isAction: 0
-  portraitImg: {fileID: 0}
   talkManager: {fileID: 396717935}
   talkIndex: 0
   scanObjectName: 
