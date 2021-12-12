@@ -88,10 +88,14 @@ public class GameManager : MonoBehaviour
 
     bool TalkStart(int objectId)
     {
-        this.talkIndex = 0; // 대화가 시작됨을 표기
+        // 대화가 시작됨 => talkIndex=0
+        Dictionary<string, object> questContext = questManager.GetQuestContext(sceneName, objectId, talkIndex=0);
+        QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
+        int questStep = questHandler.GetQuestStep(questContext);
+        string talk = talkManager.GetTalk(sceneName, objectId + questStep, this.talkIndex);
 
-        int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
+        //int questId = questManager.GetQuestTalkIndex(objectId);
+        //string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
 
         if(talk == null) {
             //Debug.Log("Not found talk with object-id[="+objectId+"] and quest-id[="+questId+"]");
@@ -104,17 +108,17 @@ public class GameManager : MonoBehaviour
 
     bool TalkWith(int objectId)
     {
-        this.talkIndex++;
+        Dictionary<string, object> questContext = questManager.GetQuestContext(sceneName, objectId, ++talkIndex);
+        QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
+        int questStep = questHandler.GetQuestStep(questContext);
+        string talk = talkManager.GetTalk(sceneName, objectId + questStep, this.talkIndex);
 
-        int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
-
-        QuestCheck(objectId, questId, talkIndex);
+        //int questId = questManager.GetQuestTalkIndex(objectId);
+        //string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
+        //QuestCheck(objectId, questId, talkIndex);
 
         if(talk == null) {
-            object questContext = questManager.GetQuestContext(sceneName, objectId, talkIndex);
-            QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
-            questHandler.OnAction("EndOfTalk", questContext);
+            questHandler.OnAction(QuestHandler.EVENT_END_OF_TALK, questContext);
             return false;
         }
 
