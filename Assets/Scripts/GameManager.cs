@@ -19,14 +19,11 @@ public class GameManager : MonoBehaviour
     public Text talkText;
     public GameObject scanObject;
     public bool isAction;
-
-    public TalkManager talkManager;
+    
     public int talkIndex;
 
     public string scanObjectName; 
     public Text UINameText;
-
-    public QuestManager questManager;
 
     public bool isGameOver = false;
 
@@ -34,6 +31,8 @@ public class GameManager : MonoBehaviour
     public float limitMoveXMax = 17.0f;
 
     private string sceneName;
+    private QuestManager questManager;
+    private TalkManager talkManager;
 
     public void Action(GameObject scanObject)
     {
@@ -57,31 +56,34 @@ public class GameManager : MonoBehaviour
 
     public void Action()
     {
+        // isAction 이 true 이고, 스페이스바 이벤트이면..
+        // 이 Action method 가 호출됨
         ObjData objData = scanObject.GetComponent<ObjData>();
         if(!TalkWith(objData.id)){
             talkUI.SetActive(isAction = false);
+            //이벤트 호출!!!
         }
     }
 
     void TalkSetText(string talk)
     {
-        string[] talkers = "슈라켄,어린마하,아줌마,스승".Split(',');
-
         string[] talkPart = talk.Split(':'); //구분자로 문장을 나눠줌  0: 대사 1:portraitIndex
         string talkContent = talkPart[0];
+
         int talker = 0;
         if(talkPart.Length > 1) {
             talker = int.Parse(talkPart[1].Trim());
         }
+        string talkerName = talkManager.GetTalker(talker);
 
-        if(talker<0 || talker >= talkers.Length) {
+        if(talkerName == null) {
             Debug.Log("Invalid talker");
             return;
         }
 
         //대사 출력
         talkText.text = talkContent;
-        UINameText.text = talkers[talker];
+        UINameText.text = talkerName;
     }
 
     bool TalkStart(int objectId)
@@ -110,7 +112,9 @@ public class GameManager : MonoBehaviour
         QuestCheck(objectId, questId, talkIndex);
 
         if(talk == null) {
-            //Debug.Log("There is not text for talk");
+            object questContext = questManager.GetQuestContext(sceneName, objectId, talkIndex);
+            QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
+            questHandler.OnAction("EndOfTalk", questContext);
             return false;
         }
 
@@ -138,6 +142,9 @@ public class GameManager : MonoBehaviour
     void Start () 
     {
         sceneName = SceneManager.GetActiveScene().name;
+        questManager = GameObject.FindObjectOfType<QuestManager>();
+        talkManager = GameObject.FindObjectOfType<TalkManager>();
+
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
         if(spawnPoint != null)
         {

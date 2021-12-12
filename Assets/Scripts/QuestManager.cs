@@ -69,4 +69,30 @@ public class QuestManager : MonoBehaviour
             }
         }
     }
+
+    //================================================================
+
+    private Dictionary<string, QuestHandler> questHandlerMap;
+    private static QuestHandler NOP = new QuestHandler();
+
+    public object GetQuestContext(string sceneName, int objectId, int talkIndex){
+        return new {sceneName, objectId, talkIndex};
+    }
+
+    public QuestHandler GetQuestHandler(string sceneName, int objectId){
+        string keyName = sceneName + "$" + objectId;
+
+        if(questHandlerMap.ContainsKey(keyName)){
+            return questHandlerMap[keyName];
+        } else {
+            Debug.Log("Handler Not Found: " + keyName);
+            return NOP;
+        }
+    }
+
+    void Start() {
+        questHandlerMap = new Dictionary<string, QuestHandler>();
+        questHandlerMap.Add("townstage$100", new Quest100Handler());
+    }
+
 }
