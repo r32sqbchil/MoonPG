@@ -48,14 +48,15 @@ public class TalkManager : MonoBehaviour
             Dictionary<int, string[]> talks = talkOfScene[sceneName];
             if(talks.ContainsKey(id)){
                 if (talkIndex >= 0 && talkIndex < talks[id].Length) {
-                    return talks[id][talkIndex];
+                    return talks[id][talkIndex]; //해당 아이디의 해당하는 대사를 반환한다
                 }
             }
         }
 
         return null;
+    }
 
-        if(false){
+    public string GetTalk(int id, int talkIndex){
             if(talkData.ContainsKey(id))
             {
                 if (talkIndex >= 0 && talkIndex < talkData[id].Length) 
@@ -72,7 +73,5 @@ public class TalkManager : MonoBehaviour
                 //Debug.Log("There is no talk-data for key[=" + id + "]");
             }
             return null;
-        }
-        
     }
 }
