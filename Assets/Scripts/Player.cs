@@ -13,12 +13,13 @@ public class Player : MonoBehaviour
     public int enemyDamage;
 
     CapsuleCollider2D col;
-    public Image healthBar;
-    public Text statText;
+    
+    
     Animator anim;
     CameraShake cameraShake;
 
-
+    private Image healthBar;
+    private Text statText;
 
     public void Awake()
     {
@@ -26,6 +27,10 @@ public class Player : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         hp = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        GameObject playerHP = GameObject.FindGameObjectWithTag("PlayerHP");
+        healthBar = playerHP.GetComponent<Image>();
+        statText = playerHP.GetComponentInChildren<Text>();
     }
 
 
