@@ -6,15 +6,25 @@ public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
 
-    private Dictionary<string, Dictionary<int, string[]>> talkOfScene;
-    
+    private Dictionary<string, Dictionary<int, string[]>> talksOfScene;
+    private Dictionary<int, string> talkers;
+
     void Awake()
     {
         talkData = new Dictionary<int, string[]>();
         GenerateData();
 
-        talkOfScene = new Dictionary<string, Dictionary<int, string[]>>();
-        talkOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
+        talkers = GenerateTalkers(new Dictionary<int, string>());
+        talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
+        talksOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
+    }
+
+    private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
+        string[] array = "슈라켄,어린마하,아줌마,스승".Split(',');
+        for(int i=0; i<array.Length; i++){
+            talkers.Add(i, array[i]);
+        }
+        return talkers;
     }
 
     private Dictionary<int, string[]> GenerateTalksInTownstage(Dictionary<int, string[]> talks){
@@ -40,10 +50,19 @@ public class TalkManager : MonoBehaviour
         //talkData.Add(200,new string[]{"평범한 문이다. \n들어갈 수 있을 것 같다."});
     }
 
+    public string GetTalker(int index){
+        if(talkers.ContainsKey(index)) {
+            return talkers[index];
+        } else {
+            Debug.Log("Invalid talker");
+            return null;
+        }
+    }
+
     public string GetTalk(string sceneName, int id, int talkIndex) //Object의 id , string배열의 index
     {
-        if(talkOfScene.ContainsKey(sceneName)){
-            Dictionary<int, string[]> talks = talkOfScene[sceneName];
+        if(talksOfScene.ContainsKey(sceneName)){
+            Dictionary<int, string[]> talks = talksOfScene[sceneName];
             if(talks.ContainsKey(id)){
                 if (talkIndex >= 0 && talkIndex < talks[id].Length) {
                     return talks[id][talkIndex]; //해당 아이디의 해당하는 대사를 반환한다
