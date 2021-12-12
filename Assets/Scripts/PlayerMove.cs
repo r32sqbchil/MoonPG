@@ -46,6 +46,10 @@ public class PlayerMove : MonoBehaviour
 
     CameraShake cameraShake;
 
+    // 이거 private로 선언하는 법
+    public GameObject playerUltimate;
+    public Transform playerUltimateTrans;
+
 
     void Awake()
     {
@@ -192,7 +196,10 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.D))
         {
+            playerUltimateTrans.position = new Vector2(transform.position.x + currentDirection, playerUltimateTrans.position.y);
+            playerUltimate.SetActive(true);
             anim.Play("PlayerSkillC");
+            Invoke("EndUltimate", 5f); 
         }
 
         if (Input.GetButton("Horizontal")) {
@@ -211,6 +218,11 @@ public class PlayerMove : MonoBehaviour
                 }
             return;
         }
+    }
+
+    void EndUltimate()
+    {
+        playerUltimate.SetActive(false);
     }
 
     void FixedUpdate()
