@@ -13,8 +13,8 @@ public class Quest200Handler:QuestHandler{
         if(actionName == EVENT_END_OF_TALK){
             int step = GetQuestStep(context);
             if(step == 0) {
-                context.Add(KEY_OF_HUNTING_COUNT, 0);
-                context.Add(KEY_OF_MISSION_COUNT, 3);
+                context[KEY_OF_HUNTING_COUNT] = 0;
+                context[KEY_OF_MISSION_COUNT] = 3;
 
                 GameObject portal = GameObject.Find("Portal");
                 portal.SetActive(true);

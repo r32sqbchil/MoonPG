@@ -59,7 +59,7 @@ public class QuestManager : MonoBehaviour
 
         foreach(KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers){
             Dictionary<string, object> context = new Dictionary<string, object>(observer.Value);
-            context.Add(QuestHandler.KEY_OF_EVENT_DATA, eventData);
+            context[QuestHandler.KEY_OF_EVENT_DATA] = eventData;
             observer.Key.OnAction(QuestHandler.EVENT_NOTIFY, context);
         }
     }
@@ -94,13 +94,13 @@ public class QuestManager : MonoBehaviour
 
         if(!questContextMap.ContainsKey(keyName)){
             Dictionary<string, object> _context = new Dictionary<string, object>();
-            _context.Add("sceneName", sceneName);
-            _context.Add("objectId", objectId);
+            _context[QuestHandler.KEY_OF_SCENE_NAME] = sceneName;
+            _context[QuestHandler.KEY_OF_OBJECT_ID] = objectId;
             questContextMap.Add(keyName, _context);
         }
 
         Dictionary<string, object> context = questContextMap[keyName];
-        context.Add("talkIndex", talkIndex);
+        context[QuestHandler.KEY_OF_TALK_INDEX] = talkIndex;
         return context;
     }
 
@@ -116,7 +116,7 @@ public class QuestManager : MonoBehaviour
     }
 
     public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context){
-        updateObservers.Add(handler, context);
+        updateObservers[handler] = context;
     }
 
     public void RemoveUpdateHandler(QuestHandler handler){
