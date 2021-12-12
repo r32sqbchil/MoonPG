@@ -7,6 +7,9 @@ public class QuestHandler
     public const string EVENT_END_OF_TALK = "EndOfTalk";
     public const string EVENT_UPDATE = "Update";
     public const string EVENT_NOTIFY = "Notify";
+    public const string KEY_OF_SCENE_NAME = "sceneName";
+    public const string KEY_OF_OBJECT_ID = "objectId";
+    public const string KEY_OF_TALK_INDEX = "talkIndex";
     public const string KEY_OF_STEP = "step";
     public const string KEY_OF_EVENT_DATA = "eventData";
 
@@ -24,6 +27,6 @@ public class QuestHandler
     }
 
     public virtual void SetQuestStep(Dictionary<string, object> context, int step){
-        context.Add(KEY_OF_STEP, step);
+        context[KEY_OF_STEP] = step;
     }
 }
