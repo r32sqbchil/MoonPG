@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1073433919
 RectTransform:
   m_ObjectHideFlags: 0
@@ -741,7 +741,6 @@ MonoBehaviour:
   enemyDamage: 10
   healthBar: {fileID: 0}
   statText: {fileID: 0}
-  cameraShake: {fileID: 0}
 --- !u!114 &8134792687628998001
 MonoBehaviour:
   m_ObjectHideFlags: 0
