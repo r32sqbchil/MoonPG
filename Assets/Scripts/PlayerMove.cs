@@ -228,10 +228,10 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Start X Position Check
-        if(transform.position.x < -3.04f) {
-            transform.Translate(new Vector2(transform.position.x +3.04f, 0));
-        } else if(transform.position.x > 17f) {
-            transform.Translate(new Vector2(transform.position.x -17f, 0));
+        if(transform.position.x < gameManager.limitMoveXMin) {
+            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMin, 0));
+        } else if(transform.position.x > gameManager.limitMoveXMax) {
+            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMax, 0));
         }
 
         // Lending Platform

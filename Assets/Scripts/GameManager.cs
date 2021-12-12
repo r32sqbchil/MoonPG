@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
+    public float limitMoveXMin = -3.07f;
+    public float limitMoveXMax = 17.0f;
+
     private string sceneName;
 
     public void Action(GameObject scanObject)
@@ -39,6 +42,10 @@ public class GameManager : MonoBehaviour
 
         ObjData objData = scanObject.GetComponent<ObjData>();
         
+        if(objData == null) {
+            Debug.LogError("A game-object["+scanObjectName+"] MUST have ObjData component.");
+        }
+
         if(TalkStart(objData.id))
         {
             talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
