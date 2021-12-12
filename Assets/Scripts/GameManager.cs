@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Transform[] points;
-    public GameObject monsterPrefab;
+    public GameObject[] monsterPrefab;
 
     public float createTime;
     public int maxMonster = 1;
@@ -197,7 +197,8 @@ public class GameManager : MonoBehaviour
                 //불규칙적인 위치 산출
                 int idx = Random.Range(1, points.Length);
                 //몬스터의 동적 생성
-                Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
+                int monsterIndex = Random.Range(0,monsterPrefab.Length);
+                Instantiate(monsterPrefab[monsterIndex], points[idx].position, points[idx].rotation);
             }else
             {
                 yield return null;

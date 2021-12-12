@@ -2802,6 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 0}
+  sceneNumber: 0
 --- !u!50 &612597208
 Rigidbody2D:
   serializedVersion: 4
@@ -6271,6 +6272,8 @@ MonoBehaviour:
   runSfx: {fileID: 0}
   jumpSfx: {fileID: 0}
   dashSfx: {fileID: 0}
+  playerUltimate: {fileID: 0}
+  playerUltimateTrans: {fileID: 0}
 --- !u!114 &1313759480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,9 +6301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22f3f3d5ddf0584292ef44cb3b350e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 312208691}
-  boxSize: {x: 0.2, y: 0.5}
-  damage: 1
 --- !u!1 &1344655783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10219,21 +10219,26 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  monsterPrefab: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  monsterPrefab:
+  - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
+  - {fileID: 2605058059869059801, guid: 6c51a8781096d79419c4ca52f4e52617, type: 3}
+  - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  - {fileID: 5223886582592970035, guid: de77708bf05001f43a76b18a3688a937, type: 3}
+  - {fileID: 3993539503951920827, guid: 097ed26b5a84b3042951ae31140489a2, type: 3}
   createTime: 2
-  maxMonster: 10
+  maxMonster: 7
   subSettings: {fileID: 88758626}
   Inspector: {fileID: 741829222}
   talkUI: {fileID: 1491736496}
   talkText: {fileID: 21563061}
   scanObject: {fileID: 1297280705}
   isAction: 0
-  talkManager: {fileID: 396717935}
   talkIndex: 0
   scanObjectName: 
   UINameText: {fileID: 1770241427}
-  questManager: {fileID: 397736332}
   isGameOver: 0
+  limitMoveXMin: -3.07
+  limitMoveXMax: 25
 --- !u!4 &2128939898
 Transform:
   m_ObjectHideFlags: 0
