@@ -19,11 +19,12 @@ public class PlayerMove : MonoBehaviour
 
     GameObject scanObject;
     public float detect_range = 1.5f;
-    public GameManager gameManager;
+    
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
 
+    private GameManager gameManager;
     private ComboAttack comboAttack;
 
     // public float dashSpeed;
@@ -45,6 +46,8 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
