@@ -19,8 +19,8 @@ public class TalkManager : MonoBehaviour
 
     private Dictionary<int, string[]> GenerateTalksInTownstage(Dictionary<int, string[]> talks){
         talks.Add(0, new string[]{"음, 잘 잤다. 마하를 찾아가 봐야지 :0", "오른쪽에 마하 집이 있으니깐 가봐야겠다. :0"});
-        talks.Add(100, new string[]{"요즘 저쪽에 늑대와 뱀이 너무 많아 잡아와줄래? :2"});
-        talks.Add(200, new string[]{"어 왔네, 오늘은 같이 산으로 놀러갈래? :1","나야 좋지 :0","그럼 나 먼저 간다 잘따라와 :1"});
+        talks.Add(100, new string[]{"어 왔네, 오늘은 같이 산으로 놀러갈래? :1","나야 좋지 :0","그럼 나 먼저 간다 잘따라와 :1"});
+        talks.Add(200, new string[]{"요즘 저쪽에 늑대와 뱀이 너무 많아 잡아와줄래? :2"});
         return talks;
     }
 
