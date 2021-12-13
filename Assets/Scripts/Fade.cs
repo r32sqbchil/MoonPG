@@ -10,14 +10,13 @@ public class Fade : MonoBehaviour
     float time = 0f;
     float f_Time = 1f;
 
-    // bool fadeCheck = false;
 
     public void FadeIn()
     {
-        StartCoroutine(FadeFlow());
+        StartCoroutine(_FadeIn());
     }
 
-    IEnumerator FadeFlow()
+    IEnumerator FadeAll()
     {
         fadeImage.gameObject.SetActive(true);
 
@@ -33,6 +32,41 @@ public class Fade : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
+
+        while (fadeAlpha > 0f)
+        {
+            fadeAlpha -= Time.deltaTime / f_Time;
+            fadeImage.color = new Color(0,0,0,fadeAlpha);
+
+            yield return null;
+        }
+
+        fadeImage.color = new Color(0,0,0,0);
+
+        fadeImage.gameObject.SetActive(false);
+    }
+    IEnumerator _FadeIn()
+    {
+        fadeImage.gameObject.SetActive(true);
+
+        fadeImage.color = new Color(0,0,0,0);
+
+        float fadeAlpha = 0;
+        while (fadeAlpha <= 1f)
+        {
+            fadeAlpha += Time.deltaTime / f_Time;
+            fadeImage.color = new Color(0,0,0,fadeAlpha);
+            
+            yield return null;
+        }
+    }
+    IEnumerator _FadeOut()
+    {
+        fadeImage.gameObject.SetActive(true);
+
+        fadeImage.color = new Color(0,0,0,1);
+
+        float fadeAlpha = 1;
 
         while (fadeAlpha > 0f)
         {
