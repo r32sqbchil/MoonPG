@@ -19,12 +19,16 @@ public class PlayerMove : MonoBehaviour
 
     GameObject scanObject;
     public float detect_range = 1.5f;
-    public GameManager gameManager;
+    
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
 
+    private GameManager gameManager;
     private ComboAttack comboAttack;
+
+    bool isDash = false;
+    float dashSpeed = 10f;
 
     // public float dashSpeed;
     // public float speed;
@@ -33,14 +37,35 @@ public class PlayerMove : MonoBehaviour
     // public float defaultTime;
     // private float dashTime;
 
+    // 사운드
+    public AudioSource mySfx;
+    public AudioClip walkSfx;
+    public AudioClip runSfx;
+    public AudioClip jumpSfx;
+    public AudioClip dashSfx;
+
+    CameraShake cameraShake;
+
+    // 이거 private로 선언하는 법
+    public GameObject playerUltimate;
+    public Transform playerUltimateTrans;
+
+    // public GameObject speechBub;
+    public GameObject[] exclamation;
+    
+
 
     void Awake()
     {
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         comboAttack = GetComponent<ComboAttack>();
+
+        cameraShake = GameObject.FindObjectOfType<CameraShake>();
         // defaultSpeed = speed;
     }
 
@@ -67,6 +92,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         anim.SetBool("isJumping", true);
+        JumpSound();
 
         float thrustThreshold = 1.0f;
         bool isStandingState = !anim.GetBool("isRunning") && !anim.GetBool("isWalking");
@@ -107,6 +133,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+
+        //Talk - temp       
         if(gameManager.isAction) {
             if (Input.GetButtonDown("Jump"))
             {
@@ -115,6 +143,15 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
+        if(anim.GetBool("isJumping"))
+        {
+            // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
+            if(Input.GetKeyDown(KeyCode.S)) {
+                rigid.velocity = Vector2.zero;
+                anim.Play("PlayerSkillB");
+                rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
+            }
+        }
         //Jump
         if (Input.GetButtonDown("Jump"))
         {
@@ -161,13 +198,35 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            playerUltimateTrans.position = new Vector2(transform.position.x + currentDirection, playerUltimateTrans.position.y);
+            playerUltimate.SetActive(true);
+            anim.Play("PlayerSkillC");
+            Invoke("EndUltimate", 5f); 
+        }
+
         if (Input.GetButton("Horizontal")) {
             if(this.currentDirection != 0){
                 rigid.AddForce(Vector2.right*currentDirection, ForceMode2D.Impulse);
                 spriteRenderer.flipX = (currentDirection<0);
             }
+            // 원래 없었다가 추가한 대쉬
+                if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
+                {
+                    isDash = true;
+                    rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+                    anim.Play("PlayerDash");
+                    DashSound();
+                    Invoke("ForDelay", 0.2f);
+                }
             return;
         }
+    }
+
+    void EndUltimate()
+    {
+        playerUltimate.SetActive(false);
     }
 
     void FixedUpdate()
@@ -185,9 +244,12 @@ public class PlayerMove : MonoBehaviour
             {
                 scanObject = rayHit_detect.collider.gameObject;
                 //Debug.Log("FixedUpdate - rayHit detected -> scanObject[" + scanObject.name + "]");
+                // exclamation.SetActive(true);
+
             }
             else
             {
+                // exclamation.SetActive(false);
                 // keep this state
             }
         }
@@ -197,10 +259,10 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Start X Position Check
-        if(transform.position.x < -3.04f) {
-            transform.Translate(new Vector2(transform.position.x +3.04f, 0));
-        } else if(transform.position.x > 17f) {
-            transform.Translate(new Vector2(transform.position.x -17f, 0));
+        if(transform.position.x < gameManager.limitMoveXMin) {
+            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMin, 0));
+        } else if(transform.position.x > gameManager.limitMoveXMax) {
+            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMax, 0));
         }
 
         // Lending Platform
@@ -219,9 +281,9 @@ public class PlayerMove : MonoBehaviour
         }
 
         // MaxSpeed Limit
-        if (rigid.velocity.x > maxSpeed + runspeed)// right
+        if (rigid.velocity.x > maxSpeed + runspeed && !isDash)// right
             rigid.velocity = new Vector2(maxSpeed + runspeed, rigid.velocity.y);
-        else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1)) // Left Maxspeed
+        else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) && !isDash) // Left Maxspeed
             rigid.velocity = new Vector2((maxSpeed + runspeed) * (-1), rigid.velocity.y);
         
 
@@ -229,25 +291,38 @@ public class PlayerMove : MonoBehaviour
         // rigid.velocity = new Vector2(hor * defaultSpeed , rigid.velocity.y);
 
 
-        // // Dash
-        // if (Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     isdash = true;
-        //     //rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
-        //     anim.Play("PlayerDash");
-        // }
 
-        // if(dashTime <= 0)
-        // {
-        //     defaultSpeed = speed;
-        //     if (isdash)
-        //     dashTime = defaultTime;
-        // }
-        // else
-        // {
-        //     dashTime -= Time.deltaTime;
-        //     defaultSpeed = dashSpeed;
-        // }
-        // isdash = false;
+        if(isDash) //대쉬 속도제한
+        {
+            if (rigid.velocity.x > maxSpeed + runspeed + dashSpeed)// right
+            rigid.velocity = new Vector2(maxSpeed + runspeed + dashSpeed, rigid.velocity.y);
+            else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) + dashSpeed)
+            rigid.velocity = new Vector2((maxSpeed + runspeed + dashSpeed) * (-1), rigid.velocity.y);
+        }
+    }
+
+    void ForDelay()
+    {
+        isDash = false;
+    }
+
+    public void WalkSound()
+    {
+        mySfx.PlayOneShot (walkSfx);
+    }
+
+    public void RunSound()
+    {
+        mySfx.PlayOneShot (runSfx);
+    }
+
+    public void JumpSound()
+    {
+        mySfx.PlayOneShot (jumpSfx);
+    }
+
+    public void DashSound()
+    {
+        mySfx.PlayOneShot (dashSfx);
     }
 }

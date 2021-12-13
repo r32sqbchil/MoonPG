@@ -10,6 +10,10 @@ TagManager:
   - BossAttack
   - Boss
   - PlayerHitBox
+  - NPC
+  - PlayerHP
+  - Ultimate
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -20,7 +24,7 @@ TagManager:
   - Platform
   - NPC
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 
