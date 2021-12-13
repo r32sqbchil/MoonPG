@@ -15,12 +15,7 @@ public class Quest100Handler:QuestHandler{
             } else if(sceneName == TOWNSTAGE1){
                 if(GetQuestStep(context) == 0) {
                     GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
-                    TownStage1Setting setting = gameManager.GetComponent<TownStage1Setting>();
-                    if(setting != null) {
-                        setting.SetLimitMoveXMax("MovingAreaX3");
-                    } else {
-                        Debug.LogWarning("Can't find a component - TownStage1Setting");
-                    }
+                    gameManager.SetLimitMoveXMax("MovingAreaX3");
                     SetQuestStep(context, 10);
                 }
             }

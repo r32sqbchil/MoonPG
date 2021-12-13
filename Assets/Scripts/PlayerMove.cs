@@ -259,11 +259,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Start X Position Check
-        if(transform.position.x < gameManager.limitMoveXMin) {
-            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMin, 0));
-        } else if(transform.position.x > gameManager.limitMoveXMax) {
-            transform.Translate(new Vector2(transform.position.x -gameManager.limitMoveXMax, 0));
-        }
+        LimitPlayerMovingArea();
 
         // Lending Platform
         if(rigid.velocity.y < 0)
@@ -298,6 +294,18 @@ public class PlayerMove : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed + runspeed + dashSpeed, rigid.velocity.y);
             else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) + dashSpeed)
             rigid.velocity = new Vector2((maxSpeed + runspeed + dashSpeed) * (-1), rigid.velocity.y);
+        }
+    }
+
+    void LimitPlayerMovingArea(){
+        float center = transform.position.x;
+        float width = transform.localScale.x;
+        float left = center - width/2;
+        float right = center + width/2;
+        if(left < gameManager.limitMoveXMin) {
+            transform.Translate(new Vector2(left - gameManager.limitMoveXMin, 0));
+        } else if(right > gameManager.limitMoveXMax) {
+            transform.Translate(new Vector2(right - gameManager.limitMoveXMax, 0));
         }
     }
 
