@@ -743,9 +743,9 @@ GameObject:
   - component: {fileID: 115280910}
   - component: {fileID: 115280909}
   - component: {fileID: 115280908}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2240,9 +2240,9 @@ GameObject:
   - component: {fileID: 365292602}
   - component: {fileID: 365292601}
   - component: {fileID: 365292600}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3179,9 +3179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc127fe3791dd09409a71f6e41636fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questActionIndex: 0
-  questid: 10
-  Goblin: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
 --- !u!4 &397736333
 Transform:
   m_ObjectHideFlags: 0
@@ -5066,7 +5063,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612597203
 GameObject:
@@ -5182,6 +5179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e78650c21521ea47ac6da26b3009622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fade: {fileID: 0}
+  sceneNumber: 0
 --- !u!50 &612597208
 Rigidbody2D:
   serializedVersion: 4
@@ -7241,7 +7240,7 @@ GameObject:
   - component: {fileID: 1083589602}
   - component: {fileID: 1083589601}
   m_Layer: 0
-  m_Name: "\uB300\uD654 \uC720\uB3C4 \uCCB4\uD06C\uBC15\uC2A4"
+  m_Name: MovingAreaX2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7287,7 +7286,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 1, b: 0.049239635, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7306,8 +7305,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083589600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: 0.53, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
@@ -7909,12 +7908,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c3130aa2070b4bbcf3ae621ee3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
+  hp: 0
   maxHealth: 200
   isHit: 0
-  GoblinDamage: 10
-  healthBar: {fileID: 1027634533}
-  statText: {fileID: 983606760}
+  enemyDamage: 0
+  AFK: 200
+  DEF: 100
+  SPD: 100
+  hpText: {fileID: 0}
+  afkText: {fileID: 0}
+  defText: {fileID: 0}
+  spdText: {fileID: 0}
 --- !u!114 &1313759479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7931,11 +7935,16 @@ MonoBehaviour:
   jumpPower: 1.8
   runspeed: 0
   detect_range: 0.5
-  gameManager: {fileID: 2128939897}
   leftAttackBox: {fileID: 1791247491}
   rightAttackBox: {fileID: 312208690}
-  playerCombat: {fileID: 1313759481}
-  dashSpeed: 5
+  mySfx: {fileID: 0}
+  walkSfx: {fileID: 0}
+  runSfx: {fileID: 0}
+  jumpSfx: {fileID: 0}
+  dashSfx: {fileID: 0}
+  playerUltimate: {fileID: 0}
+  playerUltimateTrans: {fileID: 0}
+  exclamation: []
 --- !u!114 &1313759480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7948,10 +7957,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4023973e1139ff6418bb0f7e77540a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnim: {fileID: 1313759473}
-  comboCheck: 0
-  comboStep: 0
-  player: {fileID: 0}
+  attackPoint: {fileID: 0}
+  boxSize: {x: 0, y: 0}
+  damage: 0
+  mySfx: {fileID: 0}
+  attackSfx: {fileID: 0}
+  nonattackSfx: {fileID: 0}
 --- !u!114 &1313759481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8217,7 +8228,7 @@ GameObject:
   - component: {fileID: 1400419225}
   - component: {fileID: 1400419224}
   m_Layer: 0
-  m_Name: "\uD65C\uB3D9\uC601\uC5ED \uD55C\uACC4\uCE58"
+  m_Name: MovingAreaX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8263,7 +8274,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8282,11 +8293,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400419223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: -3.9, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1458116747
 PrefabInstance:
@@ -8818,7 +8829,7 @@ GameObject:
   - component: {fileID: 1573442713}
   - component: {fileID: 1573442712}
   m_Layer: 0
-  m_Name: "\uD65C\uB3D9\uC601\uC5ED \uD55C\uACC4\uCE58 (1)"
+  m_Name: MovingAreaX9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8864,7 +8875,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8883,11 +8894,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573442711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.72, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: 31.72, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682138704
 GameObject:
@@ -9191,7 +9202,7 @@ GameObject:
   - component: {fileID: 1810655037}
   - component: {fileID: 1810655036}
   m_Layer: 0
-  m_Name: "\uB300\uD654 \uC720\uB3C4 \uCCB4\uD06C\uBC15\uC2A4 (1)"
+  m_Name: MovingAreaX3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9237,7 +9248,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 1, b: 0.049239635, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9256,11 +9267,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810655035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.55, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: 29.55, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1873860420
 GameObject:
@@ -9274,9 +9285,9 @@ GameObject:
   - component: {fileID: 1873860423}
   - component: {fileID: 1873860422}
   - component: {fileID: 1873860424}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11526,7 +11537,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  monsterPrefab: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  monsterPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   createTime: 2
   maxMonster: 1
   subSettings: {fileID: 88758626}
@@ -11535,13 +11549,12 @@ MonoBehaviour:
   talkText: {fileID: 21563061}
   scanObject: {fileID: 1297280705}
   isAction: 0
-  portraitImg: {fileID: 0}
-  talkManager: {fileID: 396717935}
   talkIndex: 0
   scanObjectName: 
   UINameText: {fileID: 1770241427}
-  questManager: {fileID: 397736332}
   isGameOver: 0
+  limitMoveXMin: -3.07
+  limitMoveXMax: 17
 --- !u!4 &2128939898
 Transform:
   m_ObjectHideFlags: 0
