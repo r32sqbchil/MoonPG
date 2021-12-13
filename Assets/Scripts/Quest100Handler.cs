@@ -4,11 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Quest100Handler:QuestHandler{
+    const string TOWNSTAGE = "townstage";
+    const string TOWNSTAGE1 = "townstage1";
+
     public override void OnAction(string actionName, Dictionary<string, object> context) {
-        if(actionName == "EndOfTalk"){
-            string sceneName = (string)context["sceneName"];
-            if(sceneName == "townstage"){
-                SceneManager.LoadScene("townstage1");
+        if(actionName == QuestHandler.EVENT_END_OF_TALK){
+            string sceneName = (string)context[QuestHandler.KEY_OF_SCENE_NAME];
+            if(sceneName == TOWNSTAGE){
+                SceneManager.LoadScene(TOWNSTAGE1);
+            } else if(sceneName == TOWNSTAGE1){
+                if(GetQuestStep(context) == 0) {
+                    GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
+                    TownStage1Setting setting = gameManager.GetComponent<TownStage1Setting>();
+                    if(setting != null) {
+                        setting.SetLimitMoveXMax("MovingAreaX3");
+                    } else {
+                        Debug.LogWarning("Can't find a component - TownStage1Setting");
+                    }
+                    SetQuestStep(context, 10);
+                }
             }
         }
     }

@@ -127,8 +127,13 @@ public class QuestManager : MonoBehaviour
         questContextMap = new Dictionary<string, Dictionary<string, object>>();
         questHandlerMap = new Dictionary<string, QuestHandler>();
         updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
-        questHandlerMap.Add("townstage$100", new Quest100Handler());
+        
+        Quest100Handler quest100Handler = new Quest100Handler();
+        questHandlerMap.Add("townstage$100", quest100Handler);
+        questHandlerMap.Add("townstage1$100", quest100Handler);
+
         questHandlerMap.Add("townstage$200", new Quest200Handler());
+        questHandlerMap.Add("townstage1$300", new Quest300Handler());
     }
 
 }
