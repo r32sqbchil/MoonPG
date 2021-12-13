@@ -304,8 +304,10 @@ public class PlayerMove : MonoBehaviour
         float right = center + width/2;
         if(left < gameManager.limitMoveXMin) {
             transform.Translate(new Vector2(left - gameManager.limitMoveXMin, 0));
+            // 퀘스트 액션을 보내야 함.
         } else if(right > gameManager.limitMoveXMax) {
             transform.Translate(new Vector2(right - gameManager.limitMoveXMax, 0));
+            // 퀘스트 액션을 보내야 함.
         }
     }
 
