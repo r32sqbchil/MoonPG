@@ -15,8 +15,8 @@ public class TalkManager : MonoBehaviour
         GenerateData();
 
         talkers = GenerateTalkers(new Dictionary<int, string>());
-        talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
         talksOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
+        talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
