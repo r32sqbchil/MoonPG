@@ -17,6 +17,7 @@ public class TalkManager : MonoBehaviour
         talkers = GenerateTalkers(new Dictionary<int, string>());
         talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
         talksOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
+        talksOfScene.Add("townstage1", GenerateTalksInTownstage1(new Dictionary<int, string[]>()));
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
@@ -33,6 +34,12 @@ public class TalkManager : MonoBehaviour
         talks.Add(200, new string[]{"요즘 저쪽에 늑대와 뱀이 너무 많아 잡아와줄래? :2"});
         talks.Add(200+10, new string[]{"부탁해 :2"});
         talks.Add(200+20, new string[]{"고마워 :2"});
+        return talks;
+    }
+
+    private Dictionary<int, string[]> GenerateTalksInTownstage1(Dictionary<int, string[]> talks){
+        talks.Add(100, new string[]{});
+
         return talks;
     }
 
