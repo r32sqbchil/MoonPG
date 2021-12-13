@@ -50,6 +50,10 @@ public class PlayerMove : MonoBehaviour
     public GameObject playerUltimate;
     public Transform playerUltimateTrans;
 
+    // public GameObject speechBub;
+    public GameObject[] exclamation;
+    
+
 
     void Awake()
     {
@@ -240,9 +244,12 @@ public class PlayerMove : MonoBehaviour
             {
                 scanObject = rayHit_detect.collider.gameObject;
                 //Debug.Log("FixedUpdate - rayHit detected -> scanObject[" + scanObject.name + "]");
+                // exclamation.SetActive(true);
+
             }
             else
             {
+                // exclamation.SetActive(false);
                 // keep this state
             }
         }
