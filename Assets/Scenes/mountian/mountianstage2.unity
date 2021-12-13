@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 282457399}
   - component: {fileID: 282457398}
   m_Layer: 0
-  m_Name: "\uD65C\uB3D9 \uC601\uC5ED \uD55C\uAC1C\uCE58 (1)"
+  m_Name: MovingAreaX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,7 +891,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.8018868, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -910,11 +910,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282457397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: 0.82, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312208690
 GameObject:
@@ -1438,7 +1438,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573204651
 GameObject:
@@ -3626,6 +3626,13 @@ MonoBehaviour:
   maxHealth: 200
   isHit: 0
   enemyDamage: 0
+  AFK: 200
+  DEF: 100
+  SPD: 100
+  hpText: {fileID: 0}
+  afkText: {fileID: 0}
+  defText: {fileID: 0}
+  spdText: {fileID: 0}
 --- !u!114 &1313759479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3651,6 +3658,7 @@ MonoBehaviour:
   dashSfx: {fileID: 0}
   playerUltimate: {fileID: 0}
   playerUltimateTrans: {fileID: 0}
+  exclamation: []
 --- !u!114 &1313759480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3666,6 +3674,9 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   boxSize: {x: 0, y: 0}
   damage: 0
+  mySfx: {fileID: 0}
+  attackSfx: {fileID: 0}
+  nonattackSfx: {fileID: 0}
 --- !u!114 &1313759481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4687,9 +4698,9 @@ GameObject:
   - component: {fileID: 1873860423}
   - component: {fileID: 1873860422}
   - component: {fileID: 1873860424}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7855,7 +7866,7 @@ GameObject:
   - component: {fileID: 1887606116}
   - component: {fileID: 1887606115}
   m_Layer: 0
-  m_Name: "\uD65C\uB3D9 \uC601\uC5ED \uD55C\uAC1C\uCE58"
+  m_Name: MovingAreaX9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7901,7 +7912,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.8018868, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7920,11 +7931,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887606114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.85, y: 13.8, z: -1}
-  m_LocalScale: {x: 0.41765627, y: 17.608591, z: 1}
+  m_LocalPosition: {x: 16.85, y: 0, z: -1}
+  m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894790769
 GameObject:
