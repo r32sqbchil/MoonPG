@@ -9299,6 +9299,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeObject
       objectReference: {fileID: 0}
+    - target: {fileID: 1742318339476692195, guid: 647c51e33f3b7944aafbe7d01767e27c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742318339476692195, guid: 647c51e33f3b7944aafbe7d01767e27c, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742318339476692195, guid: 647c51e33f3b7944aafbe7d01767e27c, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742318339476692195, guid: 647c51e33f3b7944aafbe7d01767e27c, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1742318339476692197, guid: 647c51e33f3b7944aafbe7d01767e27c, type: 3}
       propertyPath: m_IsActive
       value: 0

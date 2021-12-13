@@ -19,36 +19,31 @@ public class Fade : MonoBehaviour
 
     IEnumerator FadeFlow()
     {
-        // fadeCheck = true;
         fadeImage.gameObject.SetActive(true);
-        time = 0f;
-        Color alpha = fadeImage.color;
 
-        while (alpha.a < 1f)
+        fadeImage.color = new Color(0,0,0,0);
+
+        float fadeAlpha = 0;
+        while (fadeAlpha <= 1f)
         {
-            time += Time.deltaTime / f_Time;
-            alpha.a = Mathf.Lerp(0, 1, time);
-            fadeImage.color = alpha;
+            fadeAlpha += Time.deltaTime / f_Time;
+            fadeImage.color = new Color(0,0,0,fadeAlpha);
             
             yield return null;
         }
 
-        time = 0f;
-
         yield return new WaitForSeconds(1f);
 
-        while (alpha.a > 0f)
+        while (fadeAlpha > 0f)
         {
-            time += Time.deltaTime / f_Time;
-            alpha.a = Mathf.Lerp(1, 0, time);
-            fadeImage.color = alpha;
+            fadeAlpha -= Time.deltaTime / f_Time;
+            fadeImage.color = new Color(0,0,0,fadeAlpha);
 
             yield return null;
         }
 
-        fadeImage.gameObject.SetActive(false);
-        // fadeCheck = false;
+        fadeImage.color = new Color(0,0,0,0);
 
-        yield return null;
+        fadeImage.gameObject.SetActive(false);
     }
 }
