@@ -22,6 +22,10 @@ public class ComboAttack : MonoBehaviour
         "PlayerAttackA", "PlayerAttackB", "PlayerAttackC"
     };
 
+    public AudioSource mySfx;
+    public AudioClip attackSfx;
+    public AudioClip nonattackSfx;
+
     void Attack(int comboStep){
         attackAnim.Play(attackStates[comboStep-1]);
 
@@ -132,5 +136,14 @@ public class ComboAttack : MonoBehaviour
         {
             OnAttackEvent();
         }
+    }
+
+    public void AttackSound()
+    {
+        mySfx.PlayOneShot (attackSfx);
+    }
+    public void nonAttackSound()
+    {
+        mySfx.PlayOneShot (nonattackSfx);
     }
 }

@@ -21,6 +21,20 @@ public class Player : MonoBehaviour
     private Image healthBar;
     private Text statText;
 
+    public float AFK = 200f;
+
+    public float DEF = 100f;
+
+    public float SPD = 100f;
+
+    public Text hpText;
+
+    public Text afkText;
+
+    public Text defText;
+
+    public Text spdText;
+
     public void Awake()
     {
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
@@ -43,6 +57,11 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+
+        hpText.text = hp + " ";
+        afkText.text = AFK + " ";
+        defText.text = DEF + " ";
+        spdText.text = SPD + " ";
     }
 
     public void OnDamage(GameObject enemy)
