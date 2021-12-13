@@ -7049,7 +7049,10 @@ MonoBehaviour:
   - {fileID: 808702634}
   - {fileID: 1217609132}
   - {fileID: 1694938308}
-  monsterPrefab: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  monsterPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   createTime: 2
   maxMonster: 0
   subSettings: {fileID: 302149092}
@@ -7058,12 +7061,12 @@ MonoBehaviour:
   talkText: {fileID: 1607960711}
   scanObject: {fileID: 1193829788}
   isAction: 0
-  talkManager: {fileID: 0}
   talkIndex: 0
   scanObjectName: 
   UINameText: {fileID: 61779034}
-  questManager: {fileID: 0}
   isGameOver: 0
+  limitMoveXMin: -3.07
+  limitMoveXMax: 17
 --- !u!4 &1917528221
 Transform:
   m_ObjectHideFlags: 0
