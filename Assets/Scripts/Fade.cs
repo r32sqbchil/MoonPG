@@ -15,6 +15,10 @@ public class Fade : MonoBehaviour
     {
         StartCoroutine(_FadeIn());
     }
+    public void FadeOut()
+    {
+        StartCoroutine(_FadeOut());
+    }
 
     IEnumerator FadeAll()
     {
