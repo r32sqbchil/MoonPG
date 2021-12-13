@@ -22123,7 +22123,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  monsterPrefab: {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  monsterPrefab:
+  - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
+  - {fileID: 5223886582592970035, guid: de77708bf05001f43a76b18a3688a937, type: 3}
+  - {fileID: 3993539503951920827, guid: 097ed26b5a84b3042951ae31140489a2, type: 3}
+  - {fileID: 2605058059869059801, guid: 6c51a8781096d79419c4ca52f4e52617, type: 3}
   createTime: 2
   maxMonster: 18
   subSettings: {fileID: 88758626}

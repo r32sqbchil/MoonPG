@@ -38,6 +38,11 @@ public class Player : MonoBehaviour
     {
         healthBar.fillAmount = hp / maxHealth;
         statText.text = hp + " " + "/" + " " + maxHealth;
+
+        if(hp <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void OnDamage(GameObject enemy)
