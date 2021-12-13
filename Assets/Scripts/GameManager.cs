@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
-    public float limitMoveXMin = -3.07f;
-    public float limitMoveXMax = 17.0f;
+    [HideInInspector] public float limitMoveXMin = -3.07f;
+    [HideInInspector] public float limitMoveXMax = 17.0f;
 
     private string sceneName;
     private QuestManager questManager;
@@ -149,6 +149,8 @@ public class GameManager : MonoBehaviour
         questManager = GameObject.FindObjectOfType<QuestManager>();
         talkManager = GameObject.FindObjectOfType<TalkManager>();
 
+        SettingForMovingLimitX();
+
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
         if(spawnPoint != null)
         {
@@ -203,6 +205,31 @@ public class GameManager : MonoBehaviour
             {
                 yield return null;
             }
+        }
+    }
+
+    void SettingForMovingLimitX(){
+        SetLimitMoveXMin("MovingAreaX1");
+        SetLimitMoveXMax("MovingAreaX9");
+    }
+
+    public void SetLimitMoveXMin(string gameObjectName){
+        GameObject movingAreaX = GameObject.Find(gameObjectName);
+        if(movingAreaX!=null){
+            Transform transform = movingAreaX.transform;
+            limitMoveXMin = transform.position.x + transform.localScale.x/2;
+        } else {
+            Debug.LogWarning("not found game object - " + gameObjectName);
+        }
+    }
+
+    public void SetLimitMoveXMax(string gameObjectName){
+        GameObject movingAreaX = GameObject.Find(gameObjectName);
+        if(movingAreaX!=null){
+            Transform transform = movingAreaX.transform;
+            limitMoveXMax = transform.position.x - transform.localScale.x/2;
+        } else {
+            Debug.LogWarning("not found game object - " + gameObjectName);
         }
     }
 }
