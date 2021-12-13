@@ -21,7 +21,7 @@ public class TalkManager : MonoBehaviour
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
-        string[] array = "슈라켄,어린마하,아줌마,스승".Split(',');
+        string[] array = "슈라켄,어린마하,아줌마,어린마하,스승".Split(',');
         for(int i=0; i<array.Length; i++){
             talkers.Add(i, array[i]);
         }
@@ -29,17 +29,19 @@ public class TalkManager : MonoBehaviour
     }
 
     private Dictionary<int, string[]> GenerateTalksInTownstage(Dictionary<int, string[]> talks){
-        talks.Add(0, new string[]{"음, 잘 잤다. 마하를 찾아가 봐야지 :0", "오른쪽에 마하 집이 있으니깐 가봐야겠다. :0"});
-        talks.Add(100, new string[]{"어 왔네, 오늘은 같이 산으로 놀러갈래? :1","나야 좋지 :0","그럼 나 먼저 간다 잘따라와 :1"});
-        talks.Add(200, new string[]{"요즘 저쪽에 늑대와 뱀이 너무 많아 잡아와줄래? :2"});
+        talks.Add(0, new string[]{"음, 잘 잤다. 마하를 찾아가 봐야지 :0", "오른쪽에 마하 집이 있으니깐 가봐야겠다. :0"}); //대화1
+        talks.Add(200, new string[]{"요즘 저쪽에 늑대와 뱀이 너무 많아 잡아와줄래? :2"}); //대화2
         talks.Add(200+10, new string[]{"부탁해 :2"});
         talks.Add(200+20, new string[]{"고마워 :2"});
+        talks.Add(100, new string[]{"어 왔네, 오늘은 같이 산으로 놀러갈래? :1","나야 좋지 :0","그럼 나 먼저 간다 잘따라와 :1"}); //대화3
         return talks;
     }
 
     private Dictionary<int, string[]> GenerateTalksInTownstage1(Dictionary<int, string[]> talks){
-        talks.Add(100, new string[]{});
-
+        talks.Add(0, new string[]{"마하가 어딨지? :0"}); //대화4
+        talks.Add(100, new string[]{"잘따라 오고 있지?:1","당연하지 애도 아니고:0","이렇게 그냥 올라가기엔 심심한데 :0","아! 우리 누가 먼저 산 정산에 올라가는지 시합하자:0","음… 그래 :1","나 먼저 출발한다 :1","야 그런게 어딨어!!!! :0"}); //대화5
+        talks.Add(100+10, new string[]{});
+        talks.Add(300, new string[]{"슈라켄 … 왜 이제 왔어 저기 이상한 뭔가가 있는거 같에… :3","응? 무슨 소리? :0","저기 뭔가가 여기로 다가오고 있는거 같은데?:3","어! 오크패잔병이잖아!!! 도망쳐 마하! :0"});
         return talks;
     }
 
