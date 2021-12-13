@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     CapsuleCollider2D col;
+    public Fade fade;
     
     void Awake()
     {
@@ -16,8 +17,15 @@ public class Portal : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            if(Input.GetKey(KeyCode.UpArrow))
-            SceneManager.LoadScene(2);
+            if(Input.GetKey(KeyCode.UpArrow)) {
+                fade.FadeIn();
+                Invoke("SceneLoad", 1f);
+            }
         }
+    }
+
+    void SceneLoad()
+    {
+        SceneManager.LoadScene(2);
     }
 }

@@ -226,6 +226,7 @@ MonoBehaviour:
   enemystat:
     health: 20
   bossHP: {fileID: 0}
+  cameraShake: {fileID: 0}
 --- !u!114 &8182708052191954682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +240,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 5398939890226199643}
+  playerCatch: 0

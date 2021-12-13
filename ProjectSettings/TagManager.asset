@@ -10,6 +10,8 @@ TagManager:
   - BossAttack
   - Boss
   - PlayerHitBox
+  - NPC
+  - PlayerHP
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Platform
   - NPC
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

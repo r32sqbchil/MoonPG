@@ -19,11 +19,12 @@ public class PlayerMove : MonoBehaviour
 
     GameObject scanObject;
     public float detect_range = 1.5f;
-    public GameManager gameManager;
+    
     
     public GameObject leftAttackBox;
     public GameObject rightAttackBox;
 
+    private GameManager gameManager;
     private ComboAttack comboAttack;
 
     // public float dashSpeed;
@@ -33,14 +34,27 @@ public class PlayerMove : MonoBehaviour
     // public float defaultTime;
     // private float dashTime;
 
+    // 사운드
+    public AudioSource mySfx;
+    public AudioClip walkSfx;
+    public AudioClip runSfx;
+    public AudioClip jumpSfx;
+    public AudioClip dashSfx;
+
+    CameraShake cameraShake;
+
 
     void Awake()
     {
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         comboAttack = GetComponent<ComboAttack>();
+
+        cameraShake = GameObject.FindObjectOfType<CameraShake>();
         // defaultSpeed = speed;
     }
 
@@ -67,6 +81,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         anim.SetBool("isJumping", true);
+        JumpSound();
 
         float thrustThreshold = 1.0f;
         bool isStandingState = !anim.GetBool("isRunning") && !anim.GetBool("isWalking");
@@ -107,6 +122,8 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+
+        //Talk - temp       
         if(gameManager.isAction) {
             if (Input.GetButtonDown("Jump"))
             {
@@ -115,6 +132,15 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
+        if(anim.GetBool("isJumping"))
+        {
+            // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
+            if(Input.GetKeyDown(KeyCode.S)) {
+                rigid.velocity = Vector2.zero;
+                anim.Play("PlayerSkillB");
+                rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
+            }
+        }
         //Jump
         if (Input.GetButtonDown("Jump"))
         {
@@ -159,6 +185,11 @@ public class PlayerMove : MonoBehaviour
             } else {
                 CharacterStopMoving();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            anim.Play("PlayerSkillC");
         }
 
         if (Input.GetButton("Horizontal")) {
@@ -235,6 +266,7 @@ public class PlayerMove : MonoBehaviour
         //     isdash = true;
         //     //rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
         //     anim.Play("PlayerDash");
+        //     DashSound();
         // }
 
         // if(dashTime <= 0)
@@ -249,5 +281,26 @@ public class PlayerMove : MonoBehaviour
         //     defaultSpeed = dashSpeed;
         // }
         // isdash = false;
+
+
+    }
+    public void WalkSound()
+    {
+        mySfx.PlayOneShot (walkSfx);
+    }
+
+    public void RunSound()
+    {
+        mySfx.PlayOneShot (runSfx);
+    }
+
+    public void JumpSound()
+    {
+        mySfx.PlayOneShot (jumpSfx);
+    }
+
+    public void DashSound()
+    {
+        mySfx.PlayOneShot (dashSfx);
     }
 }
