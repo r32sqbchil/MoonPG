@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Transform[] points;
-    public GameObject monsterPrefab;
+    public GameObject[] monsterPrefab;
 
     public float createTime;
     public int maxMonster = 1;
@@ -18,17 +19,20 @@ public class GameManager : MonoBehaviour
     public Text talkText;
     public GameObject scanObject;
     public bool isAction;
-
-    public TalkManager talkManager;
+    
     public int talkIndex;
 
     public string scanObjectName; 
     public Text UINameText;
 
-    public QuestManager questManager;
-
     public bool isGameOver = false;
 
+    public float limitMoveXMin = -3.07f;
+    public float limitMoveXMax = 17.0f;
+
+    private string sceneName;
+    private QuestManager questManager;
+    private TalkManager talkManager;
 
     public void Action(GameObject scanObject)
     {
@@ -37,48 +41,61 @@ public class GameManager : MonoBehaviour
 
         ObjData objData = scanObject.GetComponent<ObjData>();
         
+        if(objData == null) {
+            Debug.LogError("A game-object["+scanObjectName+"] MUST have ObjData component.");
+        }
+
         if(TalkStart(objData.id))
         {
             talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
             this.isAction = true;
+        } else {
+            Debug.Log("No talks found");
         }
     }
 
     public void Action()
     {
+        // isAction 이 true 이고, 스페이스바 이벤트이면..
+        // 이 Action method 가 호출됨
         ObjData objData = scanObject.GetComponent<ObjData>();
         if(!TalkWith(objData.id)){
             talkUI.SetActive(isAction = false);
+            //이벤트 호출!!!
         }
     }
 
     void TalkSetText(string talk)
     {
-        string[] talkers = "슈라켄,스승".Split(',');
-
         string[] talkPart = talk.Split(':'); //구분자로 문장을 나눠줌  0: 대사 1:portraitIndex
         string talkContent = talkPart[0];
+
         int talker = 0;
         if(talkPart.Length > 1) {
             talker = int.Parse(talkPart[1].Trim());
         }
+        string talkerName = talkManager.GetTalker(talker);
 
-        if(talker<0 || talker >= talkers.Length) {
+        if(talkerName == null) {
             Debug.Log("Invalid talker");
             return;
         }
 
         //대사 출력
         talkText.text = talkContent;
-        UINameText.text = talkers[talker];
+        UINameText.text = talkerName;
     }
 
     bool TalkStart(int objectId)
     {
-        this.talkIndex = 0; // 대화가 시작됨을 표기
+        // 대화가 시작됨 => talkIndex=0
+        Dictionary<string, object> questContext = questManager.GetQuestContext(sceneName, objectId, talkIndex=0);
+        QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
+        int questStep = questHandler.GetQuestStep(questContext);
+        string talk = talkManager.GetTalk(sceneName, objectId + questStep, this.talkIndex);
 
-        int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
+        //int questId = questManager.GetQuestTalkIndex(objectId);
+        //string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
 
         if(talk == null) {
             //Debug.Log("Not found talk with object-id[="+objectId+"] and quest-id[="+questId+"]");
@@ -91,15 +108,17 @@ public class GameManager : MonoBehaviour
 
     bool TalkWith(int objectId)
     {
-        this.talkIndex++;
+        Dictionary<string, object> questContext = questManager.GetQuestContext(sceneName, objectId, ++talkIndex);
+        QuestHandler questHandler = questManager.GetQuestHandler(sceneName, objectId);
+        int questStep = questHandler.GetQuestStep(questContext);
+        string talk = talkManager.GetTalk(sceneName, objectId + questStep, this.talkIndex);
 
-        int questId = questManager.GetQuestTalkIndex(objectId);
-        string talk = talkManager.GetTalk(objectId + questId, this.talkIndex);
-
-        QuestCheck(objectId, questId, talkIndex);
+        //int questId = questManager.GetQuestTalkIndex(objectId);
+        //string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
+        //QuestCheck(objectId, questId, talkIndex);
 
         if(talk == null) {
-            //Debug.Log("There is not text for talk");
+            questHandler.OnAction(QuestHandler.EVENT_END_OF_TALK, questContext);
             return false;
         }
 
@@ -126,6 +145,10 @@ public class GameManager : MonoBehaviour
 
     void Start () 
     {
+        sceneName = SceneManager.GetActiveScene().name;
+        questManager = GameObject.FindObjectOfType<QuestManager>();
+        talkManager = GameObject.FindObjectOfType<TalkManager>();
+
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
         if(spawnPoint != null)
         {
@@ -174,7 +197,8 @@ public class GameManager : MonoBehaviour
                 //불규칙적인 위치 산출
                 int idx = Random.Range(1, points.Length);
                 //몬스터의 동적 생성
-                Instantiate(monsterPrefab, points[idx].position, points[idx].rotation);
+                int monsterIndex = Random.Range(0,monsterPrefab.Length);
+                Instantiate(monsterPrefab[monsterIndex], points[idx].position, points[idx].rotation);
             }else
             {
                 yield return null;

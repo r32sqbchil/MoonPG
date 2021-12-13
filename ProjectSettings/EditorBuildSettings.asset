@@ -6,12 +6,87 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
+    path: Assets/Scenes/title.unity
     guid: 74eb5868aaedae441afbaad62b3fa1e6
   - enabled: 1
-    path: Assets/Scenes/InGame.unity
-    guid: 9482ea95477c2ea449521be8bb2b04d9
+    path: Assets/Scenes/Town/townstage.unity
+    guid: 33c6646cf29faf44b9475d28b2472a11
   - enabled: 1
-    path: Assets/Scenes/BossRoom.unity
-    guid: 9e770bc5bbeb2b1489b675e62fcec221
+    path: Assets/Scenes/Town/townsubstage.unity
+    guid: 7a95360f31d7a6d4a9fb0119ddfbbc69
+  - enabled: 1
+    path: Assets/Scenes/Town/townstage1.unity
+    guid: 97a09d53323bdc345b9e48b28f749cc7
+  - enabled: 1
+    path: Assets/Scenes/Town/townstage2.unity
+    guid: 7500bb9516ce8ab4cbdee52ef88ae8aa
+  - enabled: 1
+    path: Assets/Scenes/Town/townstage3.unity
+    guid: f62ad22f6f864884b9c2f6e882481b45
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage.unity
+    guid: 1a15483f31a237440b1eae94fb6e2d94
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountiansubstage.unity
+    guid: e5de90ae896598c439c3b972d5d73aa6
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage1.unity
+    guid: e2327a49ae1dd664a9f0ed6de16c4c8c
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage2.unity
+    guid: aaaa5d87bd636a54187c16457148a253
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage3.unity
+    guid: 9b28057c16af62442a77f6fbd8f79d13
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage4.unity
+    guid: 8b7b5be446d8e1d4a9a7acfc3694af59
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage5.unity
+    guid: 5a08fa5557a7ebc4e9c3ddb11fa30a25
+  - enabled: 1
+    path: Assets/Scenes/mountian/mountianstage6.unity
+    guid: 92558ad5e507e6a45bd6c01e5542f472
+  - enabled: 1
+    path: Assets/Scenes/testfiled/testfilledstage.unity
+    guid: c050c8facddcef84ba13972e76fe7818
+  - enabled: 1
+    path: Assets/Scenes/testfiled/testfilledsubstage.unity
+    guid: bd77163f197d53d4b9fc00cdfa95a394
+  - enabled: 1
+    path: Assets/Scenes/testfiled/testfilledstage1.unity
+    guid: 754040d6491b5c444a755a824bba5e5a
+  - enabled: 1
+    path: Assets/Scenes/testfiled/testfilledstage2.unity
+    guid: 97ac7998d0d6a0b4aa16862dc7810c45
+  - enabled: 1
+    path: Assets/Scenes/testfiled/testfilledstage3.unity
+    guid: fdaeb29d83fecc54bab7320628b8c152
+  - enabled: 1
+    path: Assets/Scenes/filed/fildstage.unity
+    guid: b46a18f3d2731bf49a5c07648349aed1
+  - enabled: 1
+    path: Assets/Scenes/filed/fildsubstage.unity
+    guid: 69f66851d4423394fbfff5c74bb5ab8a
+  - enabled: 1
+    path: Assets/Scenes/filed/fildstage1.unity
+    guid: 19f34e08fd6210c469cf053e7468d33f
+  - enabled: 1
+    path: Assets/Scenes/filed/fildstage2.unity
+    guid: 2f38bd782d44eb14fb9bb21e5d7b1d93
+  - enabled: 1
+    path: Assets/Scenes/castle/castle.unity
+    guid: 6cb0fdd1fb1522f44b73579233cabbcf
+  - enabled: 1
+    path: Assets/Scenes/castle/castle1.unity
+    guid: b3bdd687236134945bc5fae85fbf4b8e
+  - enabled: 1
+    path: Assets/Scenes/castle/castle2.unity
+    guid: a90aeb054df7eb04684a81e10d76e43a
+  - enabled: 1
+    path: Assets/Scenes/castle/boss.unity
+    guid: 0e09c47d2ac493941a2c0eec5ff9179a
+  - enabled: 1
+    path: Assets/Scenes/castle/castle3.unity
+    guid: bd616560fbe2c154bacde4a501b37eb3
   m_configObjects: {}

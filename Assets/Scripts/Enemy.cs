@@ -68,10 +68,7 @@ public class Enemy : MonoBehaviour
         {
             if(bossHP != null){
                 enddingUI.gameObject.SetActive(true);
-                // bossHP.SetActive(false);
-                // Destroy(gameObject);
                 Invoke("SceneLoad", 5f);
-                // SceneManager.LoadScene(0);
             }
             else{
                 anim.SetBool("isDeath", true);
@@ -87,11 +84,6 @@ public class Enemy : MonoBehaviour
     void SceneLoad()
     {
         SceneManager.LoadScene(0);
-    }
-
-    void OnEnddingUI()
-    {
-        enddingUI.gameObject.SetActive(true);
     }
 
     void FixedUpdate()

@@ -7,6 +7,7 @@ public class Portal : MonoBehaviour
 {
     CapsuleCollider2D col;
     public Fade fade;
+    public int sceneNumber;
     
     void Awake()
     {
@@ -26,6 +27,6 @@ public class Portal : MonoBehaviour
 
     void SceneLoad()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(sceneNumber);
     }
 }

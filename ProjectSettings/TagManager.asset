@@ -12,6 +12,8 @@ TagManager:
   - PlayerHitBox
   - NPC
   - PlayerHP
+  - Ultimate
+  - Portal
   layers:
   - Default
   - TransparentFX

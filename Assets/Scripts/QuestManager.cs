@@ -56,6 +56,12 @@ public class QuestManager : MonoBehaviour
                 questData.NotifyEvent(eventData);
             }
         }
+
+        foreach(KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers){
+            Dictionary<string, object> context = new Dictionary<string, object>(observer.Value);
+            context[QuestHandler.KEY_OF_EVENT_DATA] = eventData;
+            observer.Key.OnAction(QuestHandler.EVENT_NOTIFY, context);
+        }
     }
 
     void Update()
@@ -68,5 +74,61 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
+
+        foreach(KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers){
+            observer.Key.OnAction(QuestHandler.EVENT_UPDATE, observer.Value);
+        }
     }
+
+    //================================================================
+
+    private Dictionary<string, QuestHandler> questHandlerMap;
+    private Dictionary<string, Dictionary<string, object>> questContextMap;
+
+    private Dictionary<QuestHandler, Dictionary<string, object>> updateObservers;
+
+    private static QuestHandler NOP = new QuestHandler();
+
+    public Dictionary<string, object> GetQuestContext(string sceneName, int objectId, int talkIndex){
+        string keyName = sceneName + "$" + objectId;
+
+        if(!questContextMap.ContainsKey(keyName)){
+            Dictionary<string, object> _context = new Dictionary<string, object>();
+            _context[QuestHandler.KEY_OF_SCENE_NAME] = sceneName;
+            _context[QuestHandler.KEY_OF_OBJECT_ID] = objectId;
+            questContextMap.Add(keyName, _context);
+        }
+
+        Dictionary<string, object> context = questContextMap[keyName];
+        context[QuestHandler.KEY_OF_TALK_INDEX] = talkIndex;
+        return context;
+    }
+
+    public QuestHandler GetQuestHandler(string sceneName, int objectId){
+        string keyName = sceneName + "$" + objectId;
+
+        if(questHandlerMap.ContainsKey(keyName)){
+            return questHandlerMap[keyName];
+        } else {
+            Debug.Log("Handler Not Found: " + keyName);
+            return NOP;
+        }
+    }
+
+    public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context){
+        updateObservers[handler] = context;
+    }
+
+    public void RemoveUpdateHandler(QuestHandler handler){
+        updateObservers.Remove(handler);
+    }
+
+    void Start() {
+        questContextMap = new Dictionary<string, Dictionary<string, object>>();
+        questHandlerMap = new Dictionary<string, QuestHandler>();
+        updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
+        questHandlerMap.Add("townstage$100", new Quest100Handler());
+        questHandlerMap.Add("townstage$200", new Quest200Handler());
+    }
+
 }
