@@ -7,12 +7,18 @@ public class QuestHandler
     public const string EVENT_END_OF_TALK = "EndOfTalk";
     public const string EVENT_UPDATE = "Update";
     public const string EVENT_NOTIFY = "Notify";
+
     public const string KEY_OF_SCENE_NAME = "sceneName";
     public const string KEY_OF_OBJECT_ID = "objectId";
     public const string KEY_OF_TALK_INDEX = "talkIndex";
     public const string KEY_OF_STEP = "step";
     public const string KEY_OF_ACTION_OBJECT = "actionObject";
     public const string KEY_OF_NOTIFY_NAME = "notifyName";
+
+    public const string TOWNSTAGE = "TownStage";
+    public const string TOWNSTAGE1 = "TownStage1";
+    public const string TOWNSTAGE2 = "TownStage2";
+
 
     public virtual void OnAction(string actionName, Dictionary<string, object> context) {
         //no action

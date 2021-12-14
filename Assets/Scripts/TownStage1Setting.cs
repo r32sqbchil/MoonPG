@@ -25,15 +25,18 @@ public class TownStage1Setting : MonoBehaviour
     {
     }
 
-    public void HideWall(){
-        if(talk4Trigger!=null){
+    public void HideWall()
+    {
+        if(talk4Trigger!=null)
+        {
             QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
             questManager.RemoveUpdateHandler(talk4Trigger);
             gameManager.SetLimitMoveXMax("MovingAreaX3");
         }
     }
 
-    class Talk4Trigger : QuestHandler{
+    class Talk4Trigger : QuestHandler
+    {
         private GameManager gameManager;
         private GameObject playerObject;
 
@@ -51,7 +54,6 @@ public class TownStage1Setting : MonoBehaviour
             if(actionName == EVENT_NOTIFY){
                 string notifyName = (string)context[KEY_OF_NOTIFY_NAME];
                 if(notifyName == GameManager.ACTION_ON_TOUCH_RIGHT_BOUNDARY){
-                    Debug.Log("show talkUI");
                     gameManager.Action(playerObject);
                 }
             }

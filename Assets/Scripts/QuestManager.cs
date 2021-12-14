@@ -109,7 +109,8 @@ public class QuestManager : MonoBehaviour
         return context;
     }
 
-    public QuestHandler GetQuestHandler(string sceneName, int objectId){
+    public QuestHandler GetQuestHandler(string sceneName, int objectId)
+    {
         string keyName = sceneName + "$" + objectId;
 
         if(questHandlerMap.ContainsKey(keyName)){
@@ -120,25 +121,27 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context){
+    public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context)
+    {
         updateObservers[handler] = context;
     }
 
-    public void RemoveUpdateHandler(QuestHandler handler){
+    public void RemoveUpdateHandler(QuestHandler handler)
+    {
         updateObservers.Remove(handler);
     }
 
-    void Start() {
+    void Start() 
+    {
         questContextMap = new Dictionary<string, Dictionary<string, object>>();
         questHandlerMap = new Dictionary<string, QuestHandler>();
         updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
         
         Quest100Handler quest100Handler = new Quest100Handler();
-        questHandlerMap.Add("townstage$100", quest100Handler);
-        questHandlerMap.Add("townstage1$100", quest100Handler);
-
-        questHandlerMap.Add("townstage$200", new Quest200Handler());
-        questHandlerMap.Add("townstage1$300", new Quest300Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$100", quest100Handler);
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$200", new Quest200Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$100", quest100Handler);
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$300", new Quest300Handler());
     }
 
 }
