@@ -9,19 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/title.unity
     guid: 74eb5868aaedae441afbaad62b3fa1e6
   - enabled: 1
-    path: Assets/Scenes/Town/townstage.unity
+    path: Assets/Scenes/Town/TownStage.unity
     guid: 33c6646cf29faf44b9475d28b2472a11
   - enabled: 1
-    path: Assets/Scenes/Town/townsubstage.unity
+    path: Assets/Scenes/Town/TownSubstage.unity
     guid: 7a95360f31d7a6d4a9fb0119ddfbbc69
   - enabled: 1
-    path: Assets/Scenes/Town/townstage1.unity
+    path: Assets/Scenes/Town/TownStage1.unity
     guid: 97a09d53323bdc345b9e48b28f749cc7
   - enabled: 1
-    path: Assets/Scenes/Town/townstage2.unity
+    path: Assets/Scenes/Town/TownStage2.unity
     guid: 7500bb9516ce8ab4cbdee52ef88ae8aa
   - enabled: 1
-    path: Assets/Scenes/Town/townstage3.unity
+    path: Assets/Scenes/Town/TownStage3.unity
     guid: f62ad22f6f864884b9c2f6e882481b45
   - enabled: 1
     path: Assets/Scenes/Mountain/MountainStage.unity
