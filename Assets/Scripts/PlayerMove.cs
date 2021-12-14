@@ -305,9 +305,11 @@ public class PlayerMove : MonoBehaviour
         if(left < gameManager.limitMoveXMin) {
             transform.Translate(new Vector2(left - gameManager.limitMoveXMin, 0));
             // 퀘스트 액션을 보내야 함.
+            gameManager.Action(gameObject, GameManager.ACTION_ON_TOUCH_LEFT_BOUNDARY);
         } else if(right > gameManager.limitMoveXMax) {
             transform.Translate(new Vector2(right - gameManager.limitMoveXMax, 0));
             // 퀘스트 액션을 보내야 함.
+            gameManager.Action(gameObject, GameManager.ACTION_ON_TOUCH_RIGHT_BOUNDARY);
         }
     }
 

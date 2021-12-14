@@ -14,8 +14,10 @@ public class Quest100Handler:QuestHandler{
                 SceneManager.LoadScene(TOWNSTAGE1);
             } else if(sceneName == TOWNSTAGE1){
                 if(GetQuestStep(context) == 0) {
-                    GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
-                    gameManager.SetLimitMoveXMax("MovingAreaX3");
+                    TownStage1Setting townStage1Setting = GameObject.FindObjectOfType<TownStage1Setting>();
+                    if(townStage1Setting != null){
+                        townStage1Setting.HideWall();
+                    }
                     SetQuestStep(context, 10);
                 }
             }

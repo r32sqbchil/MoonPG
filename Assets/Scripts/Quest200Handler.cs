@@ -35,14 +35,17 @@ public class Quest200Handler:QuestHandler{
         } else if(actionName == EVENT_UPDATE) {
             // 프레임 호출을 전달 받음
         } else if(actionName == EVENT_NOTIFY) {
-            Object eventData = (Object)context[QuestHandler.KEY_OF_EVENT_DATA];
+            GameObject actionObject = (GameObject)context[QuestHandler.KEY_OF_ACTION_OBJECT];
+            string notifyName = (string)context[QuestHandler.KEY_OF_NOTIFY_NAME];
 
-            int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
-            int missionCount = (int)context[KEY_OF_MISSION_COUNT];
-            huntingCount++;
-            if(missionCount <= huntingCount) {
-                QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
-                questManager.RemoveUpdateHandler(this);
+            if(notifyName == GameManager.ACTION_ON_DIED){
+                int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
+                int missionCount = (int)context[KEY_OF_MISSION_COUNT];
+                huntingCount++;
+                if(missionCount <= huntingCount) {
+                    QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+                    questManager.RemoveUpdateHandler(this);
+                }
             }
         }
     }
