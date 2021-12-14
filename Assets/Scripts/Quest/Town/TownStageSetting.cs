@@ -17,8 +17,8 @@ public class TownStageSetting : MonoBehaviour
     }
 
     void BeginThisGame() {
-        GameManager gameManager = GetComponent<GameManager>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        gameManager.Action(player);
+        GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
+        Player player = GameObject.FindObjectOfType<Player>();
+        gameManager.Action(player.gameObject);
     }
 }

@@ -11,7 +11,7 @@ public class TownStage1Setting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
         gameManager.SetLimitMoveXMax("MovingAreaX2");
 
         QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();

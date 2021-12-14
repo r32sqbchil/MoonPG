@@ -37,16 +37,15 @@ public class ComboAttack : MonoBehaviour
             direction = 1.0f;
         }
 
+        EnemyBase enemy = null;
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, boxSize, 0);
+
         foreach(Collider2D collider in hitEnemies)
         {
-            //지역변수 enemy에 닿은 녀석의 Enemy클래스를 넣음
-            Enemy enemy = collider.GetComponent<Enemy>();
-            //enemy에 클래스 Enemy가 있는지 검사
-            if (enemy)
+            if (enemy = collider.GetComponent<EnemyBase>())
             {
                 //Enemy클래스가 있으면 함수를 호출합니다.
-                enemy.TakeDamage(direction, damage*comboStep);
+                enemy.TakeDamage(gameObject, direction, damage*comboStep);
             }
         }
     }
