@@ -588,7 +588,6 @@ GameObject:
   - component: {fileID: 8134792687628998000}
   - component: {fileID: 8134792687628998001}
   - component: {fileID: 8134792687628998014}
-  - component: {fileID: 4827090457743911121}
   - component: {fileID: 1593159212}
   m_Layer: 8
   m_Name: Player
@@ -739,6 +738,13 @@ MonoBehaviour:
   maxHealth: 200
   isHit: 0
   enemyDamage: 10
+  AFK: 200
+  DEF: 100
+  SPD: 100
+  hpText: {fileID: 0}
+  afkText: {fileID: 0}
+  defText: {fileID: 0}
+  spdText: {fileID: 0}
 --- !u!114 &8134792687628998001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +768,10 @@ MonoBehaviour:
   runSfx: {fileID: 8300000, guid: 8e6027d57cc9e1e47811165a9a6456cb, type: 3}
   jumpSfx: {fileID: 8300000, guid: 605844979beaa5f47af5fe7d0c9263a8, type: 3}
   dashSfx: {fileID: 8300000, guid: 610b80a240a389f40b76d27af6a5c71b, type: 3}
+  playerUltimate: {fileID: 0}
+  playerUltimateTrans: {fileID: 0}
+  exclamation: []
+  text: {fileID: 0}
 --- !u!114 &8134792687628998014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,21 +787,9 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   boxSize: {x: 0.2, y: 0.5}
   damage: 1
---- !u!114 &4827090457743911121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8134792687628998006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2afba8b8d93532b40b0633c7fa4b6b9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: 0
-  takeDownSpeed: 0
-  text: {fileID: 505380763}
+  mySfx: {fileID: 0}
+  attackSfx: {fileID: 0}
+  nonattackSfx: {fileID: 0}
 --- !u!82 &1593159212
 AudioSource:
   m_ObjectHideFlags: 0

@@ -89,12 +89,12 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(bossHP == null){
-            if(transform.position.x < 7f) {
-                transform.Translate(new Vector2(transform.position.x -7f, 0));
-            } else if(transform.position.x > 14f) {
-                transform.Translate(new Vector2(transform.position.x -14f, 0));
-            }
-        }
+        // if(bossHP == null){
+        //     if(transform.position.x < 7f) {
+        //         transform.Translate(new Vector2(transform.position.x -7f, 0));
+        //     } else if(transform.position.x > 14f) {
+        //         transform.Translate(new Vector2(transform.position.x -14f, 0));
+        //     }
+        // }
     }
 }
