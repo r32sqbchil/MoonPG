@@ -14,4 +14,20 @@ public class Scene
     public const string SCENE_MOUNTAIN_STAGE4 = "MountainStage4";
     public const string SCENE_MOUNTAIN_STAGE5 = "MountainStage5";
     public const string SCENE_MOUNTAIN_STAGE6 = "MountainStage6";
+    public const string SCENE_FIELD_STAGE = "FieldStage";
+    public const string SCENE_FIELD_SUBSTAGE = "FieldSubstage";
+    public const string SCENE_FIELD_STAGE1 = "FieldStage1";
+    public const string SCENE_FIELD_STAGE2 = "FieldStage2";
+    public const string SCENE_FIELD_STAGE3 = "FieldStage3";
+    public const string SCENE_TESTFIELD_STAGE = "TestFieldStage";
+    public const string SCENE_TESTFIELD_SUBSTAGE = "TestFieldSubstage";
+    public const string SCENE_TESTFIELD_STAGE1 = "TestFieldStage1";
+    public const string SCENE_TESTFIELD_STAGE2 = "TestFieldStage2";
+    public const string SCENE_TESTFIELD_STAGE3 = "TestFieldStage3";
+    public const string SCENE_CASTLE_STAGE = "CastleStage";
+    public const string SCENE_CASTLE_SUBSTAGE = "CastleSubstage";
+    public const string SCENE_CASTLE_STAGE1 = "CastleStage1";
+    public const string SCENE_CASTLE_STAGE2 = "CastleStage2";
+    public const string SCENE_CASTLE_BOSSSTAGE = "CastleBossstage";
+    public const string SCENE_CASTLE_STAGE3 = "CastleStage3";
 }
