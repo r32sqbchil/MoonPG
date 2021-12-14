@@ -18,12 +18,12 @@ public class Enemy : MonoBehaviour
     public GameObject bossHP;
     Animator anim;
 
-    private QuestManager questManager;
+    private GameManager gameManager;
     CameraShake cameraShake;
     public GameObject enddingUI;
 
     void Awake(){
-        questManager = GameObject.FindObjectOfType<QuestManager>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -72,7 +72,8 @@ public class Enemy : MonoBehaviour
             }
             else{
                 anim.SetBool("isDeath", true);
-                questManager.NotifyEvent(this);
+
+                gameManager.Action(gameObject, GameManager.ACTION_ON_DIED);
                 Destroy(gameObject, 2f);
             }
            
