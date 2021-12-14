@@ -18,6 +18,7 @@ public class TalkManager : MonoBehaviour
         talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
         talksOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
         talksOfScene.Add("townstage1", GenerateTalksInTownstage1(new Dictionary<int, string[]>()));
+        talksOfScene.Add("townstage3", GenerateTalksInTownstage3(new Dictionary<int, string[]>()));
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
@@ -41,7 +42,12 @@ public class TalkManager : MonoBehaviour
         talks.Add(0, new string[]{"마하가 어딨지? :0"}); //대화4
         talks.Add(100, new string[]{"잘따라 오고 있지?:1","당연하지 애도 아니고:0","이렇게 그냥 올라가기엔 심심한데 :0","아! 우리 누가 먼저 산 정산에 올라가는지 시합하자:0","음… 그래 :1","나 먼저 출발한다 :1","야 그런게 어딨어!!!! :0"}); //대화5
         talks.Add(100+10, new string[]{});
-        talks.Add(300, new string[]{"슈라켄 … 왜 이제 왔어 저기 이상한 뭔가가 있는거 같에… :3","응? 무슨 소리? :0","저기 뭔가가 여기로 다가오고 있는거 같은데?:3","어! 오크패잔병이잖아!!! 도망쳐 마하! :0"});
+        talks.Add(300, new string[]{"슈라켄 … 왜 이제 왔어 저기 이상한 뭔가가 있는거 같에… :3","응? 무슨 소리? :0","저기 뭔가가 여기로 다가오고 있는거 같은데?:3","어! 오크패잔병이잖아!!! 도망쳐 마하! :0"}); //대화6
+        return talks;
+    }
+    private Dictionary<int, string[]> GenerateTalksInTownstage3(Dictionary<int, string[]> talks){
+        talks.Add(400, new string[]{"괜찮나 청년 ? :4" , "네 감사합니다." , "조심하렴 앞으로 위험할 때를 대비해 대쉬를 알려줄게 :4" , "어? 대쉬요? 감사합니다 근데 누구세요?" , " 그냥 여기 산에 살고 있는 유랑민이란다 :4"}); //대화7
+        talks.Add(400+10, new string[]{});
         return talks;
     }
 
