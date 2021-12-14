@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest200Handler:QuestHandler{
+public class TownStageQuest2Handler:QuestHandler{
     const string KEY_OF_HUNTING_COUNT = "huntingCount";
     const string KEY_OF_MISSION_COUNT = "missionCount";
 
-    public override void OnAction(string actionName, Dictionary<string, object> context) {
+    public override void OnAction(string actionName, Dictionary<string, object> context)
+    {
         string sceneName = (string)context["sceneName"];
 
         //if(sceneName == "townstage")

@@ -80,11 +80,10 @@ public class QuestManager : MonoBehaviour
         questHandlerMap = new Dictionary<string, QuestHandler>();
         updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
         
-        Quest100Handler quest100Handler = new Quest100Handler();
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$100", quest100Handler);
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$200", new Quest200Handler());
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$100", quest100Handler);
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$300", new Quest300Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$100", new TownStageQuest1Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$200", new TownStageQuest2Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$100", new TownStage1Quest1Handler());
+        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$300", new TownStage1Quest3Handler());
     }
 
 }
