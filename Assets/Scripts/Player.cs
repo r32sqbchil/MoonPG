@@ -42,9 +42,13 @@ public class Player : MonoBehaviour
         hp = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        GameObject playerHP = GameObject.FindGameObjectWithTag("PlayerHP");
-        healthBar = playerHP.GetComponent<Image>();
-        statText = playerHP.GetComponentInChildren<Text>();
+        PlayerHP playerHP = GameObject.FindObjectOfType<PlayerHP>();
+        if(playerHP != null){
+            healthBar = playerHP.GetComponent<Image>();
+            statText = playerHP.GetComponentInChildren<Text>();
+        } else {
+            Debug.LogWarning("Can't find a component PlayerHP");
+        }
     }
 
 
@@ -56,12 +60,13 @@ public class Player : MonoBehaviour
         if(hp <= 0)
         {
             SceneManager.LoadScene(0);
-        }
+            return;
+        } 
 
-        hpText.text = hp + " ";
-        afkText.text = AFK + " ";
-        defText.text = DEF + " ";
-        spdText.text = SPD + " ";
+        if(hpText != null) hpText.text = hp + " ";
+        if(afkText != null) afkText.text = AFK + " ";
+        if(defText != null) defText.text = DEF + " ";
+        if(spdText != null) spdText.text = SPD + " ";
     }
 
     public void OnDamage(GameObject enemy)
