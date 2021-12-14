@@ -56,10 +56,15 @@ public class QuestManager : MonoBehaviour
                 questData.NotifyEvent(eventData);
             }
         }
+    }
 
-        foreach(KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers){
+    public void NotifyAction(GameObject actionObject, string actionName)
+    {
+        foreach (KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers)
+        {
             Dictionary<string, object> context = new Dictionary<string, object>(observer.Value);
-            context[QuestHandler.KEY_OF_EVENT_DATA] = eventData;
+            context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
+            context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
             observer.Key.OnAction(QuestHandler.EVENT_NOTIFY, context);
         }
     }

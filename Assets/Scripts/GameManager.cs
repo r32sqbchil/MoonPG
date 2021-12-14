@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public const string ACTION_ON_TOUCH = "OnTouch";
+    public const string ACTION_ON_DIED = "OnDied";
+    public const string ACTION_ON_TOUCH_LEFT_BOUNDARY = "OnTouchLeftBoundary";
+    public const string ACTION_ON_TOUCH_RIGHT_BOUNDARY = "OnTouchRightBoundary";
+
     public Transform[] points;
     public GameObject[] monsterPrefab;
 
@@ -34,23 +39,40 @@ public class GameManager : MonoBehaviour
     private QuestManager questManager;
     private TalkManager talkManager;
 
-    public void Action(GameObject scanObject)
+    public void Action(GameObject scanObject){
+        Action(scanObject, ACTION_ON_TOUCH);
+    }
+
+    public void Action(GameObject scanObject, string actionName)
     {
-        this.scanObject = scanObject;
-        this.scanObjectName = scanObject.name;
+        switch(actionName){
+            case ACTION_ON_TOUCH_LEFT_BOUNDARY:
+            case ACTION_ON_TOUCH_RIGHT_BOUNDARY:
+            case ACTION_ON_DIED:
+                questManager.NotifyAction(scanObject, actionName);
+                break;
+            case ACTION_ON_TOUCH:
+                this.scanObject = scanObject;
+                this.scanObjectName = scanObject.name;
 
-        ObjData objData = scanObject.GetComponent<ObjData>();
-        
-        if(objData == null) {
-            Debug.LogError("A game-object["+scanObjectName+"] MUST have ObjData component.");
-        }
+                ObjData objData = scanObject.GetComponent<ObjData>();
 
-        if(TalkStart(objData.id))
-        {
-            talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
-            this.isAction = true;
-        } else {
-            Debug.Log("No talks found");
+                if (objData == null)
+                {
+                    Debug.LogError("A game-object[" + scanObjectName + "] MUST have ObjData component.");
+                    return;
+                }
+
+                if (TalkStart(objData.id))
+                {
+                    talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
+                    this.isAction = true;
+                }
+                else
+                {
+                    Debug.Log("No talks found");
+                }
+                break;
         }
     }
 

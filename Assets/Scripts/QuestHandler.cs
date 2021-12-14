@@ -11,8 +11,8 @@ public class QuestHandler
     public const string KEY_OF_OBJECT_ID = "objectId";
     public const string KEY_OF_TALK_INDEX = "talkIndex";
     public const string KEY_OF_STEP = "step";
-    public const string KEY_OF_EVENT_DATA = "eventData";
-
+    public const string KEY_OF_ACTION_OBJECT = "actionObject";
+    public const string KEY_OF_NOTIFY_NAME = "notifyName";
 
     public virtual void OnAction(string actionName, Dictionary<string, object> context) {
         //no action
