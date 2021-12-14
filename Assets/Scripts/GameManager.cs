@@ -135,10 +135,6 @@ public class GameManager : MonoBehaviour
         int questStep = questHandler.GetQuestStep(questContext);
         string talk = talkManager.GetTalk(sceneName, objectId + questStep, this.talkIndex);
 
-        //int questId = questManager.GetQuestTalkIndex(objectId);
-        //string talk = talkManager.GetTalk(sceneName, objectId + questId, this.talkIndex);
-        //QuestCheck(objectId, questId, talkIndex);
-
         if(talk == null) {
             questHandler.OnAction(QuestHandler.EVENT_END_OF_TALK, questContext);
             return false;
@@ -146,23 +142,6 @@ public class GameManager : MonoBehaviour
 
         TalkSetText(talk);
         return true;
-    }
-
-    void QuestCheck(int npcId, int questId, int talkIndex){
-        //Debug.Log("npcId:"+npcId+", questId:"+questId+", talkIndex:"+talkIndex+"");
-        if(npcId == 1000 && questId == 0 && talkIndex == 1) {
-            questManager.QuestStart(npcId);
-        } else if(npcId == 1000 && questId == 10 && talkIndex == 2) {
-            QuestData questData = questManager.GetQuestData(npcId);
-            if(!questData.isDoingQuest()){
-                questData.AddQuestStatus();
-            }
-        } else if(npcId == 1000 && questId == 30 && talkIndex == 2) {
-            QuestData questData = questManager.GetQuestData(npcId);
-            if(!questData.isDoingQuest()){
-                questData.AddQuestStatus();
-            }
-        }
     }
 
     void Start () 
