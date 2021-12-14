@@ -20,10 +20,14 @@ public class TalkManager : MonoBehaviour
         talksOfScene.Add("TownStage1", GenerateTalksInTownStage1(new Dictionary<int, string[]>()));
         talksOfScene.Add("TownStage3", GenerateTalksInTownStage3(new Dictionary<int, string[]>()));
         talksOfScene.Add("MountainStage", GenerateTalksInMountainStage(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage2", GenerateTalksInMountainStage2(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage4", GenerateTalksInMountainStage4(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage5", GenerateTalksInMountainStage5(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage5", GenerateTalksInMountainStage6(new Dictionary<int, string[]>()));
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
-        string[] array = "슈라켄,어린마하,아줌마,어린마하,스승".Split(',');
+        string[] array = "슈라켄,어린마하,아줌마,어린마하,스승,마하,마하,하사".Split(',');
         for(int i=0; i<array.Length; i++){
             talkers.Add(i, array[i]);
         }
@@ -54,7 +58,32 @@ public class TalkManager : MonoBehaviour
     private Dictionary<int, string[]> GenerateTalksInMountainStage(Dictionary<int, string[]> talks){
         talks.Add(200, new string[]{"저 더 강해지고 싶어요!" , "그럼 저기 몬스터를 사냥해와 :2"}); //대화8
         talks.Add(200+10, new string[]{});
-        talks.Add(400, new string[]{"저를 제자로 받아주세요 ! 저번 전투에서는 정말 감사했습니다…!" , "스승님 전 더 강해지고 싶습니다." , "그럼 일딴 동굴의 검은색 광석을 가져와라 :4"});
+        talks.Add(400, new string[]{"저를 제자로 받아주세요 ! 저번 전투에서는 정말 감사했습니다…!" , "스승님 전 더 강해지고 싶습니다." , "그럼 일딴 동굴의 검은색 광석을 가져와라 :4"}); //대화9
+        talks.Add(400+10, new string[]{});
+        return talks;
+    }
+
+    // 여기서부터 대화 수정 요망
+    private Dictionary<int, string[]> GenerateTalksInMountainStage2(Dictionary<int, string[]> talks){
+        talks.Add(400, new string[]{"광석을 가져왔군.. :4" , "몸을 순간적으로 증폭시키는 방법을 알려주지 :4"}); //대화10
+        talks.Add(400+10, new string[]{"잘했지만 아직 제자로 받아드리기엔 약하군.. :4" , "선생님 전 꼭 제자가 되고 싶어요" , "그럼 산 뒤쪽 마을에 이상한 늑대가 나타났다. 마을을 늑대로부터 구해주어라 :4" , "네 알겠습니다 다녀오겠습니다"}); //대화11 //대화11
+        talks.Add(400+20, new string[]{});
+        return talks;
+    }
+    private Dictionary<int, string[]> GenerateTalksInMountainStage4(Dictionary<int, string[]> talks){
+        talks.Add(400, new string[]{"이상한 늑대를 처치 할 수 있을 줄 몰랐는데 잘했어 소년:4" , "충분히 증명된거 같네 너의 열정:4" , "마지막 기술을 알려줄게 :4"}); //대화12
+        talks.Add(400+10, new string[]{});
+        return talks;
+    }
+    private Dictionary<int, string[]> GenerateTalksInMountainStage5(Dictionary<int, string[]> talks){
+        talks.Add(400, new string[]{"소년 나는 어디 멀리 떠나야할거 같에 :4" , "스승님 어디가시는 건가요?" , "그건 말해 줄 수 없네 :4" , "나중에 다시 찾아오마 :4" , "일딴 해군을 목표로 훈련을 하고 있거라 :4"}); //대화13
+        talks.Add(400+10, new string[]{});
+        return talks;
+    }
+    private Dictionary<int, string[]> GenerateTalksInMountainStage6(Dictionary<int, string[]> talks){
+        talks.Add(500, new string[]{"슈라켄 라프텔 성에 천사족과 우리 인간족이 싸운 소식기억하니? :5" , "음.. 아 그거 기억하지" , "내가 가문 사람에게 들었는데 스승님이 거기 잡혀 있다고 하더라고 :5" , "음? 스승님이 왜 거기에?" , "스승님은 해군 소속이셨고 특령이라고 하더라고 :5" , "그것도 최초의 1기 특령이라고 :5" , "특령? 매년마다 해군에서 뽑는 기밀 해군 말하는거니?" , "스승님 대단한 사람이구나" , "근데 너는 어떻게 알았어?" , "이건 비밀인데 우리 가문에 제 4기 특령 출신이 있어 :5" , "난 도련님이라 알아냈지 :5" , "근데 너이거 다른 사람한테 말하면 안된다. :5" , "그 스승님이 잡힐 정도라니 구하러 가야지!!!" , "슈라켄 진정하고 일딴 곧 있을 특령시험에 합격해서 해군원수와 만나서 상세한 내용을 들어보자 :5" , "그래 그럼 시험 보러 가자" , "아무래도 마차 준비 뒀어 마을 입구에서 기다릴께 :5"}); //대화14
+        talks.Add(500+10, new string[]{});
+        talks.Add(600, new string[]{"이번엔 방문 시험이더라고 :6", "장소는 옆 마을이고 :6", "그쪽으로 가는 마차를 구해놨어 :6" , "좋아 가자!!!"}); //대화15
         talks.Add(400+10, new string[]{});
         return talks;
     }
