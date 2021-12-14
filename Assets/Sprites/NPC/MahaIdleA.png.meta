@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 290503419146fa04985630dede54930a
+guid: b063312bedeabb048bf035fdf4c0e6ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5979054086790083893
-    second: teacher_idle_04_sprite_0
+      213: -7251616758300905530
+    second: maha_idle_01_sprite_0
   - first:
-      213: -6674714232081767579
-    second: teacher_idle_04_sprite_1
+      213: -5695737581128181728
+    second: maha_idle_01_sprite_1
   - first:
-      213: 3925423655093051794
-    second: teacher_idle_04_sprite_2
+      213: -1640045344547759676
+    second: maha_idle_01_sprite_2
   - first:
-      213: 7651303871449883688
-    second: teacher_idle_04_sprite_3
-  - first:
-      213: -5673524237415777120
-    second: teacher_idle_04_sprite_4
+      213: -4661874182650104975
+    second: maha_idle_01_sprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -80,7 +77,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -92,7 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -106,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: teacher_idle_04_sprite_0
+      name: maha_idle_01_sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -120,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53578f7730ed9f250800000000000000
-      internalID: 5979054086790083893
+      spriteID: 6cf6432aaf41d5b90800000000000000
+      internalID: -7251616758300905530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teacher_idle_04_sprite_1
+      name: maha_idle_01_sprite_1
       rect:
         serializedVersion: 2
         x: 32
@@ -141,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 563a58325c6ae53a0800000000000000
-      internalID: -6674714232081767579
+      spriteID: 0281307e8dca4f0b0800000000000000
+      internalID: -5695737581128181728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teacher_idle_04_sprite_2
+      name: maha_idle_01_sprite_2
       rect:
         serializedVersion: 2
         x: 64
@@ -162,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 291acba3408e97630800000000000000
-      internalID: 3925423655093051794
+      spriteID: 4c992bec2736d39e0800000000000000
+      internalID: -1640045344547759676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: teacher_idle_04_sprite_3
+      name: maha_idle_01_sprite_3
       rect:
         serializedVersion: 2
         x: 96
@@ -183,29 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 824675e2554ee2a60800000000000000
-      internalID: 7651303871449883688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: teacher_idle_04_sprite_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ac734404c79341b0800000000000000
-      internalID: -5673524237415777120
+      spriteID: 173739b6122bd4fb0800000000000000
+      internalID: -4661874182650104975
       vertices: []
       indices: 
       edges: []
@@ -213,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 05085966336df3f4faa55a3dc2410410
+    spriteID: 3a692f295fb39074b8169ef608a8897d
     internalID: 0
     vertices: []
     indices: 

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: b1ab4964149fe0045a83a2c2ed09e6fa
+guid: 8729ac737b717fc42827e098e13f78df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3909922666837253412
-    second: MahaIdleB_0
+      213: -8163203389072693851
+    second: maha_idle_02_sprite_0
   - first:
-      213: 4923679926441184420
-    second: MahaIdleB_1
+      213: -7794976606504180886
+    second: maha_idle_02_sprite_1
   - first:
-      213: -2528022665372786864
-    second: MahaIdleB_2
+      213: -7348201448169547503
+    second: maha_idle_02_sprite_2
   - first:
-      213: 5051085071034931708
-    second: MahaIdleB_3
+      213: 2104193760096448227
+    second: maha_idle_02_sprite_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -58,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MahaIdleB_0
+      name: maha_idle_02_sprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -117,14 +117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2eae7dc0a2db9c0800000000000000
-      internalID: -3909922666837253412
+      spriteID: 5a5ae05a4c976be80800000000000000
+      internalID: -8163203389072693851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MahaIdleB_1
+      name: maha_idle_02_sprite_1
       rect:
         serializedVersion: 2
         x: 32
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ac8f3b6ecc645440800000000000000
-      internalID: 4923679926441184420
+      spriteID: a63a6d0731ea2d390800000000000000
+      internalID: -7794976606504180886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MahaIdleB_2
+      name: maha_idle_02_sprite_2
       rect:
         serializedVersion: 2
         x: 64
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05f9156a7c8aaecd0800000000000000
-      internalID: -2528022665372786864
+      spriteID: 119d7df17b1f50a90800000000000000
+      internalID: -7348201448169547503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MahaIdleB_3
+      name: maha_idle_02_sprite_3
       rect:
         serializedVersion: 2
         x: 96
@@ -180,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf9d05d3c1f091640800000000000000
-      internalID: 5051085071034931708
+      spriteID: 3ee64298319933d10800000000000000
+      internalID: 2104193760096448227
       vertices: []
       indices: 
       edges: []
@@ -189,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 3951d11ef8d962a4b910196ff514cebe
     internalID: 0
     vertices: []
     indices: 

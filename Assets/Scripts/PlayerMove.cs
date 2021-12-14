@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -52,12 +53,18 @@ public class PlayerMove : MonoBehaviour
 
     // public GameObject speechBub;
     public GameObject[] exclamation;
+    public Text text;
     
 
 
     void Awake()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
+        SkillText skillText = GetComponentInChildren<SkillText>();
+        if(skillText != null){
+            skillText.GetComponent<Text>();
+        }
 
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -196,6 +203,12 @@ public class PlayerMove : MonoBehaviour
             } else {
                 CharacterStopMoving();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.A)) {
+            anim.Play("PlayerSkillA");
+            text.gameObject.SetActive(true);
+            comboAttack.SetDamageUp();
         }
 
         if(Input.GetKeyDown(KeyCode.D))
