@@ -9,7 +9,7 @@ public class TownStageQuest1Handler : QuestHandler
     {
         if(actionName == QuestHandler.EVENT_END_OF_TALK)
         {
-            SceneManager.LoadScene(TOWNSTAGE1);
+            SceneManager.LoadScene(SCENE_TOWN_STAGE1);
         }
     }
 }

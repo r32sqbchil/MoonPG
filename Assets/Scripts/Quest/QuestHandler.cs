@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestHandler
+public class QuestHandler : Scene
 {
     public const string EVENT_END_OF_TALK = "EndOfTalk";
     public const string EVENT_UPDATE = "Update";
@@ -14,10 +14,6 @@ public class QuestHandler
     public const string KEY_OF_STEP = "step";
     public const string KEY_OF_ACTION_OBJECT = "actionObject";
     public const string KEY_OF_NOTIFY_NAME = "notifyName";
-
-    public const string TOWNSTAGE = "TownStage";
-    public const string TOWNSTAGE1 = "TownStage1";
-    public const string TOWNSTAGE2 = "TownStage2";
 
 
     public virtual void OnAction(string actionName, Dictionary<string, object> context) {

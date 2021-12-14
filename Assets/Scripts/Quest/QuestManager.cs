@@ -6,8 +6,16 @@ public class QuestManager : MonoBehaviour
 {
     
 
-    void Awake()
+    void Start()
     {
+        questContextMap = new Dictionary<string, Dictionary<string, object>>();
+        questHandlerMap = new Dictionary<string, QuestHandler>();
+        updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
+        
+        questHandlerMap.Add(QuestHandler.SCENE_TOWN_STAGE +"$100", new TownStageQuest1Handler());
+        questHandlerMap.Add(QuestHandler.SCENE_TOWN_STAGE +"$200", new TownStageQuest2Handler());
+        questHandlerMap.Add(QuestHandler.SCENE_TOWN_STAGE1+"$100", new TownStage1Quest1Handler());
+        questHandlerMap.Add(QuestHandler.SCENE_TOWN_STAGE1+"$300", new TownStage1Quest3Handler());
     }
 
     public void NotifyAction(GameObject actionObject, string actionName)
@@ -73,17 +81,4 @@ public class QuestManager : MonoBehaviour
     {
         updateObservers.Remove(handler);
     }
-
-    void Start() 
-    {
-        questContextMap = new Dictionary<string, Dictionary<string, object>>();
-        questHandlerMap = new Dictionary<string, QuestHandler>();
-        updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();
-        
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$100", new TownStageQuest1Handler());
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE +"$200", new TownStageQuest2Handler());
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$100", new TownStage1Quest1Handler());
-        questHandlerMap.Add(QuestHandler.TOWNSTAGE1+"$300", new TownStage1Quest3Handler());
-    }
-
 }

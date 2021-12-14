@@ -11,7 +11,7 @@ public class TownStage1Quest3Handler : QuestHandler
         {
             if(GetQuestStep(context) == 0)
             {
-                SceneManager.LoadScene(TOWNSTAGE2);
+                SceneManager.LoadScene(SCENE_TOWN_STAGE2);
             }
         }
     }
