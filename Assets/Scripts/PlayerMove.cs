@@ -61,11 +61,6 @@ public class PlayerMove : MonoBehaviour
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
-        SkillText skillText = GetComponentInChildren<SkillText>();
-        if(skillText != null){
-            skillText.GetComponent<Text>();
-        }
-
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

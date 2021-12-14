@@ -14,6 +14,7 @@ TagManager:
   - PlayerHP
   - Ultimate
   - Portal
+  - PlayerText
   layers:
   - Default
   - TransparentFX
