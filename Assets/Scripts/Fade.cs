@@ -7,7 +7,6 @@ public class Fade : MonoBehaviour
 {
     public Image fadeImage;
 
-    float time = 0f;
     float f_Time = 1f;
 
 
