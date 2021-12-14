@@ -16,6 +16,7 @@ public class TalkManager : MonoBehaviour
 
         talkers = GenerateTalkers(new Dictionary<int, string>());
         talksOfScene = new Dictionary<string, Dictionary<int, string[]>>();
+
         talksOfScene.Add("TownStage", GenerateTalksInTownStage(new Dictionary<int, string[]>()));
         talksOfScene.Add("TownStage1", GenerateTalksInTownStage1(new Dictionary<int, string[]>()));
         talksOfScene.Add("TownStage3", GenerateTalksInTownStage3(new Dictionary<int, string[]>()));
@@ -23,7 +24,7 @@ public class TalkManager : MonoBehaviour
         talksOfScene.Add("MountainStage2", GenerateTalksInMountainStage2(new Dictionary<int, string[]>()));
         talksOfScene.Add("MountainStage4", GenerateTalksInMountainStage4(new Dictionary<int, string[]>()));
         talksOfScene.Add("MountainStage5", GenerateTalksInMountainStage5(new Dictionary<int, string[]>()));
-        talksOfScene.Add("MountainStage5", GenerateTalksInMountainStage6(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage6", GenerateTalksInMountainStage6(new Dictionary<int, string[]>()));
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
