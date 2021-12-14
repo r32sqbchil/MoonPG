@@ -19,6 +19,7 @@ public class TalkManager : MonoBehaviour
         talksOfScene.Add("townstage", GenerateTalksInTownstage(new Dictionary<int, string[]>()));
         talksOfScene.Add("townstage1", GenerateTalksInTownstage1(new Dictionary<int, string[]>()));
         talksOfScene.Add("townstage3", GenerateTalksInTownstage3(new Dictionary<int, string[]>()));
+        talksOfScene.Add("MountainStage", GenerateTalksInMountainStage(new Dictionary<int, string[]>()));
     }
 
     private Dictionary<int, string> GenerateTalkers(Dictionary<int, string> talkers){
@@ -47,6 +48,13 @@ public class TalkManager : MonoBehaviour
     }
     private Dictionary<int, string[]> GenerateTalksInTownstage3(Dictionary<int, string[]> talks){
         talks.Add(400, new string[]{"괜찮나 청년 ? :4" , "네 감사합니다." , "조심하렴 앞으로 위험할 때를 대비해 대쉬를 알려줄게 :4" , "어? 대쉬요? 감사합니다 근데 누구세요?" , " 그냥 여기 산에 살고 있는 유랑민이란다 :4"}); //대화7
+        talks.Add(400+10, new string[]{});
+        return talks;
+    }
+    private Dictionary<int, string[]> GenerateTalksInMountainStage(Dictionary<int, string[]> talks){
+        talks.Add(200, new string[]{"저 더 강해지고 싶어요!" , "그럼 저기 몬스터를 사냥해와 :2"}); //대화8
+        talks.Add(200+10, new string[]{});
+        talks.Add(400, new string[]{"저를 제자로 받아주세요 ! 저번 전투에서는 정말 감사했습니다…!" , "스승님 전 더 강해지고 싶습니다." , "그럼 일딴 동굴의 검은색 광석을 가져와라 :4"});
         talks.Add(400+10, new string[]{});
         return talks;
     }
