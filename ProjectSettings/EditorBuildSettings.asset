@@ -24,28 +24,28 @@ EditorBuildSettings:
     path: Assets/Scenes/Town/townstage3.unity
     guid: f62ad22f6f864884b9c2f6e882481b45
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage.unity
+    path: Assets/Scenes/Mountain/MountainStage.unity
     guid: 1a15483f31a237440b1eae94fb6e2d94
   - enabled: 1
-    path: Assets/Scenes/mountian/mountiansubstage.unity
+    path: Assets/Scenes/Mountain/MountainSubstage.unity
     guid: e5de90ae896598c439c3b972d5d73aa6
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage1.unity
+    path: Assets/Scenes/Mountain/MountainStage1.unity
     guid: e2327a49ae1dd664a9f0ed6de16c4c8c
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage2.unity
+    path: Assets/Scenes/Mountain/MountainStage2.unity
     guid: aaaa5d87bd636a54187c16457148a253
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage3.unity
+    path: Assets/Scenes/Mountain/MountainStage3.unity
     guid: 9b28057c16af62442a77f6fbd8f79d13
   - enabled: 1
     path: Assets/Scenes/mountian/mountianstage4.unity
     guid: 8b7b5be446d8e1d4a9a7acfc3694af59
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage5.unity
+    path: Assets/Scenes/Mountain/MountainStage5.unity
     guid: 5a08fa5557a7ebc4e9c3ddb11fa30a25
   - enabled: 1
-    path: Assets/Scenes/mountian/mountianstage6.unity
+    path: Assets/Scenes/Mountain/MountainStage6.unity
     guid: 92558ad5e507e6a45bd6c01e5542f472
   - enabled: 1
     path: Assets/Scenes/testfiled/testfilledstage.unity
