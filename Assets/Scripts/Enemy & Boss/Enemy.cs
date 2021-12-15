@@ -42,6 +42,11 @@ public class Enemy : MonoBehaviour
     private void KnockBack(float direction)
     {
         anim.Play("HitEnemyGoblin");
+        anim.Play("HitEnemy");
+        anim.Play("BatHit");
+        anim.Play("WolfHit");
+        anim.Play("SnakeHit");
+        anim.Play("WeirdwolfHit");
         transform.Translate(Vector2.left*direction*.15f);
     }
 
