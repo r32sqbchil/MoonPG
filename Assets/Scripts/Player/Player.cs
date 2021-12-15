@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        healthBar.fillAmount = hp / maxHealth;
-        statText.text = hp + " " + "/" + " " + maxHealth;
+        if(healthBar) healthBar.fillAmount = hp / maxHealth;
+        if(statText) statText.text = hp + " " + "/" + " " + maxHealth;
 
         if(hp <= 0)
         {
@@ -63,10 +63,10 @@ public class Player : MonoBehaviour
             return;
         } 
 
-        if(hpText != null) hpText.text = hp + " ";
-        if(afkText != null) afkText.text = AFK + " ";
-        if(defText != null) defText.text = DEF + " ";
-        if(spdText != null) spdText.text = SPD + " ";
+        if(hpText) hpText.text = hp + " ";
+        if(afkText) afkText.text = AFK + " ";
+        if(defText) defText.text = DEF + " ";
+        if(spdText) spdText.text = SPD + " ";
     }
 
     public void OnDamage(GameObject enemy)
