@@ -44,8 +44,10 @@ public class ComboAttack : MonoBehaviour
         {
             if (enemy = collider.GetComponent<EnemyBase>())
             {
-                //Enemy클래스가 있으면 함수를 호출합니다.
-                enemy.TakeDamage(gameObject, direction, damage*comboStep);
+                if(enemy.isAlive()) {
+                    //Enemy클래스가 있으면 함수를 호출합니다.
+                    enemy.TakeDamage(gameObject, direction, damage*comboStep);
+                }
             }
         }
     }
