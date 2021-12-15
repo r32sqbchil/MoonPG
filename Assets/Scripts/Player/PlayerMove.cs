@@ -54,6 +54,7 @@ public class PlayerMove : MonoBehaviour
     // public GameObject speechBub;
     public GameObject[] exclamation;
     public Text text;
+    bool exclamationCheck = false;
     
 
 
@@ -252,12 +253,22 @@ public class PlayerMove : MonoBehaviour
             {
                 scanObject = rayHit_detect.collider.gameObject;
                 //Debug.Log("FixedUpdate - rayHit detected -> scanObject[" + scanObject.name + "]");
-                // exclamation.SetActive(true);
-
+                // if(!exclamationCheck)
+                // {
+                //     for(int i = 0; i < exclamation.Length ; i++)
+                //     {
+                //         exclamation[i].SetActive(true);
+                //     }
+                //     exclamationCheck = true;
+                // }
             }
             else
             {
-                // exclamation.SetActive(false);
+                // for(int i = 0; i < exclamation.Length ; i++)
+                // {
+                //     exclamation[i].SetActive(false);
+                // }
+                // exclamationCheck = false;
                 // keep this state
             }
         }
