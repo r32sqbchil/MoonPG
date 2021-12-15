@@ -15,6 +15,8 @@ public class EnemyBase : MonoBehaviour
     private GameManager gameManager;
     private CameraShake cameraShake;
 
+    private bool bTakenEffect = false;
+
     void Start()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -26,6 +28,11 @@ public class EnemyBase : MonoBehaviour
         
     }
 
+    public bool isAlive()
+    {
+        return enemyStat.health > 0;
+    }
+
     //데미지를 받는 함수 입니다. 인자에는 damage값을 설정해줍니다.
     public void TakeDamage(GameObject playerObject, float direction, float damage)
     {
@@ -34,11 +41,15 @@ public class EnemyBase : MonoBehaviour
 
         Debug.Log("Enemy-HP: "+ enemyStat.health);
 
-        if(enemyStat.health <= 0) {
+        if(isAlive())
+        {
+            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
+        }
+        else if(!bTakenEffect) 
+        {
+            bTakenEffect = true;
             gameManager.Action(gameObject, GameManager.ACTION_ON_DIED);
             Destroy(gameObject, 2f);
-        } else {
-            StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
         }
     }
 }
