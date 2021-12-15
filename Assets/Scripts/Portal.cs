@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     CapsuleCollider2D col;
-    public Fade fade;
     public int sceneNumber;
 
     public string sceneName;
+    Animator anim;
     
     void Awake()
     {
         col = GetComponent<CapsuleCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -21,8 +22,11 @@ public class Portal : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             if(Input.GetKey(KeyCode.UpArrow)) {
-                fade.FadeIn();
-                Invoke("SceneLoad", 1f);
+                anim.SetTrigger("InPortal");
+                
+                Fade fade = GameObject.FindObjectOfType<Fade>();
+                if(fade) fade.Invoke("FadeIn", 1f);
+                Invoke("SceneLoad", 2f);
             }
         }
     }
