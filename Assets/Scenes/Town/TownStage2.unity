@@ -2180,6 +2180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 210593869968203578, guid: 92b9674a92007c74fab3a76e597dc20d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b9674a92007c74fab3a76e597dc20d, type: 3}
 --- !u!1 &438346861
@@ -8266,6 +8270,7 @@ MonoBehaviour:
   scanObjectName: 
   UINameText: {fileID: 1770241427}
   isGameOver: 0
+  fade: {fileID: 0}
   limitMoveXMin: -3.07
   limitMoveXMax: 17
 --- !u!4 &2128939898
