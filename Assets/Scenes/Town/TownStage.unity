@@ -1600,7 +1600,7 @@ GameObject:
   - component: {fileID: 173683686}
   - component: {fileID: 173683685}
   m_Layer: 0
-  m_Name: w
+  m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1626,7 +1626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173683684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.2, y: 0.15, z: -5}
+  m_LocalPosition: {x: -26.5, y: 0.15, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477737579}
@@ -7318,6 +7318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6773d46021fa441b589a4e863cf708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1843242651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 989373334102867906, guid: ef0ae6cfd1ab53949b7d7dfff56eb539, type: 3}
+  m_PrefabInstance: {fileID: 6576367837259367903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873860420
 GameObject:
   m_ObjectHideFlags: 0
@@ -9906,11 +9911,11 @@ PrefabInstance:
     - target: {fileID: 8134792687628998001, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: exclamation.Array.data[0]
       value: 
-      objectReference: {fileID: 819870162}
+      objectReference: {fileID: 1843242651}
     - target: {fileID: 8134792687628998001, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: exclamation.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 819870162}
     - target: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -10038,13 +10043,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4720182436169729874, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720182436577814133, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4720182436794181386, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
       propertyPath: m_Name
       value: Maha
       objectReference: {fileID: 0}
     - target: {fileID: 4720182436794181397, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4720182436794181397, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10306,9 +10319,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 989373334102867906, guid: ef0ae6cfd1ab53949b7d7dfff56eb539, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6576367836966875618, guid: ef0ae6cfd1ab53949b7d7dfff56eb539, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6576367836966875618, guid: ef0ae6cfd1ab53949b7d7dfff56eb539, type: 3}
       propertyPath: m_LocalPosition.x
