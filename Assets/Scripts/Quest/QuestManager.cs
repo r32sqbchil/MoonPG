@@ -21,12 +21,14 @@ public class QuestManager : MonoBehaviour
 
     public void NotifyAction(GameObject actionObject, string actionName)
     {
-        foreach (KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers)
+        foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
         {
-            Dictionary<string, object> context = new Dictionary<string, object>(observer.Value);
-            context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
-            context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
-            observer.Key.OnAction(QuestHandler.EVENT_NOTIFY, context);
+            if(updateObservers.ContainsKey(handler)){
+                Dictionary<string, object> context = new Dictionary<string, object>(updateObservers[handler]);
+                context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
+                context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
+                handler.OnAction(QuestHandler.EVENT_NOTIFY, context);
+            }
         }
     }
 
