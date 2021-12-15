@@ -771,7 +771,7 @@ MonoBehaviour:
   playerUltimate: {fileID: 0}
   playerUltimateTrans: {fileID: 0}
   exclamation: []
-  text: {fileID: 0}
+  text: {fileID: 505380763}
 --- !u!114 &8134792687628998014
 MonoBehaviour:
   m_ObjectHideFlags: 0
