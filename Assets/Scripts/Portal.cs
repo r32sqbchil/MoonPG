@@ -8,6 +8,8 @@ public class Portal : MonoBehaviour
     CapsuleCollider2D col;
     public Fade fade;
     public int sceneNumber;
+
+    public string sceneName;
     
     void Awake()
     {
@@ -27,6 +29,14 @@ public class Portal : MonoBehaviour
 
     void SceneLoad()
     {
-        SceneManager.LoadScene(sceneNumber);
+        if(string.IsNullOrEmpty(sceneName)){
+            if(sceneNumber > 0){
+                SceneManager.LoadScene(sceneNumber);
+            } else {
+                Debug.LogWarning("Check your sceneNumber property of this portal");
+            }
+        } else {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

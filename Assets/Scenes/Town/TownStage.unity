@@ -10069,6 +10069,14 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 1841659245}
+    - target: {fileID: 1985041937111424351, guid: d430624ba2d13064696c0961cdb0d160, type: 3}
+      propertyPath: sceneName
+      value: TownSubstage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985041937111424351, guid: d430624ba2d13064696c0961cdb0d160, type: 3}
+      propertyPath: sceneNumber
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3190017886389795411, guid: d430624ba2d13064696c0961cdb0d160, type: 3}
       propertyPath: m_IsTrigger
       value: 1
