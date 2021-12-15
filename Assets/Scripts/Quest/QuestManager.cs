@@ -42,21 +42,28 @@ public class QuestManager : MonoBehaviour
 
     public void NotifyAction(GameObject actionObject, string actionName)
     {
-        foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
-        {
-            if(updateObservers.ContainsKey(handler)){
-                Dictionary<string, object> context = new Dictionary<string, object>(updateObservers[handler]);
-                context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
-                context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
-                handler.OnAction(QuestHandler.EVENT_NOTIFY, context);
+        if(updateObservers != null){
+            foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
+            {
+                if(updateObservers.ContainsKey(handler)){
+                    Dictionary<string, object> context = new Dictionary<string, object>(updateObservers[handler]);
+                    context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
+                    context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
+                    handler.OnAction(QuestHandler.EVENT_NOTIFY, context);
+                }
             }
         }
     }
 
     void Update()
     {
-        foreach(KeyValuePair<QuestHandler, Dictionary<string, object>> observer in updateObservers){
-            observer.Key.OnAction(QuestHandler.EVENT_UPDATE, observer.Value);
+        if(updateObservers != null){
+            foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
+            {
+                if(updateObservers.ContainsKey(handler)){
+                    handler.OnAction(QuestHandler.EVENT_UPDATE, updateObservers[handler]);
+                }
+            }
         }
     }
 
