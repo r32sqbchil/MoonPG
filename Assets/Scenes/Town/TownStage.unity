@@ -4349,6 +4349,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &483175379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1685553676598132542, guid: 357084f8cd182a545907a2a78f75ad58, type: 3}
+  m_PrefabInstance: {fileID: 471212272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &521358423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5186,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &851130242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5935949096037045441, guid: 5ba14ddf114c8fe4e8e42418c19b7a83, type: 3}
+  m_PrefabInstance: {fileID: 753963921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870399776
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,9 +9657,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21563061}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: Inspector
+      value: 
+      objectReference: {fileID: 483175379}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: UINameText
       value: 
       objectReference: {fileID: 1770241427}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: subSettings
+      value: 
+      objectReference: {fileID: 851130242}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: points.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: monsterPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2679971183620831079, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: m_Name
       value: GameManager

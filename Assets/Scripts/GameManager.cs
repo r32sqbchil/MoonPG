@@ -22,15 +22,15 @@ public class GameManager : MonoBehaviour
     
     public GameObject talkUI;
     public Text talkText;
-    public GameObject scanObject;
-    public bool isAction;
+    [HideInInspector] public GameObject scanObject;
+    [HideInInspector] public bool isAction;
     
-    public int talkIndex;
+    [HideInInspector] public int talkIndex;
 
-    public string scanObjectName; 
+    [HideInInspector] public string scanObjectName; 
     public Text UINameText;
 
-    public bool isGameOver = false;
+    [HideInInspector] public bool isGameOver = false;
     public Fade fade;
 
     [HideInInspector] public float limitMoveXMin = -3.07f;
