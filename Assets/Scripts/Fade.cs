@@ -52,13 +52,13 @@ public class Fade : MonoBehaviour
     {
         fadeImage.gameObject.SetActive(true);
 
-        fadeImage.color = new Color(0,0,0,0);
+        fadeImage.color = new Color(255,255,255,0);
 
         float fadeAlpha = 0;
         while (fadeAlpha <= 1f)
         {
             fadeAlpha += Time.deltaTime / f_Time;
-            fadeImage.color = new Color(0,0,0,fadeAlpha);
+            fadeImage.color = new Color(255,255,255,fadeAlpha);
             
             yield return null;
         }
