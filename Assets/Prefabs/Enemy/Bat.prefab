@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3094694201303048235}
   - component: {fileID: 5799957151684077798}
   - component: {fileID: 4933226987663517520}
+  - component: {fileID: -8290697860589424439}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -183,3 +184,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 0}
   playerCatch: 0
+--- !u!114 &-8290697860589424439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605058059869059801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a543b1883b0ff5240b6506e86b1fca79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStat:
+    health: 0
