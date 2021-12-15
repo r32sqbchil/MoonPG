@@ -10,19 +10,14 @@ public class TownStageQuest2Handler:QuestHandler{
     {
         string sceneName = (string)context["sceneName"];
 
-        //if(sceneName == "townstage")
         if(actionName == EVENT_END_OF_TALK){
             int step = GetQuestStep(context);
             if(step == 0) {
                 context[KEY_OF_HUNTING_COUNT] = 0;
                 context[KEY_OF_MISSION_COUNT] = 3;
 
-                GameObject portal = GetPortalObject();
-                if(portal != null) {
-                    portal.SetActive(true);
-                } else {
-                    Debug.LogWarning("not found portal object");
-                }
+                TownStageSetting setting = GameObject.FindObjectOfType<TownStageSetting>();
+                if(setting) setting.ActivatePortal(GetPortalObject());
 
                 SetQuestStep(context, 10);
 
@@ -51,11 +46,9 @@ public class TownStageQuest2Handler:QuestHandler{
         }
     }
 
-    GameObject GetPortalObject(){
-        foreach(GameObject go in GameObject.FindObjectsOfType<GameObject>(true)){
-            if(go.name == "Portal"){
-                return go;
-            }
+    Portal GetPortalObject(){
+        foreach(Portal portal in GameObject.FindObjectsOfType<Portal>(true)){
+            return portal;
         }
         return null;
     }
