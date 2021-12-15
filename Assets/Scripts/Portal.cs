@@ -10,6 +10,7 @@ public class Portal : MonoBehaviour
 
     public string sceneName;
     Animator anim;
+    bool transportingInPortal = false;
     
     void Awake()
     {
@@ -19,11 +20,11 @@ public class Portal : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(!transportingInPortal && other.gameObject.CompareTag("Player"))
         {
             if(Input.GetKey(KeyCode.UpArrow)) {
+                transportingInPortal = true;
                 anim.SetTrigger("InPortal");
-                
                 Fade fade = GameObject.FindObjectOfType<Fade>();
                 if(fade) fade.Invoke("FadeIn", 1f);
                 Invoke("SceneLoad", 2f);
