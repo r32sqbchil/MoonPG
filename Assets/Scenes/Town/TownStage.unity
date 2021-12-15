@@ -9635,6 +9635,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1841659245}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: talkUI
       value: 
       objectReference: {fileID: 1491736496}
@@ -9646,20 +9650,11 @@ PrefabInstance:
       propertyPath: UINameText
       value: 
       objectReference: {fileID: 1770241427}
-    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
-      propertyPath: scanObject
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
-      propertyPath: subSettings
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2679971183620831079, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2679971183620831076, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
 --- !u!1001 &2939983596872454132
 PrefabInstance:

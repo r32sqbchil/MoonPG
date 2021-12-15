@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public Text UINameText;
 
     public bool isGameOver = false;
+    public Fade fade;
 
     [HideInInspector] public float limitMoveXMin = -3.07f;
     [HideInInspector] public float limitMoveXMax = 17.0f;
@@ -153,6 +154,9 @@ public class GameManager : MonoBehaviour
         SettingForMovingLimitX();
 
         GameObject spawnPoint = GameObject.Find("SpawnPoint");
+
+        fade.FadeOut();
+        
         if(spawnPoint != null)
         {
             //Hierarchy View의 Spawn Point를 찾아 하위에 있는 모든 Transform 컴포넌트를 찾아옴

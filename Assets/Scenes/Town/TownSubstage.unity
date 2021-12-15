@@ -9713,6 +9713,7 @@ MonoBehaviour:
   scanObjectName: 
   UINameText: {fileID: 1770241427}
   isGameOver: 0
+  fade: {fileID: 1882411220}
   limitMoveXMin: -3.07
   limitMoveXMax: 25
 --- !u!4 &2128939898
