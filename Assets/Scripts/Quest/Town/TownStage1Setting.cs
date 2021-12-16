@@ -31,7 +31,7 @@ public class TownStage1Setting : MonoBehaviour
         {
             QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
             questManager.RemoveUpdateHandler(talk4Trigger);
-            gameManager.SetLimitMoveXMax("MovingAreaX3");
+            gameManager.SetLimitMoveXMax("MovingAreaX9");
         }
     }
 
