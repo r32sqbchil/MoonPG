@@ -43,6 +43,7 @@ public class TownStageQuest2Handler:QuestHandler{
                 int missionCount = (int)context[KEY_OF_MISSION_COUNT];
                 SetContextValue(context, KEY_OF_HUNTING_COUNT, ++huntingCount);
                 if(missionCount <= huntingCount) {
+                    Debug.Log("몬스터 사냥 미션 완료..마을로 돌아가 보상을 받으셈");
                     QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
                     questManager.RemoveUpdateHandler(this);
                     SetQuestStep(context, 20);
