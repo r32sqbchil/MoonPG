@@ -65,6 +65,7 @@ public class TalkManager : MonoBehaviour
     private Dictionary<int, string[]> GenerateTalksInMountainStage(Dictionary<int, string[]> talks){
         talks.Add(200, new string[]{"저 더 강해지고 싶어요!" , "그럼 저기 몬스터를 사냥해와 :2"}); //대화8
         talks.Add(200+10, new string[]{});
+        talks.Add(200+20, new string[]{"고마워 :2"});
         talks.Add(400, new string[]{"저를 제자로 받아주세요 ! 저번 전투에서는 정말 감사했습니다…!" , "스승님 전 더 강해지고 싶습니다." , "그럼 일딴 동굴의 검은색 광석을 가져와라 :4"}); //대화9
         talks.Add(400+10, new string[]{});
         return talks;
