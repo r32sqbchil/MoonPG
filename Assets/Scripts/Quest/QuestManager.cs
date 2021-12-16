@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    
+    void Awake() {
+        QuestManager[] us = FindObjectsOfType<QuestManager>();
+        if (us.Length == 1) {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
+        Debug.Log("QuestManager Started!");
+
         questContextMap = new Dictionary<string, Dictionary<string, object>>();
         questHandlerMap = new Dictionary<string, QuestHandler>();
         updateObservers = new Dictionary<QuestHandler, Dictionary<string, object>>();

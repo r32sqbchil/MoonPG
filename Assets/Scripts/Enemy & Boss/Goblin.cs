@@ -53,7 +53,14 @@ public class Goblin : EnemyMove
 
     public override void OnKnockBack(float direction, float damage)
     {
+        base.OnKnockBack(direction, damage);
         animator.Play("HitEnemyGoblin");
         //transform.Translate(Vector2.left*direction*.15f);
+    }
+
+    public override void OnDied()
+    {
+        base.OnDied();
+        animator.Play("DeathEnemyGoblin");
     }
 }

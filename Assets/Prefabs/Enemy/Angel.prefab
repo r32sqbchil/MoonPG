@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStat:
-    health: 100
+    health: 30
   movingDirection: 0
   movableArea: {fileID: 0}
 --- !u!114 &7646565378857036210

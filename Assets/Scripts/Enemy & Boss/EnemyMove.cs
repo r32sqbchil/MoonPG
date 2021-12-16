@@ -112,6 +112,14 @@ public abstract class EnemyMove : MonoBehaviour
 
     public virtual void OnKnockBack(float direction, float damage)
     {
+        if(IsAttackOn()){
+            SetAttackOn(false);
+            StandAndThink();
+        }
+    }
+
+    public virtual void OnDied()
+    {
 
     }
 }

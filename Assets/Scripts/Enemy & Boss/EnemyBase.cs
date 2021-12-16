@@ -21,7 +21,7 @@ public class EnemyBase : MonoBehaviour
     private bool bCatchPlayer = false;
     private bool insightOfPlayer = false;
 
-    private EnemyMove enemyBody;
+    private EnemyMove enemyMove;
 
     [HideInInspector] public int movingDirection = 0; //(-1:왼쪽방향, 0:정지, 1:오른쪽방향)
 
@@ -44,7 +44,7 @@ public class EnemyBase : MonoBehaviour
     void FixedUpdate()
     {
         if(movingDirection != 0){
-            if (enemyBody != null) enemyBody.OnMove(rigid, movingDirection);
+            if (enemyMove != null) enemyMove.OnMove(rigid, movingDirection);
             Vector2 direction2D = Vector2.right * movingDirection;
 
             Vector2 boundOf = rigid.position + direction2D * transform.localScale.x;
@@ -55,20 +55,20 @@ public class EnemyBase : MonoBehaviour
             RaycastHit2D playerCheck = Physics2D.Raycast(boundOf, direction2D,5.0f,LayerMask.GetMask("Player"));
 
             if(groundTester.collider == null || wallTester.collider != null){
-                if(enemyBody != null) enemyBody.OnTurn();
+                if(enemyMove != null) enemyMove.OnTurn();
             }
             else if(playerCheck.collider != null)
             {
                 if(!insightOfPlayer)
                 {
                     insightOfPlayer = true;
-                    if(enemyBody != null) enemyBody.InSightOfPlayer();
+                    if(enemyMove != null) enemyMove.InSightOfPlayer();
                 }
             }
             else if(insightOfPlayer)
             {
                 insightOfPlayer = false;
-                if(enemyBody != null) enemyBody.OutSightOfPlayer();
+                if(enemyMove != null) enemyMove.OutSightOfPlayer();
             }
         }
 
@@ -99,9 +99,9 @@ public class EnemyBase : MonoBehaviour
         if(other.GetComponent<Player>()) bCatchPlayer = false;
     }
 
-    public void SetIEnemyBody(EnemyMove enemyBody)
+    public void SetIEnemyBody(EnemyMove enemyMove)
     {
-        this.enemyBody = enemyBody;
+        this.enemyMove = enemyMove;
     }
 
     public bool isAlive()
@@ -121,20 +121,21 @@ public class EnemyBase : MonoBehaviour
         //체력이 damage만큼 까지게 합니다.
         enemyStat.health -= damage;
 
-        Debug.Log("Enemy-HP: "+ enemyStat.health);
+        //Debug.Log("Enemy-HP: "+ enemyStat.health);
 
         if(isAlive())
         {
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
             if(!isCatchPlayer())
             {
-                if(enemyBody!=null) enemyBody.OnKnockBack(direction, damage);
+                if(enemyMove!=null) enemyMove.OnKnockBack(direction, damage);
             }
             rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
         }
         else if(!bTakenEffect) 
         {
             bTakenEffect = true;
+            if (enemyMove != null) enemyMove.OnDied();
             gameManager.Action(gameObject, GameManager.ACTION_ON_DIED);
             Destroy(gameObject, 2f);
         }

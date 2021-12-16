@@ -17,7 +17,7 @@ public class TownStageQuest2Handler:QuestHandler{
                 context[KEY_OF_MISSION_COUNT] = 3;
 
                 TownStageSetting setting = GameObject.FindObjectOfType<TownStageSetting>();
-                if(setting) setting.ActivatePortal(GetPortalObject());
+                if(setting) setting.ActivatePortal(GetPortalObject(), context);
 
                 SetQuestStep(context, 10);
 
@@ -33,6 +33,8 @@ public class TownStageQuest2Handler:QuestHandler{
         } else if(actionName == EVENT_NOTIFY) {
             GameObject actionObject = (GameObject)context[QuestHandler.KEY_OF_ACTION_OBJECT];
             string notifyName = (string)context[QuestHandler.KEY_OF_NOTIFY_NAME];
+
+            Debug.Log(actionName + "::" + notifyName);
 
             if(notifyName == GameManager.ACTION_ON_DIED){
                 int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
