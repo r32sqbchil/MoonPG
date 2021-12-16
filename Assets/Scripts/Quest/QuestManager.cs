@@ -113,8 +113,6 @@ public class QuestManager : MonoBehaviour
     {
         string keyName = sceneName + "$" + objectId;
 
-        Debug.Log("updateObservers " + updateObservers.Count);
-
         if(questHandlerMap != null && questHandlerMap.ContainsKey(keyName)){
             return questHandlerMap[keyName];
         } else {
@@ -125,13 +123,11 @@ public class QuestManager : MonoBehaviour
 
     public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context)
     {
-        Debug.Log("AddUpdateHandler "+handler);
         updateObservers[handler] = context;
     }
 
     public void RemoveUpdateHandler(QuestHandler handler)
     {
-        Debug.Log("RemoveUpdateHandler "+handler);
         updateObservers.Remove(handler);
     }
 }
