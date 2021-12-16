@@ -69,9 +69,9 @@ public class EnemyBase : MonoBehaviour
                 insightOfPlayer = false;
                 if(enemyBody != null) enemyBody.OutSightOfPlayer();
             }
-
-            LimitMovingArea();
         }
+
+        LimitMovingArea();
     }
 
     void LimitMovingArea(){
@@ -82,15 +82,9 @@ public class EnemyBase : MonoBehaviour
         float limitMoveXMax = movableArea.transform.position.x + movableArea.transform.localScale.x/2;
 
         if(left < limitMoveXMin) {
-            if(movingDirection == -1){
-                transform.Translate(new Vector2(left - limitMoveXMin, 0));
-                if(enemyBody != null) enemyBody.OnTurn();
-            }
+            transform.Translate(new Vector2(left - limitMoveXMin, 0));
         } else if(right > limitMoveXMax) {
-            if(movingDirection == 1){
-                transform.Translate(new Vector2(right - limitMoveXMax, 0));
-                if(enemyBody != null) enemyBody.OnTurn();
-            }
+            transform.Translate(new Vector2(right - limitMoveXMax, 0));
         }
     }
 
