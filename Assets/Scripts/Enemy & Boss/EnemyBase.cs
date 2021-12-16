@@ -132,7 +132,7 @@ public class EnemyBase : MonoBehaviour
             {
                 if(enemyMove!=null) enemyMove.OnKnockBack(direction, damage);
             }
-            rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
+            if(rigid) rigid.AddForce(Vector2.right*direction*1.2f, ForceMode2D.Impulse);
         }
         else if(!bTakenEffect) 
         {
