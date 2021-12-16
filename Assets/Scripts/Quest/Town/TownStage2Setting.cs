@@ -8,7 +8,7 @@ public class TownStage2Setting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+        QuestManager questManager = GameManager.FindQuestManager();
         string sceneName = SceneManager.GetActiveScene().name;
         Dictionary<string, object> context = questManager.GetQuestContext(sceneName, 0, 0);
         questManager.AddUpdateHandler(new HuntingMonsterHandler(this), context);

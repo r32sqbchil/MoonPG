@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    QuestManager FindQuestManagerAndSet()
+    public static QuestManager FindQuestManager()
     {
         foreach(QuestManager qm in GameObject.FindObjectsOfType<QuestManager>())
         {
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
         talkManager = GameObject.FindObjectOfType<TalkManager>();
-        questManager = FindQuestManagerAndSet();
+        questManager = FindQuestManager();
 
         SettingForMovingLimitX();
 

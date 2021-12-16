@@ -14,7 +14,7 @@ public class TownStage1Setting : MonoBehaviour
         gameManager = GameObject.FindObjectOfType<GameManager>();
         gameManager.SetLimitMoveXMax("MovingAreaX2");
 
-        QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+        QuestManager questManager = GameManager.FindQuestManager();
         string sceneName = SceneManager.GetActiveScene().name;
         Dictionary<string, object> context = questManager.GetQuestContext(sceneName, 0, 0);
         questManager.AddUpdateHandler(talk4Trigger = new Talk4Trigger(gameManager), context);

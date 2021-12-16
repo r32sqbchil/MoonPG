@@ -15,7 +15,7 @@ public class MountainStageSetting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+        QuestManager questManager = GameManager.FindQuestManager();
         SetupPortal(questManager);
     }
 
@@ -27,7 +27,7 @@ public class MountainStageSetting : MonoBehaviour
 
     void SetupPortal(QuestManager questManager)
     {
-        Dictionary<string, object> context = questManager.GetQuestContext(Scene.SCENE_TOWN_STAGE, 200, 0);
+        Dictionary<string, object> context = questManager.GetQuestContext(Scene.SCENE_MOUNTAIN_STAGE, 200, 0);
         if(!context.ContainsKey(KEY_PORTAL_HIDE))
         {
             Portal portal = GameObject.FindObjectOfType<Portal>();
