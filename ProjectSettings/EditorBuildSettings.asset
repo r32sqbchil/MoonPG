@@ -60,7 +60,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestField/TestFieldStage2.unity
     guid: 97ac7998d0d6a0b4aa16862dc7810c45
   - enabled: 1
-    path: Assets/Scenes/TestField/TestFieldStage3.unity
+    path: Assets/Scenes/TestField/TestFieldStage2.unity
     guid: fdaeb29d83fecc54bab7320628b8c152
   - enabled: 1
     path: Assets/Scenes/Field/FieldStage.unity
