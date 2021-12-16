@@ -4925,11 +4925,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!1 &819870162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4720182436577814133, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
-  m_PrefabInstance: {fileID: 4720182436852146087}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &830247107
 GameObject:
   m_ObjectHideFlags: 0
@@ -7318,11 +7313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6773d46021fa441b589a4e863cf708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1843242651 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 989373334102867906, guid: ef0ae6cfd1ab53949b7d7dfff56eb539, type: 3}
-  m_PrefabInstance: {fileID: 6576367837259367903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1873860420
 GameObject:
   m_ObjectHideFlags: 0
@@ -9911,11 +9901,11 @@ PrefabInstance:
     - target: {fileID: 8134792687628998001, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: exclamation.Array.data[0]
       value: 
-      objectReference: {fileID: 1843242651}
+      objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998001, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: exclamation.Array.data[1]
       value: 
-      objectReference: {fileID: 819870162}
+      objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -10053,7 +10043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4720182436794181386, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
       propertyPath: m_Name
-      value: Maha
+      value: Kid-Maha
       objectReference: {fileID: 0}
     - target: {fileID: 4720182436794181397, guid: 84833c6fc45cd1445b0c1f4121568012, type: 3}
       propertyPath: m_RootOrder
