@@ -13,8 +13,8 @@ public class TownStageQuest2Handler:QuestHandler{
         if(actionName == EVENT_END_OF_TALK){
             int step = GetQuestStep(context);
             if(step == 0) {
-                context[KEY_OF_HUNTING_COUNT] = 0;
-                context[KEY_OF_MISSION_COUNT] = 3;
+                SetContextValue(context, KEY_OF_HUNTING_COUNT, 0);
+                SetContextValue(context, KEY_OF_MISSION_COUNT, 3);
 
                 TownStageSetting setting = GameObject.FindObjectOfType<TownStageSetting>();
                 if(setting) setting.ActivatePortal(GetPortalObject(), context);
@@ -25,8 +25,12 @@ public class TownStageQuest2Handler:QuestHandler{
                 questManager.AddUpdateHandler(this, context);
             } else if(step == 10) {
                 // 목표 도달 여부를 확인해야 함!!
+                int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
+                int missionCount = (int)context[KEY_OF_MISSION_COUNT];
+                Debug.Log("Quest "+huntingCount+"/"+missionCount);
             } else if(step == 20) {
                 // 퀘스트 성공했을 때 처리할 내용
+                SetQuestStep(context, 30);
             }
         } else if(actionName == EVENT_UPDATE) {
             // 프레임 호출을 전달 받음
@@ -34,15 +38,14 @@ public class TownStageQuest2Handler:QuestHandler{
             GameObject actionObject = (GameObject)context[QuestHandler.KEY_OF_ACTION_OBJECT];
             string notifyName = (string)context[QuestHandler.KEY_OF_NOTIFY_NAME];
 
-            Debug.Log(actionName + "::" + notifyName);
-
             if(notifyName == GameManager.ACTION_ON_DIED){
                 int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
                 int missionCount = (int)context[KEY_OF_MISSION_COUNT];
-                huntingCount++;
+                SetContextValue(context, KEY_OF_HUNTING_COUNT, ++huntingCount);
                 if(missionCount <= huntingCount) {
                     QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
                     questManager.RemoveUpdateHandler(this);
+                    SetQuestStep(context, 20);
                 }
             }
         }

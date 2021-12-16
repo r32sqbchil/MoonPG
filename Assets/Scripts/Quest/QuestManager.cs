@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [HideInInspector] public bool dontDestroyOnLoad;
+
     void Awake() {
         QuestManager[] us = FindObjectsOfType<QuestManager>();
         if (us.Length == 1) {
             DontDestroyOnLoad(gameObject);
+            dontDestroyOnLoad = true;
         }
         else
         {
+            dontDestroyOnLoad = false;
             Destroy(gameObject);
         }
     }
@@ -57,7 +61,9 @@ public class QuestManager : MonoBehaviour
             foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
             {
                 if(updateObservers.ContainsKey(handler)){
-                    Dictionary<string, object> context = new Dictionary<string, object>(updateObservers[handler]);
+                    Dictionary<string, object> _origin;
+                    Dictionary<string, object> context = new Dictionary<string, object>(_origin=updateObservers[handler]);
+                    context[QuestHandler.KEY_OF_PERSISTENCE] = _origin;
                     context[QuestHandler.KEY_OF_ACTION_OBJECT] = actionObject;
                     context[QuestHandler.KEY_OF_NOTIFY_NAME] = actionName;
                     handler.OnAction(QuestHandler.EVENT_NOTIFY, context);
@@ -68,6 +74,7 @@ public class QuestManager : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log("QuestManager::Update "+updateObservers.Count);
         if(updateObservers != null){
             foreach (QuestHandler handler in new List<QuestHandler>(updateObservers.Keys))
             {
@@ -106,7 +113,9 @@ public class QuestManager : MonoBehaviour
     {
         string keyName = sceneName + "$" + objectId;
 
-        if(questHandlerMap.ContainsKey(keyName)){
+        Debug.Log("updateObservers " + updateObservers.Count);
+
+        if(questHandlerMap != null && questHandlerMap.ContainsKey(keyName)){
             return questHandlerMap[keyName];
         } else {
             Debug.Log("Handler Not Found: " + keyName);
@@ -116,11 +125,13 @@ public class QuestManager : MonoBehaviour
 
     public void AddUpdateHandler(QuestHandler handler, Dictionary<string, object> context)
     {
+        Debug.Log("AddUpdateHandler "+handler);
         updateObservers[handler] = context;
     }
 
     public void RemoveUpdateHandler(QuestHandler handler)
     {
+        Debug.Log("RemoveUpdateHandler "+handler);
         updateObservers.Remove(handler);
     }
 }
