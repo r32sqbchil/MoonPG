@@ -39,8 +39,8 @@ public class QuestManager : MonoBehaviour
         questHandlerMap.Add(Scene.SCENE_MOUNTAIN_STAGE5+"$400", new MountainStage5Quest4Handler());
         questHandlerMap.Add(Scene.SCENE_MOUNTAIN_STAGE6+"$500", new MountainStage6Quest5Handler());
         questHandlerMap.Add(Scene.SCENE_MOUNTAIN_STAGE6+"$600", new MountainStage6Quest6Handler());
-        //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE+"$700", new TestFieldStageQuest7Handler())
-        //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE+"$800", new TestFieldStageQuest8Handler())
+        questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE+"$700", new TestFieldStageQuest7Handler());
+        questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE+"$800", new TestFieldStageQuest8Handler());
         //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE3+"$800", new TestFieldStage3Quest8Handler())
         //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE3+"$900", new TestFieldStage3Quest9Handler())
         //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE3+"$800", new TestFieldStage3Quest8Handler())
