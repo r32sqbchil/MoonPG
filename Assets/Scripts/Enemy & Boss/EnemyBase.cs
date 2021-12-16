@@ -76,16 +76,18 @@ public class EnemyBase : MonoBehaviour
     }
 
     void LimitMovingArea(){
-        float left = transform.position.x - transform.localScale.x/2;
-        float right = transform.position.x + transform.localScale.x/2;
+        if(movableArea!=null){
+            float left = transform.position.x - transform.localScale.x/2;
+            float right = transform.position.x + transform.localScale.x/2;
 
-        float limitMoveXMin = movableArea.transform.position.x - movableArea.transform.localScale.x/2;
-        float limitMoveXMax = movableArea.transform.position.x + movableArea.transform.localScale.x/2;
+            float limitMoveXMin = movableArea.transform.position.x - movableArea.transform.localScale.x/2;
+            float limitMoveXMax = movableArea.transform.position.x + movableArea.transform.localScale.x/2;
 
-        if(left < limitMoveXMin) {
-            transform.Translate(new Vector2(left - limitMoveXMin, 0));
-        } else if(right > limitMoveXMax) {
-            transform.Translate(new Vector2(right - limitMoveXMax, 0));
+            if(left < limitMoveXMin) {
+                transform.Translate(new Vector2(left - limitMoveXMin, 0));
+            } else if(right > limitMoveXMax) {
+                transform.Translate(new Vector2(right - limitMoveXMax, 0));
+            }
         }
     }
 
