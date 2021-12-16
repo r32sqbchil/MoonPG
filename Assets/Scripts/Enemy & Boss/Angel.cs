@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Angel : IEnemyBody
+public class Angel : EnemyMove
 {
     protected override float GetStandingTimeOnStart()
     {

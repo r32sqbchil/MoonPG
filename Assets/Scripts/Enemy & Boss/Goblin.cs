@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goblin : IEnemyBody
+public class Goblin : EnemyMove
 {
     private Animator animator;
     private SpriteRenderer spriteRenderer;

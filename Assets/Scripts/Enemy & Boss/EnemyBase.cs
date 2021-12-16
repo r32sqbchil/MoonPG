@@ -21,7 +21,7 @@ public class EnemyBase : MonoBehaviour
     private bool bCatchPlayer = false;
     private bool insightOfPlayer = false;
 
-    private IEnemyBody enemyBody;
+    private EnemyMove enemyBody;
 
     [HideInInspector] public int movingDirection = 0; //(-1:왼쪽방향, 0:정지, 1:오른쪽방향)
 
@@ -99,7 +99,7 @@ public class EnemyBase : MonoBehaviour
         if(other.GetComponent<Player>()) bCatchPlayer = false;
     }
 
-    public void SetIEnemyBody(IEnemyBody enemyBody)
+    public void SetIEnemyBody(EnemyMove enemyBody)
     {
         this.enemyBody = enemyBody;
     }
