@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TownStage2Setting : MonoBehaviour
+public class MountainStage3Setting : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,19 +22,20 @@ public class TownStage2Setting : MonoBehaviour
 
     void NextScene()
     {
-        SceneManager.LoadScene(QuestHandler.SCENE_TOWN_STAGE3);
+        SceneManager.LoadScene(Scene.SCENE_MOUNTAIN_STAGE4);
     }
 
     class HuntingMonsterHandler : QuestHandler
     {
-        private TownStage2Setting setting;
+        private MountainStage3Setting setting;
 
-        public HuntingMonsterHandler(TownStage2Setting setting){
+        public HuntingMonsterHandler(MountainStage3Setting setting){
             this.setting = setting;
         }
         public override void OnAction(string actionName, Dictionary<string, object> context)
         {
             if(actionName == EVENT_NOTIFY){
+                Debug.Log("OnAction::"+actionName);
                 string notifyName = (string)context[KEY_OF_NOTIFY_NAME];
                 if(notifyName == GameManager.ACTION_ON_DIED){
                     QuestManager questManager = GameManager.FindQuestManager();

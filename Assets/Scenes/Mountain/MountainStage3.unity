@@ -1038,7 +1038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6242556006855276462, guid: 097ed26b5a84b3042951ae31140489a2, type: 3}
       propertyPath: enemyStat.health
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 097ed26b5a84b3042951ae31140489a2, type: 3}
@@ -2663,6 +2663,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1685553676598132542, guid: 357084f8cd182a545907a2a78f75ad58, type: 3}
   m_PrefabInstance: {fileID: 1029056029}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1060221219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2181282414235121894, guid: ae960885f2be0c24d849deeec3c26fc2, type: 3}
+  m_PrefabInstance: {fileID: 619324865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1060221220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060221219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e946e2b17f7f91e48a028c46058a4967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1060872170
 PrefabInstance:
   m_ObjectHideFlags: 0
