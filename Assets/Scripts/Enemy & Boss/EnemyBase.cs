@@ -44,14 +44,15 @@ public class EnemyBase : MonoBehaviour
     void FixedUpdate()
     {
         if(movingDirection != 0){
-            rigid.velocity = new Vector2(movingDirection, rigid.velocity.y);
-            Vector2 frontVec = new Vector2(rigid.position.x + movingDirection*0.4f, rigid.position.y);
+            if (enemyBody != null) enemyBody.OnMove(rigid, movingDirection);
+            Vector2 direction2D = Vector2.right * movingDirection;
 
-            Vector2 direction2D = new Vector2(movingDirection, 0);
+            Vector2 boundOf = rigid.position + direction2D * transform.localScale.x;
+            //Vector2 frontVec = new Vector2(rigid.position.x + movingDirection*0.4f, rigid.position.y);
 
-            RaycastHit2D groundTester = Physics2D.Raycast(frontVec, Vector2.down,1.0f,LayerMask.GetMask("Platform"));
-            RaycastHit2D wallTester = Physics2D.Raycast(frontVec, direction2D,.4f,LayerMask.GetMask("Platform"));
-            RaycastHit2D playerCheck = Physics2D.Raycast(frontVec, direction2D,5.0f,LayerMask.GetMask("Player"));
+            RaycastHit2D groundTester = Physics2D.Raycast(boundOf, Vector2.down,1.0f,LayerMask.GetMask("Platform"));
+            RaycastHit2D wallTester = Physics2D.Raycast(boundOf, direction2D,.4f,LayerMask.GetMask("Platform"));
+            RaycastHit2D playerCheck = Physics2D.Raycast(boundOf, direction2D,5.0f,LayerMask.GetMask("Player"));
 
             if(groundTester.collider == null || wallTester.collider != null){
                 if(enemyBody != null) enemyBody.OnTurn();

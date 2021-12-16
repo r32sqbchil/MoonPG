@@ -2,36 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Angel : MonoBehaviour, IEnemyBody
+public class Angel : IEnemyBody
 {
-    private EnemyBase enemyBase;
+    protected override float GetStandingTimeOnStart()
+    {
+        return 5.0f;
+    }
+
+    protected override bool IsAttackOn()
+    {
+        return false;
+    }
+
+    protected override void SetAttackOn(bool attackOn)
+    {
+        //do nothing
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyBase = GetComponent<EnemyBase>();
-        enemyBase.SetIEnemyBody(this);
+        base.Initialize();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        AttackPlayerIfTouch();
     }
 
-    public void OnTurn()
-    {
-    }
-
-    public void InSightOfPlayer()
-    {
-    }
-
-    public void OutSightOfPlayer()
-    {
-    }
-
-    public void OnKnockBack(float direction, float damage)
-    {
-    }
 }
