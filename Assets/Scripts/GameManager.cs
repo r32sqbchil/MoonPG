@@ -145,11 +145,24 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    QuestManager FindQuestManagerAndSet()
+    {
+        foreach(QuestManager qm in GameObject.FindObjectsOfType<QuestManager>())
+        {
+            if(qm.dontDestroyOnLoad)
+            {
+                return qm;
+            }
+        }
+        Debug.LogWarning("Not Found QuestManager");
+        return null;
+    }
+
     void Start () 
     {
         sceneName = SceneManager.GetActiveScene().name;
-        questManager = GameObject.FindObjectOfType<QuestManager>();
         talkManager = GameObject.FindObjectOfType<TalkManager>();
+        questManager = FindQuestManagerAndSet();
 
         SettingForMovingLimitX();
 
