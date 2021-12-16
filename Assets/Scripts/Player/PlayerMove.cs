@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
     // public GameObject speechBub;
     public GameObject[] exclamation;
     public Text text;
-    bool exclamationCheck = false;
+    // bool exclamationCheck = false;
     
 
 
