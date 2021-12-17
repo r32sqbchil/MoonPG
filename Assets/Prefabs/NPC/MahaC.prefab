@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5879267279849087534}
   - component: {fileID: 5879267279849087521}
   - component: {fileID: 5879267279849087520}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: MahaC
   m_TagString: NPC
   m_Icon: {fileID: 0}

@@ -45,7 +45,7 @@ public class QuestManager : MonoBehaviour
         questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE2+"$900", new TestFieldStage2Quest9Handler());
         questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$700", new FieldStageQuest7Handler());
         questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$800", new FieldStageQuest8Handler());
-        questHandlerMap.Add(Scene.SCENE_FIELD_STAGE1+"$400", new FieldStage1Quest4Handler());
+        questHandlerMap.Add(Scene.SCENE_FIELD_STAGE1+"$500", new FieldStage1Quest5Handler());
         questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE+"$800", new CastleStageQuest8Handler());
         questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE2+"$400", new CastleStage2Quest4Handler());
     }
