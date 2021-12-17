@@ -43,15 +43,11 @@ public class QuestManager : MonoBehaviour
         questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE+"$800", new TestFieldStageQuest8Handler());
         questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE2+"$700", new TestFieldStage2Quest7Handler());
         questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE2+"$900", new TestFieldStage2Quest9Handler());
-        //questHandlerMap.Add(Scene.SCENE_TESTFIELD_STAGE2+"$800", new TestFieldStage3Quest8Handler());
-        // questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$700", new FieldStageQuest7Handler());
-        // questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$800", new FieldStageQuest8Handler());
-        // questHandlerMap.Add(Scene.SCENE_FIELD_STAGE1+"$400", new FieldStage1Quest4Handler());
-        // questHandlerMap.Add(Scene.SCENE_FIELD_STAGE2+"$400", new FieldStage2Quest4Handler());
-        // questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE+"$400", new CastleStageQuest4Handler());
-        // questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE2+"$400", new CastleStage2Quest4Handler());
-        // questHandlerMap.Add(Scene.SCENE_CASTLE_BOSSSTAGE+"$400", new CastleBossstageQuest4Handler());
-        // questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE3+"$400", new CastleStage3Quest4Handler());
+        questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$700", new FieldStageQuest7Handler());
+        questHandlerMap.Add(Scene.SCENE_FIELD_STAGE+"$800", new FieldStageQuest8Handler());
+        questHandlerMap.Add(Scene.SCENE_FIELD_STAGE1+"$400", new FieldStage1Quest4Handler());
+        questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE+"$800", new CastleStageQuest8Handler());
+        questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE2+"$400", new CastleStage2Quest4Handler());
     }
 
     public void NotifyAction(GameObject actionObject, string actionName)

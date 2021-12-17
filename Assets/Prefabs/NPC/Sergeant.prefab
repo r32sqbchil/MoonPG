@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3389417180029162770}
   - component: {fileID: 3389417180029162769}
   - component: {fileID: 3389417180029162796}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sergeant
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
