@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8598826314285149741}
   - component: {fileID: 8598826314285149740}
   - component: {fileID: 8598826314285149747}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TeacherB
   m_TagString: NPC
   m_Icon: {fileID: 0}
