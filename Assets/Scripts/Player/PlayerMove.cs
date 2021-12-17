@@ -213,6 +213,7 @@ public class PlayerMove : MonoBehaviour
             playerUltimate.SetActive(true);
             anim.Play("PlayerSkillC");
             Invoke("EndUltimate", 5f); 
+            
         }
 
         if (Input.GetButton("Horizontal")) {

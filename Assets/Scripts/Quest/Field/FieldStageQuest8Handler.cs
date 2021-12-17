@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FieldStageQuest8Handler : MonoBehaviour
+public class FieldStageQuest8Handler : QuestHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnAction(string actionName, Dictionary<string, object> context)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(actionName == QuestHandler.EVENT_END_OF_TALK)
+        {
+            SceneManager.LoadScene(SCENE_FIELD_STAGE1);
+        }
     }
 }

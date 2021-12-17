@@ -21,7 +21,7 @@ public class TalkManager : MonoBehaviour
         talksOfScene.Add("MountainStage5", GenerateTalksInMountainStage5(new Dictionary<int, string[]>()));
         talksOfScene.Add("MountainStage6", GenerateTalksInMountainStage6(new Dictionary<int, string[]>()));
         talksOfScene.Add("TestFieldStage", GenerateTalksInTestFieldStage(new Dictionary<int, string[]>()));
-        talksOfScene.Add("TestFieldStage3", GenerateTalksInTestFieldStage3(new Dictionary<int, string[]>()));
+        talksOfScene.Add("TestFieldStage2", GenerateTalksInTestFieldStage2(new Dictionary<int, string[]>()));
         talksOfScene.Add("FieldStage", GenerateTalksInFieldStage(new Dictionary<int, string[]>()));
         talksOfScene.Add("FieldStage1", GenerateTalksInFieldStage1(new Dictionary<int, string[]>()));
         talksOfScene.Add("FieldStage2", GenerateTalksInFieldStage2(new Dictionary<int, string[]>()));
@@ -102,12 +102,9 @@ public class TalkManager : MonoBehaviour
         talks.Add(800+10, new string[]{});
         return talks;
     }
-    private Dictionary<int, string[]> GenerateTalksInTestFieldStage3(Dictionary<int, string[]> talks){
+    private Dictionary<int, string[]> GenerateTalksInTestFieldStage2(Dictionary<int, string[]> talks){
         talks.Add(700, new string[]{"모든 테스트를 통과 한걸 축하하네 :7" , "이번에는 처음으로 두명이 통과 한거 같군 :7" , "자 이제 너희들은 해군 특령이란다. :7" , "저기 왼쪽 끝에 원수가 계셔 한번 가봐 :7" , "넵 감사합니다."}); //대화18
-        talks.Add(900, new string[]{"너희가 이번 제10기 특령이구나 :9" , "최연소 특령이네 하하하하! :9" , "실력 있는 인재는 언제나 환영이지 :9" , "뭐 말하고 싶은게 있나? :9" , "원수님 혹시 라프텔 성 사건에 대해 알려 줄 수 있나요? :5" , "음.. 그건 유감이였지 누군가가 정보를 유출한거 같더라고 그래서 참패했지 :9" , "아 마침 이번에 탈환 작전을 할 생각인데 :9" , "너희 혹시 참가할 생각이 있나? :9" , "네! 저희 참가 할게요" , "정보에 의하면 성 지하 감옥에 인질들이 잡혀 있다고 하더군 :9" , "마을로 가서 부대장과 같이 라프텔 전초기지로 가게나 :9" , "알겠습니다 :5"}); //대화19
-        talks.Add(900+10, new string[]{});
-        // 900번과 대화를 하고와야 추가 대화 가능
-        talks.Add(800+10, new string[]{"자원해서 전장에 가다니 대단하구나 너희 :8" , "첫 전쟁이니 너무 무리하지 말거라 :8" , "넵 알겠습니다" , "패기 넘치는군 자 이제 가자 :8" , "아 참고고 너희 신분은 일반 해군 병사 일것이니 :8" , "신분을 숨기도록 :8" , "넵 명심하겠습니다 :5"}); // 대화 20
+        talks.Add(900, new string[]{"너희가 이번 제10기 특령이구나 :9" , "최연소 특령이네 하하하하! :9" , "실력 있는 인재는 언제나 환영이지 :9" , "뭐 말하고 싶은게 있나? :9" , "원수님 혹시 라프텔 성 사건에 대해 알려 줄 수 있나요? :5" , "음.. 그건 유감이였지 누군가가 정보를 유출한거 같더라고 그래서 참패했지 :9" , "아 마침 이번에 탈환 작전을 할 생각인데 :9" , "너희 혹시 참가할 생각이 있나? :9" , "네! 저희 참가 할게요" , "정보에 의하면 성 지하 감옥에 인질들이 잡혀 있다고 하더군 :9" , "마을로 가서 부대장과 같이 라프텔 전초기지로 가게나 :9" , "알겠습니다 :5", "자원해서 전장에 가다니 대단하구나 너희 :8" , "첫 전쟁이니 너무 무리하지 말거라 :8" , "넵 알겠습니다" , "패기 넘치는군 자 이제 가자 :8" , "아 참고고 너희 신분은 일반 해군 병사 일것이니 :8" , "신분을 숨기도록 :8" , "넵 명심하겠습니다 :5"}); //대화19
         return talks;
     }
     private Dictionary<int, string[]> GenerateTalksInFieldStage(Dictionary<int, string[]> talks){
