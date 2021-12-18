@@ -31,12 +31,6 @@ public class PlayerMove : MonoBehaviour
     bool isDash = false;
     float dashSpeed = 10f;
 
-    // public float dashSpeed;
-    // public float speed;
-    // private float defaultSpeed;
-    // private bool isdash;
-    // public float defaultTime;
-    // private float dashTime;
 
     // 사운드
     public AudioSource mySfx;
@@ -55,11 +49,14 @@ public class PlayerMove : MonoBehaviour
     public GameObject[] exclamation;
     public Text text;
     // bool exclamationCheck = false;
+
+    Player player;
     
 
 
     void Awake()
     {
+        
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
         rigid = GetComponent<Rigidbody2D>();
@@ -67,9 +64,9 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         comboAttack = GetComponent<ComboAttack>();
+        player = GetComponent<Player>();
 
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
-        // defaultSpeed = speed;
     }
 
     void OnInputJump()
@@ -205,6 +202,9 @@ public class PlayerMove : MonoBehaviour
             anim.Play("PlayerSkillA");
             text.gameObject.SetActive(true);
             comboAttack.SetDamageUp();
+            if(player.hp <= 190){
+                player.hp += 10;
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.D))
