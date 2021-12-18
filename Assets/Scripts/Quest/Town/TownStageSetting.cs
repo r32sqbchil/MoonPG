@@ -16,7 +16,7 @@ public class TownStageSetting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+        QuestManager questManager = GameManager.FindQuestManager();
 
         SetupMonologue(questManager);
         SetupPortal(questManager);
@@ -45,6 +45,15 @@ public class TownStageSetting : MonoBehaviour
             Portal portal = GameObject.FindObjectOfType<Portal>();
             if(portal != null) {
                 portal.gameObject.SetActive(false);
+            }
+        } else {
+            Player player = GameObject.FindObjectOfType<Player>();
+            GameObject returnPosition = GameObject.Find("ReturnPosition");
+            if(player && returnPosition){
+                Vector3 playerPosition = new Vector3(returnPosition.transform.position.x, player.transform.position.y, player.transform.position.z); 
+                player.transform.position = playerPosition;
+            } else {
+                Debug.LogWarning("Can't find Player or ReturnPosition");
             }
         }
     }
