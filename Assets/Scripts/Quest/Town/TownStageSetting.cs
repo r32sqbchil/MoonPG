@@ -50,7 +50,9 @@ public class TownStageSetting : MonoBehaviour
             Player player = GameObject.FindObjectOfType<Player>();
             GameObject returnPosition = GameObject.Find("ReturnPosition");
             if(player && returnPosition){
-                Vector3 playerPosition = new Vector3(returnPosition.transform.position.x, player.transform.position.y, player.transform.position.z); 
+                Vector3 playerPosition = player.transform.position;
+                playerPosition.x = returnPosition.transform.position.x;
+                playerPosition.y = returnPosition.transform.position.y;
                 player.transform.position = playerPosition;
             } else {
                 Debug.LogWarning("Can't find Player or ReturnPosition");
