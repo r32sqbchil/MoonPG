@@ -7773,9 +7773,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerText
       objectReference: {fileID: 0}
-    - target: {fileID: 2140904669, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+    - target: {fileID: 1073433918, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140904669, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4279854960779452241, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
