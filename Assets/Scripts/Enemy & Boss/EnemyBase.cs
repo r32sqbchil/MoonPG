@@ -6,11 +6,18 @@ using UnityEngine;
 [System.Serializable]
 struct EnemyStat{
     public float health;
+    public float attack;
+
+    public EnemyStat(float _hp, float _ap)
+    {
+        this.health = _hp;
+        this.attack = _ap;
+    }
 }
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] private EnemyStat enemyStat;
+    [SerializeField] private EnemyStat enemyStat = new EnemyStat(1,1);
 
     private GameManager gameManager;
     private CameraShake cameraShake;
@@ -129,6 +136,10 @@ public class EnemyBase : MonoBehaviour
     public bool isAlive()
     {
         return enemyStat.health > 0;
+    }
+
+    public float GetAttackPoint(){
+        return enemyStat.attack;
     }
 
     public bool isCatchPlayer()

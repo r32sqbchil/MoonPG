@@ -175,9 +175,10 @@ public class BossSkill : MonoBehaviour
     }
     IEnumerator SkillPhase3()
     {
+        EnemyBase enemyBase = GetComponent<EnemyBase>();
         while (true)
         {
-            player.enemyDamage *= 2;
+            //enemyBase.SetAttackPoint(enemyBase.GetAttackPoint() * 2);
             StartCoroutine(PieceOfLightSkill());
             StopCoroutine(PieceOfLightSkill());
             yield return new WaitForSeconds(4f);
