@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 14640400}
   - component: {fileID: 14640402}
   m_Layer: 3
-  m_Name: "\uBAAC\uC2A4\uD130 \uD65C\uB3D9 \uC601\uC5ED"
+  m_Name: MovingAreaX2
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &14640402
 CapsuleCollider2D:
@@ -36281,14 +36281,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitingTimeToStart: 3
-  waitingTimeToNext: 5
+  waitingTimeToNext: 1
   spawingPoint: {fileID: 0}
   monsters:
   - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
-  randomMode: 0
-  spawningCount: 5
-  spawningMax: 10
-  bornMax: 20
+  randomMode: 1
+  spawningCount: 3
+  spawningMax: 3
+  bornMax: 3
 --- !u!114 &812043104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36721,7 +36721,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1090221481
 PrefabInstance:
