@@ -9954,6 +9954,10 @@ PrefabInstance:
       propertyPath: playerUltimateTrans
       value: 
       objectReference: {fileID: 269387513}
+    - target: {fileID: 8134792687628998002, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1877801752599982683, guid: fa6bac199b11eb947a123d3101528537, type: 3}
     - target: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_RootOrder
       value: 12
