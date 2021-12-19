@@ -42,14 +42,11 @@ public class PlayerMove : MonoBehaviour
 
     CameraShake cameraShake;
 
-    // 이거 private로 선언하는 법
     public GameObject playerUltimate;
     public Transform playerUltimateTrans;
 
-    // public GameObject speechBub;
     public GameObject[] exclamation;
     public Text text;
-    // bool exclamationCheck = false;
 
     Player player;
     
@@ -225,15 +222,14 @@ public class PlayerMove : MonoBehaviour
                 rigid.AddForce(Vector2.right*currentDirection, ForceMode2D.Impulse);
                 spriteRenderer.flipX = (currentDirection<0);
             }
-            // 원래 없었다가 추가한 대쉬
-                if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
-                {
-                    isDash = true;
-                    rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
-                    anim.Play("PlayerDash");
-                    DashSound();
-                    Invoke("ForDelay", 0.2f);
-                }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDash)
+            {
+                isDash = true;
+                rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
+                anim.Play("PlayerDash");
+                DashSound();
+                Invoke("ForDelay", 0.2f);
+            }
             return;
         }
     }
@@ -249,11 +245,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-
-        //조사액션
-        //Debug.DrawRay(rigid.position, new Vector3(direction*detect_range,0,0), new Color(0,0,1));
-        
+    {     
         RaycastHit2D rayHit_detect = Physics2D.Raycast(rigid.position, new Vector3(currentDirection,0,0), detect_range, LayerMask.GetMask("NPC"));
 
 		//감지되면 scanObject에 오브젝트 저장 
@@ -262,24 +254,6 @@ public class PlayerMove : MonoBehaviour
             if(scanObject != rayHit_detect.collider.gameObject)
             {
                 scanObject = rayHit_detect.collider.gameObject;
-                //Debug.Log("FixedUpdate - rayHit detected -> scanObject[" + scanObject.name + "]");
-                // if(!exclamationCheck)
-                // {
-                //     for(int i = 0; i < exclamation.Length ; i++)
-                //     {
-                //         exclamation[i].SetActive(true);
-                //     }
-                //     exclamationCheck = true;
-                // }
-            }
-            else
-            {
-                // for(int i = 0; i < exclamation.Length ; i++)
-                // {
-                //     exclamation[i].SetActive(false);
-                // }
-                // exclamationCheck = false;
-                // keep this state
             }
         }
         else
@@ -293,8 +267,6 @@ public class PlayerMove : MonoBehaviour
         // Lending Platform
         if(rigid.velocity.y < 0)
         {
-            // 내려오고 있는 상태
-            //Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0)); //에디터 상에서만 레이를 그려준다
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
             if (rayHit.collider != null) // 바닥 감지를 위해서 레이저를 쏜다! 
             {
@@ -311,11 +283,6 @@ public class PlayerMove : MonoBehaviour
         else if (rigid.velocity.x < (maxSpeed + runspeed) * (-1) && !isDash) // Left Maxspeed
             rigid.velocity = new Vector2((maxSpeed + runspeed) * (-1), rigid.velocity.y);
         
-
-        // float hor = Input.GetAxis("Horizontal");
-        // rigid.velocity = new Vector2(hor * defaultSpeed , rigid.velocity.y);
-
-
 
         if(isDash) //대쉬 속도제한
         {
