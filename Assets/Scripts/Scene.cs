@@ -1,6 +1,7 @@
 
 public class Scene
 {
+    public const string _GLOBAL_ = "__global__";
     public const string SCENE_TOWN_STAGE  = "TownStage";
     public const string SCENE_TOWN_SUBSTAGE  = "TownSubstage";
     public const string SCENE_TOWN_STAGE1 = "TownStage1";
