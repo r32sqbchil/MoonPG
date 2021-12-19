@@ -37498,6 +37498,7 @@ MonoBehaviour:
   monsters:
   - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
   randomMode: 1
+  spawnTag: front
   spawningCount: 3
   spawningMax: 3
   bornMax: 3
@@ -37519,6 +37520,7 @@ MonoBehaviour:
   monsters:
   - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
   randomMode: 0
+  spawnTag: backend
   spawningCount: 3
   spawningMax: 3
   bornMax: 3
