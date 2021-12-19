@@ -38,7 +38,7 @@ public abstract class EnemyMove : MonoBehaviour
 
     protected void EmitOnDamageToPlayer()
     {
-        if (player) player.OnDamage(gameObject);
+        if (player) player.OnDamage(GetComponent<EnemyBase>());
     }
 
     protected void AttackPlayerIfTouch()
