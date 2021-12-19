@@ -30,6 +30,7 @@ public class TownStageQuest2Handler:QuestHandler{
                 Debug.Log("Quest "+huntingCount+"/"+missionCount);
             } else if(step == 20) {
                 // 퀘스트 성공했을 때 처리할 내용
+                GameObject.FindObjectOfType<Player>().IncreaseAtk(2);
                 SetQuestStep(context, 30);
             }
         } else if(actionName == EVENT_UPDATE) {

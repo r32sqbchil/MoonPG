@@ -203,8 +203,8 @@ public class PlayerMove : MonoBehaviour
             anim.Play("PlayerSkillA");
             text.gameObject.SetActive(true);
             comboAttack.SetDamageUp();
-            if(player.hp <= 190){
-                player.hp += 10;
+            if(player.GetHp() <= 190){
+                player.IncreaseHp(10);
             }
             Invoke("SkillACool", 15f);
             }
