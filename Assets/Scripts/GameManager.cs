@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         SetLimitMoveXMin("MovingAreaX1");
         SetLimitMoveXMax("MovingAreaX9");
     }
-
+    
     public void SetLimitMoveXMin(string gameObjectName){
         GameObject movingAreaX = GameObject.Find(gameObjectName);
         if(movingAreaX!=null){
