@@ -27,7 +27,7 @@ public class Snake : EnemyMove
         base.Initialize();
 
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()

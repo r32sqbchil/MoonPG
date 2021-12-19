@@ -64,7 +64,7 @@ public class SceneForSpawnMonster : MonoBehaviour
     }
 
     private GameObject NextSpawnMonster(){
-        return monsters[0];
+        return monsters[Random.Range(0, monsters.Length)];
     }
 
     private Vector3 NextSpawnPoint(){
