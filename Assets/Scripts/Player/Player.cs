@@ -63,7 +63,10 @@ public class Player : MonoBehaviour
 
         if(GetHp() <= 0)
         {
-            SceneManager.LoadScene(0);
+            anim.SetTrigger("Die");
+            Fade fade = GameObject.FindObjectOfType<Fade>();
+            if(fade) fade.Invoke("FadeIn", 1f);
+            Invoke("SceneLoad", 2f);
             return;
         } 
 
@@ -93,13 +96,15 @@ public class Player : MonoBehaviour
         else if(GetHp() <= 0)
         {
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-            SceneManager.LoadScene(0);
-            // Destroy(this.gameObject, 2f);
-            // GetComponent<PlayerMove>().enabled = false;
         }
         spriteRenderer.material.color = Color.red;
         Invoke("OnDamageEnd",1.5f);
         Invoke("ColorComeback",1.5f);
+    }
+
+    void SceneLoad()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public float GetHp(){

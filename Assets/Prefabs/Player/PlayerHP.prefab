@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7116998626208916306}
   - component: {fileID: 7116998626208916304}
   - component: {fileID: 7116998626208916305}
-  - component: {fileID: 322600902591931624}
+  - component: {fileID: 5649959032048921298}
   m_Layer: 5
   m_Name: fill
   m_TagString: PlayerHP
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &322600902591931624
+--- !u!114 &5649959032048921298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
