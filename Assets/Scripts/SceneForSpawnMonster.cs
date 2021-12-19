@@ -23,7 +23,7 @@ public class SceneForSpawnMonster : MonoBehaviour
     [SerializeField] private int spawningMax = 1;
     [SerializeField] private int bornMax = 15;
 
-    private Transform[] spawnPoints;
+    private Vector3[] spawnPoints;
 
     private int spwanPointNextIndex;
 
@@ -34,13 +34,13 @@ public class SceneForSpawnMonster : MonoBehaviour
     private void InitializeSpwanPoints()
     {
         if(spawingPoint){
-            List<Transform> points = new List<Transform>();
+            List<Vector3> points = new List<Vector3>();
             foreach(Transform transform in spawingPoint.GetComponentsInChildren<Transform>()){
                 if(transform.parent != null){
-                    points.Add(transform);
+                    points.Add(transform.position);
                 }
             }
-            spawnPoints = new Transform[points.Count];
+            spawnPoints = new Vector3[points.Count];
             points.CopyTo(spawnPoints);
             spwanPointNextIndex = 0;
         }
@@ -67,11 +67,11 @@ public class SceneForSpawnMonster : MonoBehaviour
         return monsters[0];
     }
 
-    private Transform NextSpawnPoint(){
-        Transform transform = spawnPoints[spwanPointNextIndex];
+    private Vector3 NextSpawnPoint(){
+        Vector3 v3 = spawnPoints[spwanPointNextIndex];
         spwanPointNextIndex = (spwanPointNextIndex+1)%spawnPoints.Length;
         Debug.Log("SpwanPoint: "+transform.position+", NextSpwanPointIndex: " + spwanPointNextIndex);
-        return transform;
+        return v3;
     }
 
     IEnumerator CreateMonster()
@@ -101,7 +101,7 @@ public class SceneForSpawnMonster : MonoBehaviour
                 for(int i=0;i<spwanable;i++) {
                     Debug.Log("Instantiate Monster - " + (monsterTotalCount+1));
 
-                    Instantiate(NextSpawnMonster(), NextSpawnPoint(), false);
+                    Instantiate(NextSpawnMonster(), NextSpawnPoint(), Quaternion.identity);
                     if(++monsterTotalCount >= bornMax) {
                         reachAtBornMax = true;
                     }
