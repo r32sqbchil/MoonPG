@@ -1961,8 +1961,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2181282414235121895, guid: ae960885f2be0c24d849deeec3c26fc2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae960885f2be0c24d849deeec3c26fc2, type: 3}
 --- !u!1001 &276874222
 PrefabInstance:
@@ -4463,6 +4462,33 @@ Transform:
   m_Father: {fileID: 1921235259}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1181780874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2181282414235121894, guid: ae960885f2be0c24d849deeec3c26fc2, type: 3}
+  m_PrefabInstance: {fileID: 220832643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181780875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181780874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841c8823e41a1174b97cdf9f23fe8ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitingTimeToStart: 3
+  waitingTimeToNext: 2
+  spawingPoint: {fileID: 0}
+  monsters:
+  - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
+  - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
+  randomMode: 1
+  spawningCount: 2
+  spawningMax: 4
+  bornMax: 12
 --- !u!1 &1186069702
 GameObject:
   m_ObjectHideFlags: 0
@@ -8223,7 +8249,7 @@ PrefabInstance:
       objectReference: {fileID: 936515687}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: points.Array.size
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: points.Array.data[0]
@@ -8279,7 +8305,7 @@ PrefabInstance:
       objectReference: {fileID: 1606757917}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: monsterPrefab.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: monsterPrefab.Array.data[0]
