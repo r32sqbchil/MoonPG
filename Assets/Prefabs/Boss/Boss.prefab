@@ -16,7 +16,9 @@ GameObject:
   - component: {fileID: 941659285762232499}
   - component: {fileID: 941659285762232496}
   - component: {fileID: 941659285762232508}
-  m_Layer: 0
+  - component: {fileID: 1829280972}
+  - component: {fileID: 1829280973}
+  m_Layer: 9
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -161,7 +163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941659285762232500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5d757352d126a54ea9ccce1c3fb5014, type: 3}
   m_Name: 
@@ -175,7 +177,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941659285762232500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec2b04db9c1dbd14da39d69a01938d64, type: 3}
   m_Name: 
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941659285762232500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35f6f21c77e93ea48be33b3d7b16fee8, type: 3}
   m_Name: 
@@ -223,3 +225,34 @@ MonoBehaviour:
   lightningRange: {fileID: 0}
   lanceRangeColor: {fileID: 0}
   lightningAnim: {fileID: 0}
+--- !u!114 &1829280972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941659285762232500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a543b1883b0ff5240b6506e86b1fca79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStat:
+    health: 50
+    attack: 1
+  movingDirection: 0
+  movableArea: {fileID: 0}
+  spawnTag: 
+--- !u!114 &1829280973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941659285762232500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 721308ef9c2ef490fb1940d70811441e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}

@@ -50,6 +50,11 @@ public class PlayerMove : MonoBehaviour
     public Text text;
 
     Player player;
+    public Animator dashAnim;
+    public Animator skillAAnim;
+    public Animator skillBAnim;
+    public Animator skillCAnim;
+
     
     BoxCollider2D takeDownBox;
 
@@ -207,6 +212,7 @@ public class PlayerMove : MonoBehaviour
             if(!isSkillA) {
             isSkillA = true;
             anim.Play("PlayerSkillA");
+            skillAAnim.Play("PlayerSkillA_fx");
             text.gameObject.SetActive(true);
             comboAttack.SetDamageUp();
             if(player.GetHp() <= 190){
@@ -233,6 +239,7 @@ public class PlayerMove : MonoBehaviour
                 playerUltimateTrans.position = new Vector2(transform.position.x + currentDirection, playerUltimateTrans.position.y);
                 playerUltimate.SetActive(true);
                 anim.Play("PlayerSkillC");
+                skillCAnim.Play("PlayerSkillC_fx");
                 Invoke("EndUltimate", 5f); 
                 Invoke("SkillCCool", 10f); 
             }
@@ -248,6 +255,7 @@ public class PlayerMove : MonoBehaviour
                 isDash = true;
                 rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
                 anim.Play("PlayerDash");
+                dashAnim.Play("PlayerDash_fx");
                 DashSound();
                 Invoke("ForDelay", 0.2f);
             }

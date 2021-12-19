@@ -117,6 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStat:
     health: 30
+    attack: 20
   movingDirection: 0
   movableArea: {fileID: 0}
   spawnTag: 

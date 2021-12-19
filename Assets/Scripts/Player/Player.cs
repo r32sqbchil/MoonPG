@@ -35,9 +35,11 @@ public class Player : MonoBehaviour
     public Text defText;
 
     public Text spdText;
+    bool is0HP = false;
 
     public void Awake()
     {
+        anim = GetComponent<Animator>();
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
         col = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -61,11 +63,19 @@ public class Player : MonoBehaviour
         if(healthBar) healthBar.fillAmount = GetHp() / maxHealth;
         if(statText) statText.text = GetHp() + " " + "/" + " " + maxHealth;
 
-        if(GetHp() <= 0)
+        if(GetHp() <= 0 && !is0HP)
         {
-            SceneManager.LoadScene(0);
+            is0HP = true;
+            if(is0HP)
+            {
+                anim.SetTrigger("PlayerDie");
+                Fade fade = GameObject.FindObjectOfType<Fade>();
+                if(fade) fade.Invoke("FadeIn", 1f);
+                Invoke("SceneLoad", 3f);
+            }
             return;
-        } 
+        }
+
 
         if(hpText) hpText.text = GetHp() + " ";
         if(afkText) afkText.text = AFK + " ";
@@ -93,13 +103,15 @@ public class Player : MonoBehaviour
         else if(GetHp() <= 0)
         {
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-            SceneManager.LoadScene(0);
-            // Destroy(this.gameObject, 2f);
-            // GetComponent<PlayerMove>().enabled = false;
         }
         spriteRenderer.material.color = Color.red;
         Invoke("OnDamageEnd",1.5f);
         Invoke("ColorComeback",1.5f);
+    }
+
+    void SceneLoad()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public float GetHp(){
