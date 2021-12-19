@@ -26,6 +26,7 @@ public class EnemyBase : MonoBehaviour
     [HideInInspector] public int movingDirection = 0; //(-1:왼쪽방향, 0:정지, 1:오른쪽방향)
 
     public GameObject movableArea;
+    public string spawnTag;
 
     void Start()
     {
