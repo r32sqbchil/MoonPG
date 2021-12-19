@@ -55,7 +55,26 @@ public class EnemyBase : MonoBehaviour
             RaycastHit2D wallTester = Physics2D.Raycast(boundOf, direction2D,.4f,LayerMask.GetMask("Platform"));
             RaycastHit2D playerCheck = Physics2D.Raycast(boundOf, direction2D,5.0f,LayerMask.GetMask("Player"));
 
-            if(groundTester.collider == null || wallTester.collider != null){
+            float distance = float.MaxValue;
+            if(movableArea){
+                Transform transform = movableArea.transform;
+                
+                float boundEdge;
+                if(movingDirection>0) {
+                    //right
+                    boundEdge = transform.position.x + transform.localScale.x/2;
+                } else {
+                    //left
+                    boundEdge = transform.position.x - transform.localScale.x/2;
+                }
+                
+                distance = Vector2.Distance(rigid.position, new Vector2(boundEdge, rigid.position.y)); //수평거리로 측정
+            }
+
+            if(distance < 1.2f){
+                if(enemyMove != null) enemyMove.OnTurn();
+            }
+            else if(groundTester.collider == null || wallTester.collider != null){
                 if(enemyMove != null) enemyMove.OnTurn();
             }
             else if(playerCheck.collider != null)
