@@ -35,6 +35,10 @@ public class Angel : EnemyMove
         AttackPlayerIfTouch();
     }
 
+    void OnAttackToPlayer() {
+        EmitOnDamageToPlayer();
+    }
+
     protected override void Walk(int walkSpeed)
     {
         base.Walk(walkSpeed);

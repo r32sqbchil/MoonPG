@@ -36335,11 +36335,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4827090457743911121, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
---- !u!1 &643486162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8134792687628998006, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
-  m_PrefabInstance: {fileID: 643486161}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &643486163 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1593159212, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
@@ -36356,19 +36351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &643486165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &643486174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8134792687628998003, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+  m_PrefabInstance: {fileID: 643486161}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643486162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415d5c7b4ab5242448be65cda6e8eaf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
 --- !u!1 &734843680
 GameObject:
   m_ObjectHideFlags: 0
@@ -38150,6 +38137,22 @@ PrefabInstance:
       propertyPath: subSettings
       value: 
       objectReference: {fileID: 1175934243}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: points.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: points.Array.data[0]
+      value: 
+      objectReference: {fileID: 643486174}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: monsterPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: monsterPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
     - target: {fileID: 2679971183620831079, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: m_Name
       value: GameManager
