@@ -48,6 +48,7 @@ public class QuestManager : MonoBehaviour
         questHandlerMap.Add(Scene.SCENE_FIELD_STAGE1+"$500", new FieldStage1Quest5Handler());
         questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE+"$800", new CastleStageQuest8Handler());
         questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE2+"$400", new CastleStage2Quest4Handler());
+        questHandlerMap.Add(Scene.SCENE_CASTLE_STAGE3+"$400", new CastleStage3Quest4Handler());
     }
 
     public void NotifyAction(GameObject actionObject, string actionName)

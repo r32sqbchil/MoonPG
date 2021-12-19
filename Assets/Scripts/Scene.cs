@@ -30,4 +30,5 @@ public class Scene
     public const string SCENE_CASTLE_STAGE2 = "CastleStage2";
     public const string SCENE_CASTLE_BOSSSTAGE = "CastleBossstage";
     public const string SCENE_CASTLE_STAGE3 = "CastleStage3";
+    public const string SCENE_CASTLE_ENDDING = "CastleEndding";
 }
