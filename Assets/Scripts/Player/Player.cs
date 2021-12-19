@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    public float hp;
+    private float hp;
+    private float atk;
+
     public float maxHealth = 200f;
     public bool isHit;
 
@@ -38,7 +40,6 @@ public class Player : MonoBehaviour
     {
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
         col = GetComponent<CapsuleCollider2D>();
-        hp = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         PlayerHP playerHP = GameObject.FindObjectOfType<PlayerHP>();
@@ -50,19 +51,23 @@ public class Player : MonoBehaviour
         }
     }
 
-
-    public void Update()
+    void Start()
     {
-        if(healthBar) healthBar.fillAmount = hp / maxHealth;
-        if(statText) statText.text = hp + " " + "/" + " " + maxHealth;
+        SettingForPlayerStat();
+    }
 
-        if(hp <= 0)
+    void Update()
+    {
+        if(healthBar) healthBar.fillAmount = GetHp() / maxHealth;
+        if(statText) statText.text = GetHp() + " " + "/" + " " + maxHealth;
+
+        if(GetHp() <= 0)
         {
             SceneManager.LoadScene(0);
             return;
         } 
 
-        if(hpText) hpText.text = hp + " ";
+        if(hpText) hpText.text = GetHp() + " ";
         if(afkText) afkText.text = AFK + " ";
         if(defText) defText.text = DEF + " ";
         if(spdText) spdText.text = SPD + " ";
@@ -79,13 +84,13 @@ public class Player : MonoBehaviour
             //enemy.GetComponent<Animator>().SetBool("isAttack", true);
         }
 
-        if(hp > 0 )
+        if(GetHp() > 0 )
         {
             // Enemy가 공격할 때
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-            hp -= enemyBase.GetAttackPoint();
+            IncreaseHp(-enemyBase.GetAttackPoint());
         }
-        else if(hp <= 0)
+        else if(GetHp() <= 0)
         {
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
             SceneManager.LoadScene(0);
@@ -95,6 +100,22 @@ public class Player : MonoBehaviour
         spriteRenderer.material.color = Color.red;
         Invoke("OnDamageEnd",1.5f);
         Invoke("ColorComeback",1.5f);
+    }
+
+    public float GetHp(){
+        return hp;
+    }
+    public void IncreaseHp(float point){
+        hp = Mathf.Max(0, Mathf.Min(hp+point, maxHealth));
+        globalContext["HP"] = hp;
+    }
+    public float GetAtk(){
+        return atk;
+    }
+
+    public void IncreaseAtk(float point){
+        atk += point;
+        globalContext["ATK"] = atk;
     }
 
     void OnDamageEnd()
@@ -114,6 +135,26 @@ public class Player : MonoBehaviour
         {
             EnemyBase enemyBase = other.GetComponent<EnemyBase>();
             if(enemyBase) OnDamage(enemyBase);
+        }
+    }
+
+    Dictionary<string, object> globalContext;
+    void SettingForPlayerStat(){
+        QuestManager questManager = GameManager.FindQuestManager();
+        globalContext = questManager.GetQuestContext(Scene._GLOBAL_, 0, 0);
+        
+        hp = GetContextValue("HP", maxHealth);
+        Debug.Log("hp:"+hp);
+        atk = GetContextValue("ATK", 1);
+        Debug.Log("atk:"+atk);
+    }
+
+    float GetContextValue(string key, float defaultValue){
+        if(globalContext.ContainsKey(key)){
+            return (float)globalContext[key];
+        } else {
+            globalContext.Add(key, defaultValue);
+            return defaultValue;
         }
     }
 
