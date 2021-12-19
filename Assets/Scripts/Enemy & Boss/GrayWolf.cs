@@ -55,7 +55,7 @@ public class GrayWolf : EnemyMove
     public override void OnKnockBack(float direction, float damage)
     {
         base.OnKnockBack(direction, damage);
-        animator.Play("GrayWolfHit");
+        animator.Play("HitGrayWolf");
     }
 
     public override void OnDied()

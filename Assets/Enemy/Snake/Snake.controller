@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RunEnemyGoblin
+  m_Name: SnakeWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -120,7 +120,7 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5314174328936543030}
-    m_Position: {x: 590, y: 220, z: 0}
+    m_Position: {x: 580, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 295800083003946344}
     m_Position: {x: 340, y: 340, z: 0}
@@ -218,7 +218,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SnakeHit
+  m_Name: HitSnake
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -320,7 +320,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DeathEnemyGoblin
+  m_Name: SnakeDeath
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -393,7 +393,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AttackEnemyGoblin
+  m_Name: SnakeAttack
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -472,7 +472,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleEnemyGoblin
+  m_Name: SnakeIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

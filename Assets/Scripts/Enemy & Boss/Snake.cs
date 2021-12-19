@@ -55,7 +55,7 @@ public class Snake : EnemyMove
     public override void OnKnockBack(float direction, float damage)
     {
         base.OnKnockBack(direction, damage);
-        animator.Play("SnakeHit");
+        animator.Play("HitSnake");
     }
 
     public override void OnDied()
