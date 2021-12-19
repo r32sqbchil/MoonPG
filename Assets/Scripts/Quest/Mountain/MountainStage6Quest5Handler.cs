@@ -8,8 +8,14 @@ public class MountainStage6Quest5Handler : QuestHandler
     {
         if(actionName == QuestHandler.EVENT_END_OF_TALK)
         {
-            int step = GetQuestStep(context);
-            if(step == 0) {
+            if(GetQuestStep(context) == 0)
+            {
+                MountainStage6Setting mountainStage6Setting = GameObject.FindObjectOfType<MountainStage6Setting>();
+                if(mountainStage6Setting != null){
+                    mountainStage6Setting.HideWall();
+                } else {
+                    Debug.LogWarning("Can't find a component - MountainStage6Setting");
+                }
                 SetQuestStep(context, 10);
             }
         }
