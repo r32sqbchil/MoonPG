@@ -21,7 +21,7 @@ public class SceneForSpawnMonster : MonoBehaviour
     //how many
     [SerializeField] private int spawningCount = 1; // 동시에 스폰되는 몬스터 갯수
     [SerializeField] private int spawningMax = 1;
-    [SerializeField] private int bornMax = 15;
+    [SerializeField] private int bornMax = 0;
 
     private Vector3[] spawnPoints;
 
@@ -50,7 +50,6 @@ public class SceneForSpawnMonster : MonoBehaviour
             List<GameObject> checkedObjects = new List<GameObject>();
             foreach(GameObject monster in monsters){
                 if(monster != null){
-                    Debug.Log(monster);
                     checkedObjects.Add(monster);
                 }
             }
@@ -68,10 +67,14 @@ public class SceneForSpawnMonster : MonoBehaviour
     }
 
     private Vector3 NextSpawnPoint(){
-        Vector3 v3 = spawnPoints[spwanPointNextIndex];
-        spwanPointNextIndex = (spwanPointNextIndex+1)%spawnPoints.Length;
-        Debug.Log("SpwanPoint: "+transform.position+", NextSpwanPointIndex: " + spwanPointNextIndex);
-        return v3;
+        if(randomMode){
+            int spwanPointNextIndex = Random.Range(0, spawnPoints.Length);
+            return spawnPoints[spwanPointNextIndex];
+        } else {
+            Vector3 v3 = spawnPoints[spwanPointNextIndex];
+            spwanPointNextIndex = (spwanPointNextIndex+1)%spawnPoints.Length;
+            return v3;
+        }
     }
 
     IEnumerator CreateMonster()
