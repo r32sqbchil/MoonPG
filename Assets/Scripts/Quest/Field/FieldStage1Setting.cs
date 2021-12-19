@@ -19,7 +19,7 @@ public class FieldStage1Setting : MonoBehaviour
         string sceneName = SceneManager.GetActiveScene().name;
         Dictionary<string, object> context = questManager.GetQuestContext(sceneName, 500, 0);
         context[KEY_OF_HUNTING_COUNT] = 0;
-        context[KEY_OF_MISSION_COUNT] = 3;
+        context[KEY_OF_MISSION_COUNT] = 25;
         questManager.AddUpdateHandler(new HuntingMonsterHandler(this), context);
     }
 

@@ -162,6 +162,7 @@ public class SceneForSpawnMonster : MonoBehaviour
 
         InitializeSpwanPoints();
 
+        Debug.Log("spawnPoints: " + spawnPoints);
         if(spawnPoints != null && spawnPoints.Length > 0){
             StartCoroutine(CreateMonster());
         }
