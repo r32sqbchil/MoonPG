@@ -101,7 +101,8 @@ public class SceneForSpawnMonster : MonoBehaviour
                 for(int i=0;i<spwanable;i++) {
                     Debug.Log("Instantiate Monster - " + (monsterTotalCount+1));
 
-                    Instantiate(NextSpawnMonster(), NextSpawnPoint(), Quaternion.identity);
+                    GameObject monster = Instantiate(NextSpawnMonster());
+                    monster.transform.position = NextSpawnPoint();
                     if(++monsterTotalCount >= bornMax) {
                         reachAtBornMax = true;
                     }
