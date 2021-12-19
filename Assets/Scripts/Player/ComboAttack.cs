@@ -11,7 +11,7 @@ public class ComboAttack : MonoBehaviour
     public Transform attackPoint;
 
     [SerializeField]private Vector2 boxSize;
-    [SerializeField]private float damage;
+
 
     private bool comboCheck;
     private int comboStep = 0;
@@ -45,6 +45,7 @@ public class ComboAttack : MonoBehaviour
             if (enemy = collider.GetComponent<EnemyBase>())
             {
                 if(enemy.isAlive()) {
+                    float damage = GetComponent<Player>().GetAtk();
                     //Enemy클래스가 있으면 함수를 호출합니다.
                     enemy.TakeDamage(gameObject, direction, damage*comboStep);
                 }
@@ -59,7 +60,8 @@ public class ComboAttack : MonoBehaviour
         }
 
         isForced = true;
-        damage++;
+        Player player = GetComponent<Player>();
+        player.IncreaseAtk(1);
 
         Invoke("SetDamageDown", 5f);
     }
@@ -67,7 +69,9 @@ public class ComboAttack : MonoBehaviour
     public void SetDamageDown()
     {
         isForced = false;
-        damage--;
+
+        Player player = GetComponent<Player>();
+        player.IncreaseAtk(-1);
     }
 
     public void OnAttackEvent()
