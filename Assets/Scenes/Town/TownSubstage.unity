@@ -4487,9 +4487,9 @@ MonoBehaviour:
   - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
   randomMode: 1
   spawnTag: default
-  spawningCount: 1
-  spawningMax: 1
-  bornMax: 1
+  spawningCount: 2
+  spawningMax: 4
+  bornMax: 12
 --- !u!1 &1186069702
 GameObject:
   m_ObjectHideFlags: 0
