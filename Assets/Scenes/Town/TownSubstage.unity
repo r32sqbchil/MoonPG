@@ -4486,9 +4486,10 @@ MonoBehaviour:
   - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
   - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
   randomMode: 1
-  spawningCount: 2
-  spawningMax: 4
-  bornMax: 12
+  spawnTag: default
+  spawningCount: 1
+  spawningMax: 1
+  bornMax: 1
 --- !u!1 &1186069702
 GameObject:
   m_ObjectHideFlags: 0

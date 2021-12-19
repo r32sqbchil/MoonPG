@@ -35,9 +35,11 @@ public class Player : MonoBehaviour
     public Text defText;
 
     public Text spdText;
+    bool is0HP = false;
 
     public void Awake()
     {
+        anim = GetComponent<Animator>();
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
         col = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -61,14 +63,19 @@ public class Player : MonoBehaviour
         if(healthBar) healthBar.fillAmount = GetHp() / maxHealth;
         if(statText) statText.text = GetHp() + " " + "/" + " " + maxHealth;
 
-        if(GetHp() <= 0)
+        if(GetHp() <= 0 && !is0HP)
         {
-            anim.SetTrigger("Die");
-            Fade fade = GameObject.FindObjectOfType<Fade>();
-            if(fade) fade.Invoke("FadeIn", 1f);
-            Invoke("SceneLoad", 2f);
+            is0HP = true;
+            if(is0HP)
+            {
+                anim.SetTrigger("PlayerDie");
+                Fade fade = GameObject.FindObjectOfType<Fade>();
+                if(fade) fade.Invoke("FadeIn", 1f);
+                Invoke("SceneLoad", 3f);
+            }
             return;
-        } 
+        }
+
 
         if(hpText) hpText.text = GetHp() + " ";
         if(afkText) afkText.text = AFK + " ";
