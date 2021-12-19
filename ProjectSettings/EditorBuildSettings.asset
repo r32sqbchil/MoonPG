@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
+    path: Assets/Scenes/title.unity
     guid: 74eb5868aaedae441afbaad62b3fa1e6
   - enabled: 1
     path: Assets/Scenes/Town/TownStage.unity
@@ -59,9 +59,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestField/TestFieldStage2.unity
     guid: 97ac7998d0d6a0b4aa16862dc7810c45
-  - enabled: 1
-    path: Assets/Scenes/TestField/TestFieldStage2.unity
-    guid: fdaeb29d83fecc54bab7320628b8c152
   - enabled: 1
     path: Assets/Scenes/Field/FieldStage.unity
     guid: b46a18f3d2731bf49a5c07648349aed1
