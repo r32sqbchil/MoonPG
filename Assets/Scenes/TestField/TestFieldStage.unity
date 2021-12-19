@@ -6115,7 +6115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1400419224
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6488,7 +6488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1557020170
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6570,7 +6570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1573442712
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9254,14 +9254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sergeant
       objectReference: {fileID: 0}
-    - target: {fileID: 3389417180029162774, guid: 158e41fa7653f334da8d881787f3aa57, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3389417180029162774, guid: 158e41fa7653f334da8d881787f3aa57, type: 3}
-      propertyPath: m_TagString
-      value: NPC
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158e41fa7653f334da8d881787f3aa57, type: 3}
 --- !u!1001 &4702890339178485531
@@ -9318,10 +9310,6 @@ PrefabInstance:
     - target: {fileID: 4702890340142457558, guid: 178bd644c3fa2df4ea24cab1848fef11, type: 3}
       propertyPath: m_Name
       value: Commander
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702890340142457558, guid: 178bd644c3fa2df4ea24cab1848fef11, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 178bd644c3fa2df4ea24cab1848fef11, type: 3}

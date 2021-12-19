@@ -403,11 +403,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &159790436 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 28216779075512949, guid: e02a616aaf266fa4792c4aac32565579, type: 3}
-  m_PrefabInstance: {fileID: 843030733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &163827618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -797,63 +792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
---- !u!1001 &360942976
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 159790436}
-    m_Modifications:
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4852394786827912806, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7787249076078912609, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
-      propertyPath: m_Name
-      value: TalkMark
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c8bfa6930fdd97441b4b457c1137b923, type: 3}
 --- !u!1001 &368347286
 PrefabInstance:
   m_ObjectHideFlags: 0
