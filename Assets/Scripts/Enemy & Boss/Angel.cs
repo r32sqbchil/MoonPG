@@ -51,12 +51,12 @@ public class Angel : EnemyMove
     public override void OnKnockBack(float direction, float damage)
     {
         base.OnKnockBack(direction, damage);
-        //animator.Play("HitEnemyGoblin");
+        animator.Play("AngelHit");
     }
 
     public override void OnDied()
     {
         base.OnDied();
-        animator.Play("DeathEnemyGoblin");
+        animator.Play("AngelDeath");
     }
 }
