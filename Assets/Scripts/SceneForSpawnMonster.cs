@@ -17,7 +17,7 @@ public class SceneForSpawnMonster : MonoBehaviour
     //how
     [SerializeField] private bool randomMode;
     
-
+    [SerializeField] private string spawnTag = "default";
     //how many
     [SerializeField] private int spawningCount = 1; // 동시에 스폰되는 몬스터 갯수
     [SerializeField] private int spawningMax = 1;
@@ -67,14 +67,24 @@ public class SceneForSpawnMonster : MonoBehaviour
     }
 
     private Vector3 NextSpawnPoint(){
+        Vector3 v3;
         if(randomMode){
             int spwanPointNextIndex = Random.Range(0, spawnPoints.Length);
-            return spawnPoints[spwanPointNextIndex];
+            v3 = spawnPoints[spwanPointNextIndex];
         } else {
-            Vector3 v3 = spawnPoints[spwanPointNextIndex];
+            v3 = spawnPoints[spwanPointNextIndex];
             spwanPointNextIndex = (spwanPointNextIndex+1)%spawnPoints.Length;
-            return v3;
         }
+        v3.x += Random.Range(-0.2f, 0.2f);
+        return v3;
+    }
+
+    int GetMonsterCountBySpawnTag(){
+        int monsterCount = 0;
+        foreach(EnemyBase eb in GameObject.FindObjectsOfType<EnemyBase>()){
+            if(eb.spawnTag == spawnTag) monsterCount++;
+        }
+        return monsterCount;
     }
 
     IEnumerator CreateMonster()
@@ -97,7 +107,7 @@ public class SceneForSpawnMonster : MonoBehaviour
         int monsterTotalCount = 0;
         while(!gameManager.isGameOver && !reachAtBornMax)
         {
-            int monsterCountInScene = GameObject.FindObjectsOfType<EnemyBase>().Length;
+            int monsterCountInScene = GetMonsterCountBySpawnTag();
             Debug.Log("monsterCount: " + monsterCountInScene);
             if(monsterCountInScene < spawningMax){
                 int spwanable = Mathf.Min(spawningMax-monsterCountInScene, spawningCount);
@@ -106,6 +116,8 @@ public class SceneForSpawnMonster : MonoBehaviour
 
                     GameObject monster = Instantiate(NextSpawnMonster());
                     monster.transform.position = NextSpawnPoint();
+                    EnemyBase enemyBase = monster.GetComponent<EnemyBase>();
+                    enemyBase.spawnTag = spawnTag;
                     if(++monsterTotalCount >= bornMax) {
                         reachAtBornMax = true;
                     }
