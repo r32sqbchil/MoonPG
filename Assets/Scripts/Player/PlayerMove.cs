@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
 
     bool isDash = false;
     float dashSpeed = 10f;
+    bool isSkillC = false;
 
 
     // 사운드
@@ -209,11 +210,14 @@ public class PlayerMove : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.D))
         {
-            playerUltimateTrans.position = new Vector2(transform.position.x + currentDirection, playerUltimateTrans.position.y);
-            playerUltimate.SetActive(true);
-            anim.Play("PlayerSkillC");
-            Invoke("EndUltimate", 5f); 
-            
+            if(!isSkillC) {
+                isSkillC = true;
+                playerUltimateTrans.position = new Vector2(transform.position.x + currentDirection, playerUltimateTrans.position.y);
+                playerUltimate.SetActive(true);
+                anim.Play("PlayerSkillC");
+                Invoke("EndUltimate", 5f); 
+                Invoke("SkillCCool", 10f); 
+            }
         }
 
         if (Input.GetButton("Horizontal")) {
@@ -232,6 +236,11 @@ public class PlayerMove : MonoBehaviour
                 }
             return;
         }
+    }
+
+    void SkillCCool()
+    {
+        isSkillC = false;
     }
 
     void EndUltimate()
