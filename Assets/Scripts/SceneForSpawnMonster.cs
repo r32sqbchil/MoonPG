@@ -95,7 +95,7 @@ public class SceneForSpawnMonster : MonoBehaviour
             if(movableArea != null) {
                 movableAreas.Add(spawnTag, movableArea);
             } else {
-                Debug.LogWarning("Can't find " + " object");
+                //Debug.Log("Can't find " + " object");
                 return null;
             }
         }
@@ -114,7 +114,7 @@ public class SceneForSpawnMonster : MonoBehaviour
         Debug.Log("bornMax: " + bornMax + ", spawningMax: " + spawningMax+ ", spawningCount: " + spawningCount);
 
         if(waitingTimeToStart > 0){
-            Debug.Log("waitingTimeToStart: " + waitingTimeToStart);
+            //Debug.Log("waitingTimeToStart: " + waitingTimeToStart);
             yield return new WaitForSeconds(waitingTimeToStart);
         }
         
@@ -123,11 +123,11 @@ public class SceneForSpawnMonster : MonoBehaviour
         while(!gameManager.isGameOver && !reachAtBornMax)
         {
             int monsterCountInScene = GetMonsterCountBySpawnTag();
-            Debug.Log("monsterCount: " + monsterCountInScene);
+            //Debug.Log("monsterCount: " + monsterCountInScene);
             if(monsterCountInScene < spawningMax){
                 int spwanable = Mathf.Min(spawningMax-monsterCountInScene, spawningCount);
                 for(int i=0;i<spwanable;i++) {
-                    Debug.Log("Instantiate Monster - " + (monsterTotalCount+1));
+                    //Debug.Log("Instantiate Monster - " + (monsterTotalCount+1));
 
                     GameObject monster = Instantiate(NextSpawnMonster());
                     monster.transform.position = NextSpawnPoint();
@@ -139,10 +139,10 @@ public class SceneForSpawnMonster : MonoBehaviour
                     }
                 }
             } else {
-                Debug.Log("spawn max - dont't spwan");
+                //Debug.Log("spawn max - dont't spwan");
             }
             if(waitingTimeToNext > 0){
-                Debug.Log("waitingTimeToNext: " + waitingTimeToNext);
+                //Debug.Log("waitingTimeToNext: " + waitingTimeToNext);
                 yield return new WaitForSeconds(waitingTimeToNext);
             }
         }
