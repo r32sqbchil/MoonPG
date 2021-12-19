@@ -54,7 +54,9 @@ public class PlayerMove : MonoBehaviour
     public Animator skillAAnim;
     public Animator skillBAnim;
     public Animator skillCAnim;
-
+    
+    public Transform dash_fx;
+    public Transform skillB_fx;
     
     BoxCollider2D takeDownBox;
 

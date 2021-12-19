@@ -7,6 +7,8 @@ public class TownStageSetting : MonoBehaviour
     const string KEY_MONOLOGUE = "monologue";
     const string KEY_PORTAL_HIDE = "portal";
 
+    const string KEY_OF_QUEST_COMPELETED = "questCompleted";
+
     public void ActivatePortal(Portal portal, Dictionary<string, object> context){
         if(portal != null){
             portal.gameObject.SetActive(true);
@@ -20,6 +22,7 @@ public class TownStageSetting : MonoBehaviour
 
         SetupMonologue(questManager);
         SetupPortal(questManager);
+        SetupQuestCompletion(questManager);
     }
 
     // Update is called once per frame
@@ -56,6 +59,21 @@ public class TownStageSetting : MonoBehaviour
                 player.transform.position = playerPosition;
             } else {
                 Debug.LogWarning("Can't find Player or ReturnPosition");
+            }
+        }
+    }
+
+    void SetupQuestCompletion(QuestManager questManager)
+    {
+        Dictionary<string, object> context = questManager.GetQuestContext(Scene.SCENE_TOWN_STAGE, 200, 0);
+        if(context.ContainsKey(KEY_OF_QUEST_COMPELETED)){
+            ObjData objData = GameManager.FindObjData(200);
+            if(objData){
+                Animator anim = GameManager.FindTalkMarkOfNPC(objData);
+                if(anim){
+                    anim.SetBool("isComplete", true);
+                    return;
+                }
             }
         }
     }

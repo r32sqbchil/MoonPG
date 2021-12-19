@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     
     public GameObject talkUI;
     public Text talkText;
+    public Animator talkAnim;
     [HideInInspector] public GameObject scanObject;
     [HideInInspector] public bool isAction;
     
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
                 if (TalkStart(objData.id))
                 {
                     talkUI.SetActive(true); //대화창 활성화 상태에 따라 대화창 활성화 변경
+                    SetTalkingMark(objData, true);
                     this.isAction = true;
                 }
                 else
@@ -72,6 +74,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void SetTalkingMark(ObjData objData, bool value){
+        Animator anim = FindTalkMarkOfNPC(objData);
+        if(anim){
+            anim.SetBool("isTalking", value);
+        }
+    }
+
+    public static ObjData FindObjData(int objId){
+        foreach(ObjData objData in GameObject.FindObjectsOfType<ObjData>()){
+            if(objData.id == objId) return objData;
+        }
+        return null;
+    }
+
+    public static Animator FindTalkMarkOfNPC(ObjData objData){
+        foreach(Animator anim in objData.GetComponentsInChildren<Animator>()){
+            if(anim.name == "TalkMark"){
+                return anim;
+            }
+        }
+        if(objData.id > 0){
+            Debug.Log("Can't find TalkMark in NPC GameObject");
+        }
+        return null;
+    }
+
     public void Action()
     {
         // isAction 이 true 이고, 스페이스바 이벤트이면..
@@ -79,6 +107,7 @@ public class GameManager : MonoBehaviour
         ObjData objData = scanObject.GetComponent<ObjData>();
         if(!TalkWith(objData.id)){
             talkUI.SetActive(isAction = false);
+            SetTalkingMark(objData, false);
             //이벤트 호출!!!
         }
     }

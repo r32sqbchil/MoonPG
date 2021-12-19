@@ -6,6 +6,8 @@ public class TownStageQuest2Handler:QuestHandler{
     const string KEY_OF_HUNTING_COUNT = "huntingCount";
     const string KEY_OF_MISSION_COUNT = "missionCount";
 
+    const string KEY_OF_QUEST_COMPELETED = "questCompleted";
+
     public override void OnAction(string actionName, Dictionary<string, object> context)
     {
         string sceneName = (string)context["sceneName"];
@@ -31,6 +33,13 @@ public class TownStageQuest2Handler:QuestHandler{
             } else if(step == 20) {
                 // 퀘스트 성공했을 때 처리할 내용
                 GameObject.FindObjectOfType<Player>().IncreaseAtk(2);
+                ObjData objData;
+                Animator anim;
+                if(objData = GameManager.FindObjData(200)){
+                    if(anim = GameManager.FindTalkMarkOfNPC(objData)){
+                        anim.SetTrigger("TalkEnd");
+                    }
+                }
                 SetQuestStep(context, 30);
             }
         } else if(actionName == EVENT_UPDATE) {
@@ -40,14 +49,17 @@ public class TownStageQuest2Handler:QuestHandler{
             string notifyName = (string)context[QuestHandler.KEY_OF_NOTIFY_NAME];
 
             if(notifyName == GameManager.ACTION_ON_DIED){
-                int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
-                int missionCount = (int)context[KEY_OF_MISSION_COUNT];
-                SetContextValue(context, KEY_OF_HUNTING_COUNT, ++huntingCount);
-                if(missionCount <= huntingCount) {
-                    Debug.Log("몬스터 사냥 미션 완료..마을로 돌아가 보상을 받으셈");
-                    QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
-                    questManager.RemoveUpdateHandler(this);
-                    SetQuestStep(context, 20);
+                if(!context.ContainsKey(KEY_OF_QUEST_COMPELETED)){
+                    int huntingCount = (int)context[KEY_OF_HUNTING_COUNT];
+                    int missionCount = (int)context[KEY_OF_MISSION_COUNT];
+                    SetContextValue(context, KEY_OF_HUNTING_COUNT, ++huntingCount);
+                    if(missionCount <= huntingCount) {
+                        Debug.Log("몬스터 사냥 미션 완료..마을로 돌아가 보상을 받으셈");
+                        SetContextValue(context, KEY_OF_QUEST_COMPELETED, true);
+                        QuestManager questManager = GameObject.FindObjectOfType<QuestManager>();
+                        questManager.RemoveUpdateHandler(this);
+                        SetQuestStep(context, 20);
+                    }
                 }
             }
         }
