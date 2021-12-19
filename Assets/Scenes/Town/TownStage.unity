@@ -10059,7 +10059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998006, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998014, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: mySfx
@@ -10140,6 +10140,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350943457, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 351757014, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400487450, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564738398, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 369899859974052807, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -10150,11 +10166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 369899859974052807, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 369899859974052807, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 369899859974052807, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10231,6 +10247,18 @@ PrefabInstance:
     - target: {fileID: 7766639747591005365, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
       propertyPath: m_Name
       value: Kid-Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766639747591005365, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766639747591005365, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766639747591005365, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d9e162d608ef024eaff9f6a8a2e22f2, type: 3}
