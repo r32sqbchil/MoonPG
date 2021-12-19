@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public float hp;
     public float maxHealth = 200f;
     public bool isHit;
-    public int enemyDamage;
 
     CapsuleCollider2D col;
     
@@ -69,14 +68,14 @@ public class Player : MonoBehaviour
         if(spdText) spdText.text = SPD + " ";
     }
 
-    public void OnDamage(GameObject enemy)
+    public void OnDamage(EnemyBase enemyBase)
     {
         if(isHit) {
             return;
         }
 
         isHit = true;
-        if(enemy.tag == "Enemy") {
+        if(enemyBase.tag == "Enemy") {
             //enemy.GetComponent<Animator>().SetBool("isAttack", true);
         }
 
@@ -84,7 +83,7 @@ public class Player : MonoBehaviour
         {
             // Enemy가 공격할 때
             StartCoroutine(cameraShake.ShakeHorizontalOnly(.1f, .1f));
-            hp -= enemyDamage;
+            hp -= enemyBase.GetAttackPoint();
         }
         else if(hp <= 0)
         {
@@ -113,7 +112,8 @@ public class Player : MonoBehaviour
         // if(other.tag == "Enemy" || other.tag == "BossAttack")
         if(other.tag == "BossAttack")
         {
-            OnDamage(other.gameObject);
+            EnemyBase enemyBase = other.GetComponent<EnemyBase>();
+            if(enemyBase) OnDamage(enemyBase);
         }
     }
 

@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     void OnAttackToPlayer(){
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null) {
-            player.GetComponent<Player>().OnDamage(gameObject);
+            player.GetComponent<Player>().OnDamage(GetComponent<EnemyBase>());
         }
     }
 
