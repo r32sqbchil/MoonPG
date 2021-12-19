@@ -55,8 +55,8 @@ public class PlayerMove : MonoBehaviour
     public Animator skillBAnim;
     public Animator skillCAnim;
     
-    public Transform dash_fx;
-    public Transform skillB_fx;
+    // public Transform dash_fx;
+    // public Transform skillB_fx;
     
     BoxCollider2D takeDownBox;
 
@@ -228,6 +228,17 @@ public class PlayerMove : MonoBehaviour
             if(anim.GetBool("isJumping")) {
                 rigid.velocity = Vector2.zero;
                 anim.Play("PlayerSkillB");
+                // if(currentDirection == -1)
+                // {
+                //     Quaternion rotation = skillB_fx.rotation;
+                //     rotation.y = 0;
+                //     skillB_fx.rotation = rotation;
+                // }
+                // else {
+                //     Quaternion rotation = skillB_fx.rotation;
+                //     rotation.y = 180;
+                //     skillB_fx.rotation = rotation;
+                // }
                 skillBAnim.Play("PlayerSkillB_fx");
                 rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
 
@@ -258,6 +269,17 @@ public class PlayerMove : MonoBehaviour
                 isDash = true;
                 rigid.AddForce(Vector2.right*currentDirection*dashSpeed, ForceMode2D.Impulse);
                 anim.Play("PlayerDash");
+                // if(currentDirection == -1)
+                // {
+                //     Quaternion rotation = dash_fx.rotation;
+                //     rotation.y = 0;
+                //     dash_fx.rotation = rotation;
+                // }
+                // else {
+                //     Quaternion rotation = dash_fx.rotation;
+                //     rotation.y = 180;
+                //     dash_fx.rotation = rotation;
+                // }
                 dashAnim.Play("PlayerDash_fx");
                 DashSound();
                 Invoke("ForDelay", 0.2f);
