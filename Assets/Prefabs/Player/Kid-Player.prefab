@@ -585,11 +585,11 @@ GameObject:
   - component: {fileID: 3695139302303943312}
   - component: {fileID: 4986098185757536903}
   - component: {fileID: 7253734416323218122}
-  - component: {fileID: 6913574573264939522}
-  - component: {fileID: 6968277717768020908}
-  - component: {fileID: 9182619034066150281}
-  - component: {fileID: 7199871591598363266}
-  - component: {fileID: 7203099398569228257}
+  - component: {fileID: 2731939339346544465}
+  - component: {fileID: 2544123265714918548}
+  - component: {fileID: 1611739346981327344}
+  - component: {fileID: 6348695833680555162}
+  - component: {fileID: 3986600371634626785}
   m_Layer: 0
   m_Name: Kid-Player
   m_TagString: Untagged
@@ -722,8 +722,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &6913574573264939522
+  m_Constraints: 4
+--- !u!114 &2731939339346544465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,10 +735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001c3130aa2070b4bbcf3ae621ee3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 200
   maxHealth: 200
   isHit: 0
-  enemyDamage: 0
   AFK: 200
   DEF: 100
   SPD: 100
@@ -746,7 +745,7 @@ MonoBehaviour:
   afkText: {fileID: 0}
   defText: {fileID: 0}
   spdText: {fileID: 0}
---- !u!114 &6968277717768020908
+--- !u!114 &2544123265714918548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -758,22 +757,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cff1612a84c69c4cb5c29f2e01a9aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 0
-  jumpPower: 0
+  maxSpeed: 1.5
+  jumpPower: 1.8
   runspeed: 0
-  detect_range: 1.5
+  detect_range: 0.5
   leftAttackBox: {fileID: 0}
   rightAttackBox: {fileID: 0}
   mySfx: {fileID: 0}
-  walkSfx: {fileID: 0}
-  runSfx: {fileID: 0}
-  jumpSfx: {fileID: 0}
-  dashSfx: {fileID: 0}
+  walkSfx: {fileID: 8300000, guid: 5b34203234d2e9146b9972b538df9101, type: 3}
+  runSfx: {fileID: 8300000, guid: 8e6027d57cc9e1e47811165a9a6456cb, type: 3}
+  jumpSfx: {fileID: 8300000, guid: 605844979beaa5f47af5fe7d0c9263a8, type: 3}
+  dashSfx: {fileID: 8300000, guid: 610b80a240a389f40b76d27af6a5c71b, type: 3}
   playerUltimate: {fileID: 0}
   playerUltimateTrans: {fileID: 0}
-  exclamation: []
+  exclamation:
+  - {fileID: 0}
+  - {fileID: 0}
   text: {fileID: 0}
---- !u!114 &9182619034066150281
+--- !u!114 &1611739346981327344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -786,12 +787,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 0}
-  boxSize: {x: 0, y: 0}
-  damage: 0
-  mySfx: {fileID: 7199871591598363266}
-  attackSfx: {fileID: 8300000, guid: 532f00e7f763f8642b1c95a91a7a8bbd, type: 3}
+  boxSize: {x: 0.2, y: 0.5}
+  damage: 1
+  mySfx: {fileID: 0}
+  attackSfx: {fileID: 8300000, guid: ede220a0aea6fa44597c29c47a753222, type: 3}
   nonattackSfx: {fileID: 8300000, guid: 532f00e7f763f8642b1c95a91a7a8bbd, type: 3}
---- !u!82 &7199871591598363266
+--- !u!82 &6348695833680555162
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -887,7 +888,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7203099398569228257
+--- !u!114 &3986600371634626785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
