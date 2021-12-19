@@ -226,6 +226,7 @@ public class PlayerMove : MonoBehaviour
             if(anim.GetBool("isJumping")) {
                 rigid.velocity = Vector2.zero;
                 anim.Play("PlayerSkillB");
+                skillBAnim.Play("PlayerSkillB_fx");
                 rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
 
                 comboAttack.Attack(currentDirection<0?-1:1, takeDownBox.transform.position, takeDownBox.transform.localScale, 4);

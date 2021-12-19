@@ -9837,6 +9837,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1491736496}
     - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
+      propertyPath: markAnim
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679971183620831078, guid: 6cd693bd2b68d33429c0f99ff4f329ec, type: 3}
       propertyPath: talkText
       value: 
       objectReference: {fileID: 21563061}
@@ -9922,6 +9926,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 779852640, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8134792687628998000, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: hpText
       value: 
