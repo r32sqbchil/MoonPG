@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
 
     bool isDash = false;
     float dashSpeed = 10f;
+    bool isSkillA = false;
     bool isSkillC = false;
 
 
@@ -197,11 +198,15 @@ public class PlayerMove : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.A)) {
+            if(!isSkillA) {
+            isSkillA = true;
             anim.Play("PlayerSkillA");
             text.gameObject.SetActive(true);
             comboAttack.SetDamageUp();
             if(player.hp <= 190){
                 player.hp += 10;
+            }
+            Invoke("SkillACool", 15f);
             }
         }
 
@@ -232,6 +237,11 @@ public class PlayerMove : MonoBehaviour
             }
             return;
         }
+    }
+
+    void SkillACool()
+    {
+        isSkillA = false;
     }
 
     void SkillCCool()
