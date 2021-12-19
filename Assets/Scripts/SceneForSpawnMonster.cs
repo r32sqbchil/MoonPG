@@ -30,6 +30,7 @@ public class SceneForSpawnMonster : MonoBehaviour
     private int bornCount;
 
     private GameManager gameManager;
+    private Dictionary<string, GameObject> movableAreas = new Dictionary<string, GameObject>();
 
     private void InitializeSpwanPoints()
     {
@@ -87,6 +88,20 @@ public class SceneForSpawnMonster : MonoBehaviour
         return monsterCount;
     }
 
+    GameObject GetMovableArea(){
+        if(!movableAreas.ContainsKey(spawnTag)){
+            string objectName = "EnemyMovable_" + spawnTag;
+            GameObject movableArea = GameObject.Find(objectName);
+            if(movableArea != null) {
+                movableAreas.Add(spawnTag, movableArea);
+            } else {
+                Debug.LogWarning("Can't find " + " object");
+                return null;
+            }
+        }
+        return movableAreas[spawnTag];
+    }
+
     IEnumerator CreateMonster()
     {
         // 0 보다는 크고 200 보다 작은 bornMax
@@ -118,6 +133,7 @@ public class SceneForSpawnMonster : MonoBehaviour
                     monster.transform.position = NextSpawnPoint();
                     EnemyBase enemyBase = monster.GetComponent<EnemyBase>();
                     enemyBase.spawnTag = spawnTag;
+                    enemyBase.movableArea = GetMovableArea();
                     if(++monsterTotalCount >= bornMax) {
                         reachAtBornMax = true;
                     }
