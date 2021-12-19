@@ -51,11 +51,10 @@ public class PlayerMove : MonoBehaviour
 
     Player player;
     
-
+    BoxCollider2D takeDownBox;
 
     void Awake()
     {
-        
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
         rigid = GetComponent<Rigidbody2D>();
@@ -65,7 +64,19 @@ public class PlayerMove : MonoBehaviour
         comboAttack = GetComponent<ComboAttack>();
         player = GetComponent<Player>();
 
+        takeDownBox = GetTakeDownBox();
+
         cameraShake = GameObject.FindObjectOfType<CameraShake>();
+    }
+
+    BoxCollider2D GetTakeDownBox(){
+        foreach(BoxCollider2D c2d in GetComponentsInChildren<BoxCollider2D>()){
+            if(c2d.name == "TakeDownBox"){
+                return c2d;
+            }
+        }
+        Debug.LogWarning("Can't find TakeDownBox");
+        return null;
     }
 
     void OnInputJump()
@@ -145,11 +156,6 @@ public class PlayerMove : MonoBehaviour
         if(anim.GetBool("isJumping"))
         {
             // 점프 중인 상태일 때 점프를 한 번 더 할 경우는 아직 아무 조작도 하지 않는다
-            if(Input.GetKeyDown(KeyCode.S)) {
-                rigid.velocity = Vector2.zero;
-                anim.Play("PlayerSkillB");
-                rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
-            }
         }
         //Jump
         if (Input.GetButtonDown("Jump"))
@@ -207,6 +213,16 @@ public class PlayerMove : MonoBehaviour
                 player.IncreaseHp(10);
             }
             Invoke("SkillACool", 15f);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.S)) {
+            if(anim.GetBool("isJumping")) {
+                rigid.velocity = Vector2.zero;
+                anim.Play("PlayerSkillB");
+                rigid.AddForce(Vector2.down * 3f, ForceMode2D.Impulse);
+
+                comboAttack.Attack(currentDirection<0?-1:1, takeDownBox.transform.position, takeDownBox.transform.localScale, 4);
             }
         }
 

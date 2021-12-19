@@ -37,17 +37,22 @@ public class ComboAttack : MonoBehaviour
             direction = 1.0f;
         }
 
-        EnemyBase enemy = null;
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, boxSize, 0);
+        Attack(direction, attackPoint.position, boxSize, comboStep);
+    }
 
-        foreach(Collider2D collider in hitEnemies)
-        {
-            if (enemy = collider.GetComponent<EnemyBase>())
-            {
+    public void Attack(float direction, Vector3 point, Vector2 box, float multiple){
+        if(direction == 0) return;
+
+        EnemyBase enemy = null;
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(point, box, 0);
+        foreach(Collider2D collider in hitEnemies) {
+            if (enemy = collider.GetComponent<EnemyBase>()) {
                 if(enemy.isAlive()) {
                     float damage = GetComponent<Player>().GetAtk();
-                    //Enemy클래스가 있으면 함수를 호출합니다.
-                    enemy.TakeDamage(gameObject, direction, damage*comboStep);
+                    if(multiple == 4) {
+                        Debug.Log("Take Down!!!");
+                    }
+                    enemy.TakeDamage(gameObject, direction, damage*multiple);
                 }
             }
         }

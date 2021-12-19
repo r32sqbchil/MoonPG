@@ -4486,6 +4486,7 @@ MonoBehaviour:
   - {fileID: 5398939891402329890, guid: 4ff23bce8515810488c88b4923eb94cc, type: 3}
   - {fileID: 9085635463144176489, guid: ee03b46fe86e9974db6134a2a73640bc, type: 3}
   randomMode: 1
+  spawnTag: default
   spawningCount: 2
   spawningMax: 4
   bornMax: 12
@@ -7772,9 +7773,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerText
       objectReference: {fileID: 0}
-    - target: {fileID: 2140904669, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+    - target: {fileID: 1073433918, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140904669, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4279854960779452241, guid: 6dd0e61a98ad3374d8194f505f0c04ea, type: 3}
       propertyPath: m_IsActive
